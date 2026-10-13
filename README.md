@@ -14,7 +14,7 @@ HTML is committed, so both hosts just serve files.
 | Brand name, email, Instagram, final venue or dates | `site.config.json` | `npm run build`, commit |
 | Stage descriptions, judging weights | `site.config.json` (`stages`, `criteria`, `weights`) | `npm run build`, commit |
 | Show a partner logo | `site.config.json` → `partners`: set `logoApproved: true` (and `logo` to an image path) | `npm run build`, commit |
-| Name a team member | `site.config.json` → `team`: set `consent: true` | `npm run build`, commit |
+| Name a team member | Once they've agreed, add `{ "name": "…", "role": "Head of …", "school": "…", "consent": true }` to `team` in `site.config.json` | `npm run build`, commit |
 | Page copy | `src/pages/*.html` | `npm run build`, commit |
 | Header, footer, page shell | `src/partials/*.html` | `npm run build`, commit |
 | Styles | `assets/css/site.css` | Commit |
@@ -30,7 +30,8 @@ Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `
 ### Public-information rules
 
 - **Partners:** only partners with written approval get `logoApproved: true`. Until then, the "Supported by" bar stays hidden.
-- **Students:** only list a team member once they've agreed (`consent: true`). The same goes for school names and photos.
+- **Students:** only add a team member to `site.config.json` once they've agreed. GitHub Pages publishes every file in this repo, including the config, so never commit names, schools or photos without consent.
+- **Partners:** list a partner in the config only once the relationship is confirmed, for the same reason.
 - **Case materials:** don't publish case content before the Live Final (4 March 2027). The site only has a vague teaser.
 
 ## Local preview
