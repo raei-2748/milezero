@@ -1,0 +1,191 @@
+{
+  "brand": {
+    "name": "Mile Zero",
+    "tagline": "Business and finance, from the starting line.",
+    "competitionName": "Sydney Schools Business Competition",
+    "competitionShort": "SSBC",
+    "year": "2027",
+    "domain": "milezeronetwork.org",
+    "email": "hello@milezeronetwork.org",
+    "instagram": ""
+  },
+  "final": {
+    "date": "4 March 2027",
+    "dateShort": "4 Mar",
+    "venue": "Sydney Grammar School",
+    "venueShort": "Sydney Grammar"
+  },
+  "dates": {
+    "registrationCloses": "2 February 2027",
+    "registrationClosesShort": "2 Feb",
+    "mile1Opens": "3 February 2027",
+    "mile1OpensShort": "3 Feb",
+    "mile0Opens": "1 February 2027"
+  },
+  "stages": [
+    {
+      "key": "0",
+      "label": "Mile 0",
+      "name": "Briefing Check",
+      "dates": "1–2 Feb",
+      "who": "All teams",
+      "kind": "check",
+      "summary": "A short check that your team has read the Opening Case. Five or six auto-marked questions, ten minutes once opened. Not scored: it just makes sure nobody starts behind.",
+      "submit": [
+        "One set of answers per team"
+      ]
+    },
+    {
+      "key": "1",
+      "label": "Mile 1",
+      "name": "Where to Play",
+      "dates": "3–10 Feb",
+      "who": "All teams",
+      "kind": "mile",
+      "summary": "Market data, customer interviews and a survey. Decide which markets to enter first, which to leave for later, and which to walk away from.",
+      "submit": [
+        "Decision worksheet",
+        "150–250 word memo",
+        "One evidence calculation"
+      ]
+    },
+    {
+      "key": "2",
+      "label": "Mile 2",
+      "name": "Making It Pay",
+      "dates": "11–17 Feb",
+      "who": "All teams",
+      "kind": "mile",
+      "summary": "Choose how the company makes money, build a three-year plan inside the budget, and test what happens if sales come in slower than hoped.",
+      "submit": [
+        "Three-year and investment plan",
+        "150–250 word memo",
+        "2–3 minute recorded pitch (every member speaks)"
+      ]
+    },
+    {
+      "key": "N",
+      "label": "Nominations",
+      "name": "School nominations",
+      "dates": "21 Feb",
+      "who": "Schools",
+      "kind": "gate",
+      "summary": "Each school nominates one team to continue, based on Mile 1 and Mile 2.",
+      "submit": []
+    },
+    {
+      "key": "3",
+      "label": "Mile 3",
+      "name": "Project Kestrel",
+      "dates": "22–28 Feb",
+      "who": "Nominated teams",
+      "kind": "mile",
+      "summary": "Something unexpected lands on the CEO's desk. Decide whether to accept, reject or negotiate, and show what changes in your plan.",
+      "submit": [
+        "Response memo (up to 400 words)",
+        "“What changes” table",
+        "One-page term sheet"
+      ]
+    },
+    {
+      "key": "F",
+      "label": "Live Final",
+      "name": "Live Final",
+      "dates": "4 Mar",
+      "who": "Top 10 teams",
+      "kind": "final",
+      "summary": "Present your strategy in up to seven minutes, take five minutes of judges' questions, then respond live to new information you haven't seen before.",
+      "submit": []
+    }
+  ],
+  "criteria": [
+    {
+      "short": "Framing",
+      "name": "Problem framing",
+      "question": "Did you find the central problem and build a clear strategy around it?"
+    },
+    {
+      "short": "Evidence",
+      "name": "Evidence and analysis",
+      "question": "Is the evidence relevant, read correctly and used to support your recommendation?"
+    },
+    {
+      "short": "Feasibility",
+      "name": "Feasibility and numbers",
+      "question": "Could the company actually do this, and do the numbers add up?"
+    },
+    {
+      "short": "Trade-offs",
+      "name": "Recommendation and trade-offs",
+      "question": "Did you make a clear call and admit the main risks and alternatives?"
+    },
+    {
+      "short": "Communication",
+      "name": "Communication",
+      "question": "Is it clear, concise and persuasive?"
+    }
+  ],
+  "weights": [
+    {
+      "stage": "Mile 1",
+      "values": [
+        25,
+        35,
+        10,
+        20,
+        10
+      ]
+    },
+    {
+      "stage": "Mile 2",
+      "values": [
+        25,
+        25,
+        20,
+        20,
+        10
+      ]
+    },
+    {
+      "stage": "Project Kestrel",
+      "values": [
+        20,
+        20,
+        20,
+        30,
+        10
+      ]
+    },
+    {
+      "stage": "Live Final",
+      "values": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ]
+    }
+  ],
+  "partners": [
+    {
+      "name": "UNSW Sydney",
+      "role": "Academic partner",
+      "logo": "",
+      "logoApproved": false
+    },
+    {
+      "name": "Adamantem Capital",
+      "role": "Judging partner",
+      "logo": "",
+      "logoApproved": false
+    },
+    {
+      "name": "Caplet",
+      "role": "Competition portal",
+      "logo": "",
+      "logoApproved": false
+    }
+  ],
+  "team": []
+}

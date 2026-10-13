@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="t"><title id="t">The Mile Zero ibis</title>
+  <g fill="none" stroke="#000" stroke-linecap="round">
+    <path d="M108 150 L104 192" stroke-width="7"/>
+    <path d="M132 150 L136 192" stroke-width="7"/>
+    <path d="M84 112 Q70 84 72 50" stroke-width="15"/>
+    <path d="M62 50 Q28 60 22 118" stroke-width="6"/>
+  </g>
+  <path d="M150 104 L198 150 L148 140 Z" fill="#000"/>
+  <ellipse cx="122" cy="120" rx="56" ry="34" fill="#fff" stroke="#000" stroke-width="8"/>
+  <circle cx="72" cy="46" r="13" fill="#000"/>
+  <circle cx="76" cy="43" r="4" fill="#E1251B"/>
+</svg>

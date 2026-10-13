@@ -1,0 +1,101 @@
+<!--page {"title": "Home", "description": "{{brand.name}} runs the {{brand.competitionName}}: a free, staged business case competition for students from any NSW secondary school."} -->
+<section class="hero">
+  <div class="wrap grid">
+    <div class="hero-copy">
+      <h1>Every business mind starts at zero.</h1>
+      <p class="lede">{{brand.name}} runs the {{brand.competitionName}}, a free business case competition for students from any NSW secondary school. No finance background needed: just clear thinking, good evidence and the nerve to defend a decision.</p>
+      <div class="actions">
+        <a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a>
+        <a class="btn btn-outline" href="/competition/">How it works</a>
+      </div>
+    </div>
+    <p class="hero-zero" aria-hidden="true">0</p>
+  </div>
+  <div class="wrap" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
+    <dl class="facts">
+      <div><dt>Registrations close</dt><dd>{{dates.registrationCloses}}</dd></div>
+      <div><dt>Mile 1 opens</dt><dd>{{dates.mile1Opens}}</dd></div>
+      <div><dt>Live Final</dt><dd>{{final.date}}, {{final.venue}}</dd></div>
+      <div><dt>Entry</dt><dd>Free, teams of 3–4 from one school</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>How it works</h2></div>
+    <div class="section-body">
+      <p class="lede">Five weeks, four miles, one final. Each mile releases new information about the same company and asks your team for a new decision.</p>
+      {{@routeCompact}}
+      <p><a class="link" href="/competition/">The full route, deliverables and judging</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section inverse">
+  <div class="wrap grid">
+    <div class="section-title"><h2>The {{brand.year}} case</h2></div>
+    <div class="section-body">
+      <p class="statement">It's December 2026. A Sydney company is sitting on eight million unsold tags, and they lose value every month. The board wants a plan. Your team writes it.</p>
+      <p class="muted">“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.” Amelia Chen, CEO of Southern Cross Technologies, a fictional company.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Why enter</h2></div>
+    <div class="section-body three-col">
+      <div class="col-item">
+        <h3>Real decisions, not trivia</h3>
+        <p>You advise a company with a genuine problem, and every mile asks you to commit to a choice.</p>
+      </div>
+      <div class="col-item">
+        <h3>Built for beginners</h3>
+        <p>Every business term is explained the first time it appears. Reasoning wins, not jargon.</p>
+      </div>
+      <div class="col-item">
+        <h3>Judged on your thinking</h3>
+        <p>Submissions are coded so markers never see your school's name. Same case, same rubric, same start line.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section panel">
+  <div class="wrap grid">
+    <div class="section-title"><h2>More than a competition</h2></div>
+    <div class="section-body three-col">
+      <div class="col-item">
+        <span class="status live">Term 1, {{brand.year}}</span>
+        <h3>{{brand.competitionShort}} {{brand.year}}</h3>
+        <p>A staged business case for teams of three or four from any NSW secondary school.</p>
+        <a class="link" href="/competition/">See the competition</a>
+      </div>
+      <div class="col-item">
+        <span class="status">Version 1 out now</span>
+        <h3>Starter Toolkit</h3>
+        <p>Everything a student needs to start a business society and get a team ready, free for any school.</p>
+        <a class="link" href="/toolkit/">Get the toolkit</a>
+      </div>
+      <div class="col-item">
+        <span class="status">Coming in {{brand.year}}</span>
+        <h3>Network, Girls in Finance, Learn</h3>
+        <p>A network for school business societies, a community for girls in finance, and ten-minute lessons.</p>
+        <a class="link" href="/programs/">All programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{@partnerBar}}
+
+<section class="closer inverse">
+  <div class="wrap grid">
+    <div class="span-8">
+      <h2>Three to four students. One school. Five weeks.</h2>
+      <p class="lede muted">Register before {{dates.registrationCloses}}. You need one staff member who knows you're taking part, and that's it.</p>
+      <div class="actions"><a class="btn btn-white" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
+    </div>
+  </div>
+</section>
