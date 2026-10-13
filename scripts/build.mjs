@@ -35,6 +35,25 @@ const NAV = [
   { href: "/get-involved/", label: "Get involved" },
 ];
 
+// The stages as a row of columns, each led by its numeral.
+function routeList(cls) {
+  const numeral = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
+  return `<ol class="${cls}">${config.stages
+    .map(
+      (s) => `
+      <li class="route-${s.kind}">
+        <span class="numeral" aria-hidden="true">${esc(numeral(s))}</span>
+        <p class="when">${esc(s.dates)}</p>
+        <p class="who">${esc(s.who)}</p>
+        <h3>${s.kind === "mile" || s.kind === "check" ? `<span class="vh">${esc(s.label)}: </span>` : ""}${esc(s.name)}${s.kind === "final" ? `, ${esc(config.final.venue)}` : ""}</h3>
+        <p class="summary">${esc(s.summary)}</p>
+        ${s.submit.length ? `<ul class="submit">${s.submit.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      </li>`
+    )
+    .join("")}
+    </ol>`;
+}
+
 const helpers = {
   nav: (page) =>
     NAV.map(
@@ -42,30 +61,8 @@ const helpers = {
         `<li><a href="${n.href}"${page.url.startsWith(n.href) ? ' aria-current="page"' : ""}>${esc(n.label)}</a></li>`
     ).join(""),
 
-  route: () =>
-    `<ol class="route">${config.stages
-      .map(
-        (s) => `
-      <li class="route-${s.kind}">
-        <div class="post" aria-hidden="true"><small>${s.kind === "mile" || s.kind === "check" ? "MILE" : s.kind === "gate" ? "GATE" : "FINAL"}</small><b>${s.kind === "mile" || s.kind === "check" ? esc(s.key) : s.kind === "gate" ? "✓" : "★"}</b></div>
-        <div class="route-body">
-          <p class="route-meta"><span>${esc(s.dates)}</span><span>${esc(s.who)}</span></p>
-          <h3>${s.kind === "mile" || s.kind === "check" ? `${esc(s.label)}: ` : ""}${esc(s.name)}${s.kind === "final" ? ` at ${esc(config.final.venue)}` : ""}</h3>
-          <p>${esc(s.summary)}</p>
-          ${s.submit.length ? `<p class="submit"><span>Submit</span> ${s.submit.map(esc).join(" · ")}</p>` : ""}
-        </div>
-      </li>`
-      )
-      .join("")}
-    </ol>`,
-
-  routeCompact: () =>
-    `<ol class="route-compact">${config.stages
-      .map(
-        (s) =>
-          `<li class="route-${s.kind}"><span class="rc-date">${esc(s.dates)}</span><span class="rc-name">${s.kind === "mile" || s.kind === "check" ? `<b>${esc(s.label)}</b> ` : ""}${esc(s.name)}</span></li>`
-      )
-      .join("")}</ol>`,
+  route: () => routeList("route"),
+  routeCompact: () => routeList("route route-compact"),
 
   criteria: () =>
     `<dl class="criteria">${config.criteria
@@ -91,16 +88,16 @@ const helpers = {
     const shown = config.partners.filter((p) => p.logoApproved);
     if (!shown.length) return "";
     return `
-    <section class="partners" aria-labelledby="partners-h">
-      <div class="wrap">
-        <h2 id="partners-h" class="label">Supported by</h2>
-        <ul class="partner-list">${shown
+    <section class="section" aria-labelledby="partners-h">
+      <div class="wrap"><div class="grid">
+        <div class="section-title"><h2 id="partners-h">Supported by</h2></div>
+        <div class="section-body"><ul class="partner-list">${shown
           .map(
             (p) =>
-              `<li>${p.logo ? `<img src="${esc(p.logo)}" alt="${esc(p.name)}" loading="lazy">` : `<span class="wordmark">${esc(p.name)}</span>`}<small>${esc(p.role)}</small></li>`
+              `<li>${p.logo ? `<img src="${esc(p.logo)}" alt="${esc(p.name)}" loading="lazy">` : `<span class="partner-name">${esc(p.name)}</span>`}<span class="small muted">${esc(p.role)}</span></li>`
           )
-          .join("")}</ul>
-      </div>
+          .join("")}</ul></div>
+      </div></div>
     </section>`;
   },
 

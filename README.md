@@ -45,9 +45,9 @@ npx wrangler dev        # or: python3 -m http.server
 ```
 site.config.json      brand, dates, stages, weights, partners, team
 src/pages/            one file per page (about.html → /about/)
-src/partials/         layout, header, footer, obelisk mark
-assets/css/site.css   styles: "survey marker" art direction
+src/partials/         layout, header, footer
+assets/css/site.css   styles: Swiss Style (International Typographic Style)
 assets/js/links.js    Google Form and portal links
-assets/img/           contours.svg (npm run contours), ibis seal, favicon
+assets/img/           ibis mark, favicon
 scripts/build.mjs     the build
 ```

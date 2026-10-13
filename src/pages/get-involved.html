@@ -1,50 +1,65 @@
 <!--page {"title": "Get involved", "description": "Register a team, start a business society, join the {{brand.name}} Network, become an ambassador or partner with {{brand.name}}."} -->
-<section class="hero page-hero">
-  <div class="wrap">
-    <p class="eyebrow">Get involved</p>
-    <h1>Pull up a chair.</h1>
-    <p class="lede" style="margin-top: 24px;">There's always room for one more. Here's where to start, whoever you are.</p>
+<section class="page-hero">
+  <div class="wrap grid">
+    <div class="span-9">
+      <h1>Pull up a chair.</h1>
+      <p class="lede">There's always room for one more. Here's where to start, whoever you are.</p>
+    </div>
   </div>
 </section>
 
-<section class="section-tight">
-  <div class="wrap">
-    <div class="paths">
-      <div>
-        <p class="label">Students</p>
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Students</h2></div>
+    <div class="section-body two-col">
+      <div class="col-item">
         <h3>Enter {{brand.competitionShort}} {{brand.year}}</h3>
         <p>Form a team of three or four from your school, find one staff member who knows you're taking part, and register before {{dates.registrationCloses}}.</p>
-        <div class="ctas"><a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
+        <div class="actions"><a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
       </div>
-      <div>
-        <p class="label">Students</p>
+      <div class="col-item">
         <h3>Become an ambassador</h3>
         <p>Help with outreach to schools, events, social media, design or writing resources, and help run next year's competition.</p>
-        <div class="ctas"><a class="btn btn-ghost" data-link="ambassador" href="mailto:{{brand.email}}?subject=Ambassador">Apply to be an ambassador</a></div>
+        <div class="actions"><a class="btn btn-outline" data-link="ambassador" href="mailto:{{brand.email}}?subject=Ambassador">Apply to be an ambassador</a></div>
       </div>
-      <div>
-        <p class="label">Teachers and schools</p>
-        <h3>Support a team or a new society</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Schools</h2></div>
+    <div class="section-body two-col">
+      <div class="col-item">
+        <h3>Teachers</h3>
         <p>Entry is free. All we need is a staff member who knows your teams are taking part. The Starter Toolkit includes one-pagers for teachers and principals.</p>
-        <div class="ctas"><a class="btn btn-ghost" data-link="toolkit" href="mailto:{{brand.email}}?subject=Starter%20Toolkit">Get the Starter Toolkit</a></div>
+        <div class="actions"><a class="btn btn-outline" data-link="toolkit" href="mailto:{{brand.email}}?subject=Starter%20Toolkit">Get the Starter Toolkit</a></div>
       </div>
-      <div>
-        <p class="label">Business societies</p>
-        <h3>Join the {{brand.name}} Network</h3>
+      <div class="col-item">
+        <h3>Business societies</h3>
         <p>Share resources and events with societies at other schools, and help bring new schools in. Every society stays independent.</p>
-        <div class="ctas"><a class="btn btn-ghost" data-link="network" href="mailto:{{brand.email}}?subject=Join%20the%20network">Join the network</a></div>
+        <div class="actions"><a class="btn btn-outline" data-link="network" href="mailto:{{brand.email}}?subject=Join%20the%20network">Join the network</a></div>
       </div>
-      <div>
-        <p class="label">Universities, firms and nonprofits</p>
-        <h3>Partner with us</h3>
-        <p>Help as case reviewers, judges, mentors, venue hosts or supporters. Partners never influence judging or selection.</p>
-        <div class="ctas"><a class="btn btn-ghost" href="mailto:{{brand.email}}?subject=Partnership">Email us about partnering</a></div>
-      </div>
-      <div id="contact">
-        <p class="label">Everyone else</p>
-        <h3>Questions? Ask.</h3>
-        <p>Email <a href="mailto:{{brand.email}}">{{brand.email}}</a> and a student organiser will get back to you.</p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Partners</h2></div>
+    <div class="section-body">
+      <p class="lede">Universities, firms and nonprofits can help as case reviewers, judges, mentors, venue hosts or supporters. Partners never influence judging or selection.</p>
+      <div class="actions"><a class="btn btn-outline" href="mailto:{{brand.email}}?subject=Partnership">Email us about partnering</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section panel" id="contact">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Contact</h2></div>
+    <div class="section-body">
+      <p class="statement"><a href="mailto:{{brand.email}}">{{brand.email}}</a></p>
+      <p class="muted">A student organiser will get back to you.</p>
     </div>
   </div>
 </section>

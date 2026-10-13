@@ -5,7 +5,6 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/build.mjs --check",
-    "contours": "node scripts/contours.mjs",
     "dev": "npx wrangler dev"
   }
 }

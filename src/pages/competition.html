@@ -1,81 +1,83 @@
 <!--page {"title": "The competition", "description": "The {{brand.competitionName}} {{brand.year}}: a free, staged business case competition for teams of three or four from any NSW secondary school."} -->
-<section class="hero page-hero">
-  <div class="wrap">
-    <p class="eyebrow">{{brand.competitionShort}} {{brand.year}}</p>
-    <h1>{{brand.competitionName}} {{brand.year}}</h1>
-    <p class="lede" style="margin-top: 24px;">You and your team advise Southern Cross Technologies, a fictional Sydney company stuck with eight million unsold tags. Over five weeks, new information arrives in stages. Each stage, each <em>mile</em>, asks for a new decision and a new deliverable.</p>
-    <div class="ctas">
-      <a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a>
-      <a class="btn btn-ghost" href="/rules/">Read the rules</a>
+<section class="page-hero">
+  <div class="wrap grid">
+    <div class="span-9">
+      <h1>{{brand.competitionName}} {{brand.year}}</h1>
+      <p class="lede">Your team advises Southern Cross Technologies, a fictional Sydney company stuck with eight million unsold tags. Over five weeks, new information arrives in stages, and each stage asks for a new decision and a new deliverable.</p>
+      <div class="actions">
+        <a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a>
+        <a class="btn btn-outline" href="/rules/">Read the rules</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">The route</p>
-      <h2>Five weeks, from Mile 0 to the Live Final.</h2>
+  <div class="wrap grid">
+    <div class="section-title"><h2>The route</h2></div>
+    <div class="section-body">
       <p class="lede">Exact opening and closing times are emailed to every registered team when each stage opens. Late work isn't marked.</p>
+      {{@route}}
+      <p class="muted">The top ten teams overall, ranked on Mile 1, Mile 2 and Project Kestrel, are invited to the Live Final at {{final.venue}} on {{final.date}}.</p>
     </div>
-    {{@route}}
-    <p class="muted" style="margin-top: 28px;">The top ten teams overall, ranked on Mile 1, Mile 2 and Project Kestrel, are invited to the Live Final at {{final.venue}} on {{final.date}}.</p>
   </div>
 </section>
 
-<section class="section band">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow">Who can enter</p>
-      <h2>Any school. Any background.</h2>
-      <ul class="ticks">
+<section class="section panel">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Who can enter</h2></div>
+    <div class="section-body">
+      <ul class="checklist">
         <li>Students at any NSW secondary school, including Years 9 and 10</li>
         <li>Teams of three to four students from the same school</li>
-        <li>Up to three teams per school; each student in one team only</li>
+        <li>Up to three teams per school, and each student in one team only</li>
         <li>One staff member at your school who knows your team is taking part</li>
-        <li>Free to enter. No paid software or databases needed.</li>
+        <li>Free to enter, with no paid software or databases needed</li>
         <li>Register by {{dates.registrationCloses}}</li>
       </ul>
     </div>
-    <div>
-      <p class="eyebrow">Fair play</p>
-      <h2>Your thinking, declared and defended.</h2>
-      <ul class="ticks">
-        <li>Use AI for research and editing, then declare it in a short note with every submission.</li>
-        <li>The analysis and decisions must be your team's own. Any member may be asked to explain any number.</li>
-        <li>Use the case figures, plus up to two named outside sources across the whole competition.</li>
-        <li>Teachers and parents can teach general skills, but must not write or shape your analysis.</li>
-        <li>Don't share the case materials publicly before the Live Final.</li>
-      </ul>
-      <p style="margin-top: 20px;"><a class="text-link" href="/rules/">Full rules</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grid">
+    <div class="section-title"><h2>How you're judged</h2></div>
+    <div class="section-body">
+      <p class="lede">The same five criteria at every stage, with weights that shift to match what each stage tests. Submissions are coded so markers don't see school names, teams near the finalist cut-off are marked twice, and sponsors have no say in results.</p>
+      {{@weights}}
+      {{@criteria}}
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">How you're judged</p>
-      <h2>Five criteria, every stage.</h2>
-      <p class="lede">The weights shift to match what each stage tests. Submissions are coded so markers don't see school names, teams near the finalist cut-off are marked twice, and sponsors have no say in results.</p>
+  <div class="wrap grid">
+    <div class="section-title"><h2>Fair play</h2></div>
+    <div class="section-body two-col">
+      <ul class="checklist">
+        <li>Use AI for research and editing, then declare it in a short note with every submission.</li>
+        <li>The analysis and decisions must be your team's own. Any member may be asked to explain any number.</li>
+        <li>Use the case figures, plus up to two named outside sources across the whole competition.</li>
+      </ul>
+      <ul class="checklist">
+        <li>Teachers and parents can teach general skills, but must not write or shape your analysis.</li>
+        <li>Don't share the case materials publicly before the Live Final.</li>
+        <li><a href="/rules/">Read the full rules</a></li>
+      </ul>
     </div>
-    {{@criteria}}
-    {{@weights}}
   </div>
 </section>
 
-<section class="section band">
-  <div class="wrap split">
-    <div>
-      <p class="eyebrow">Submitting your work</p>
-      <h2>One portal for every mile.</h2>
-      <p class="lede" style="margin-top: 20px;">Registered teams submit through the competition portal, run with our partner Caplet. It opens in February {{brand.year}}, and registered teams get the link by email before Mile 0.</p>
-      <div class="ctas"><a class="btn btn-ghost" data-link="portal" href="mailto:{{brand.email}}?subject=Competition%20portal">Competition portal</a></div>
-    </div>
-    <div>
-      <p class="eyebrow">If something goes wrong</p>
-      <ul class="ticks">
-        <li>Technical problem? Contact us <strong>before</strong> the deadline, not after.</li>
+<section class="section panel">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Submitting</h2></div>
+    <div class="section-body two-col">
+      <div>
+        <p>Registered teams submit through the competition portal, run with our partner Caplet. It opens in February {{brand.year}}, and teams get the link by email before Mile 0.</p>
+        <div class="actions"><a class="btn btn-outline" data-link="portal" href="mailto:{{brand.email}}?subject=Competition%20portal">Competition portal</a></div>
+      </div>
+      <ul class="checklist">
+        <li>Technical problem? Contact us before the deadline, not after.</li>
         <li>Need a reasonable adjustment, such as extra time? Ask before the stage opens.</li>
         <li>Appeals are in writing, within three days of results, and only for procedural errors.</li>
       </ul>
@@ -84,12 +86,9 @@
 </section>
 
 <section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Questions</p>
-      <h2>Before you sign up.</h2>
-    </div>
-    <div class="faq">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Questions</h2></div>
+    <div class="section-body faq">
       <details><summary>Do we need to know finance?</summary><p>No. Every term is explained the first time it appears, and the case gives you every number you need. Judges reward clear thinking over jargon.</p></details>
       <details><summary>How much time does it take?</summary><p>Roughly a few hours per mile, spread across a week, mostly outside class time. Mile 0 takes ten minutes.</p></details>
       <details><summary>Can Year 9 and 10 students enter?</summary><p>Yes. Any student at a NSW secondary school can enter.</p></details>
@@ -102,12 +101,12 @@
   </div>
 </section>
 
-<section class="closer dark">
-  <div class="wrap">
-    <p class="eyebrow">Registrations close {{dates.registrationCloses}}</p>
-    <h2>Find two or three teammates. Then register.</h2>
-    <div class="ctas">
-      <a class="btn btn-light" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a>
+<section class="closer inverse">
+  <div class="wrap grid">
+    <div class="span-8">
+      <h2>Find two or three teammates. Then register.</h2>
+      <p class="lede muted">Registrations close {{dates.registrationCloses}}.</p>
+      <div class="actions"><a class="btn btn-white" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
     </div>
   </div>
 </section>
