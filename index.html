@@ -3,487 +3,217 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mile Zero</title>
-<meta name="description" content="Mile Zero runs the Sydney Schools Business Competition: a free, staged business case competition for students from any NSW secondary school.">
+<title>Mile Zero | Sydney Schools Business Competition</title>
+<meta name="description" content="Mile Zero runs the Sydney Schools Business Competition: a free, staged business case for teams from any NSW secondary school. No finance background needed.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mile Zero">
+<meta property="og:title" content="Mile Zero">
+<meta property="og:description" content="Mile Zero runs the Sydney Schools Business Competition: a free, staged business case for teams from any NSW secondary school. No finance background needed.">
+<meta name="theme-color" content="#EEF0EA">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --paper: #f6f1e7;
-    --paper-2: #ece4d3;
-    --ink: #16130f;
-    --ink-2: #4a443b;
-    --rule: #d6ccb8;
-    --sandstone: #c8893e;
-    --harbour: #1f4a45;
-    --white: #fffdf8;
-    --max: 1120px;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 400 17px/1.6 Inter, system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  a { color: inherit; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; line-height: 1.08; margin: 0; letter-spacing: -.01em; }
-  h2 { font-size: clamp(32px, 4.4vw, 52px); }
-  h3 { font-size: 22px; }
-  p { margin: 0; }
-
-  /* Nav */
-  header.nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: Fraunces, serif; font-weight: 800; font-size: 20px; }
-  .brand-mark {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: var(--ink); color: var(--paper);
-    display: grid; place-items: center;
-    font-family: "JetBrains Mono", monospace; font-size: 14px;
-  }
-  .nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; font-size: 15px; }
-  .nav ul a { text-decoration: none; color: var(--ink-2); }
-  .nav ul a:hover { color: var(--ink); }
-  .btn {
-    display: inline-block; text-decoration: none; font-weight: 600; font-size: 15px;
-    padding: 12px 20px; border-radius: 999px; border: 1.5px solid var(--ink);
-    background: var(--ink); color: var(--paper); transition: transform .15s;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn.ghost { background: transparent; color: var(--ink); }
-  .nav .btn { padding: 9px 16px; font-size: 14px; }
-
-  /* Hero */
-  .hero { padding: 88px 0 72px; border-bottom: 1px solid var(--rule); }
-  .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: end; }
-  .hero h1 { font-size: clamp(46px, 7.4vw, 96px); font-weight: 800; letter-spacing: -.025em; }
-  .hero h1 em { font-style: italic; font-weight: 400; color: var(--harbour); }
-  .hero .lede { margin-top: 28px; font-size: 19px; color: var(--ink-2); max-width: 560px; }
-  .hero .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
-  .marker {
-    justify-self: end; width: 100%; max-width: 340px;
-    background: var(--white); border: 1.5px solid var(--ink);
-    border-radius: 170px 170px 8px 8px; padding: 56px 28px 28px; text-align: center;
-    box-shadow: 8px 8px 0 var(--ink);
-  }
-  .marker .zero { font-family: Fraunces, serif; font-weight: 800; font-size: 150px; line-height: .9; }
-  .marker .label { margin-top: 10px; color: var(--ink-2); }
-  .marker dl { margin: 28px 0 0; border-top: 1px solid var(--rule); text-align: left; }
-  .marker dl div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
-  .marker dt { color: var(--ink-2); }
-  .marker dd { margin: 0; font-weight: 600; text-align: right; }
-
-  /* Sections */
-  section { padding: 96px 0; }
-  .eyebrow { color: var(--sandstone); margin-bottom: 16px; display: block; }
-  .section-head { max-width: 720px; margin-bottom: 48px; }
-  .section-head p { margin-top: 18px; color: var(--ink-2); font-size: 18px; }
-
-  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1.5px solid var(--ink); }
-  .three > div { padding: 28px 28px 0 0; }
-  .three > div + div { padding-left: 28px; border-left: 1px solid var(--rule); }
-  .three p { margin-top: 12px; color: var(--ink-2); }
-
-  /* Case teaser */
-  .case { background: var(--harbour); color: var(--paper); }
-  .case .eyebrow { color: #e7b679; }
-  .case-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
-  .case h2 { color: var(--white); }
-  .case p { color: #cfdcd8; margin-top: 20px; font-size: 18px; }
-  .case blockquote { margin: 0; padding: 32px; border: 1px solid #ffffff33; border-radius: 8px; }
-  .case blockquote p { font-family: Fraunces, serif; font-size: 26px; line-height: 1.3; color: var(--white); margin: 0; }
-  .case blockquote footer { margin-top: 18px; color: #a9c0bb; font-size: 14px; }
-  .case .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); margin-top: 28px; }
-
-  /* Route */
-  .route { list-style: none; padding: 0; margin: 0; position: relative; }
-  .route::before { content: ""; position: absolute; left: 47px; top: 10px; bottom: 10px; border-left: 2px dashed var(--ink); opacity: .35; }
-  .route li { display: grid; grid-template-columns: 96px 1fr 180px; gap: 28px; padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: start; position: relative; }
-  .post {
-    width: 96px; height: 56px; background: var(--white); border: 1.5px solid var(--ink);
-    border-radius: 28px 28px 4px 4px; display: grid; place-items: center; text-align: center; position: relative; z-index: 1;
-  }
-  .post b { font-family: Fraunces, serif; font-size: 24px; line-height: 1; display: block; }
-  .post small { font-family: "JetBrains Mono", monospace; font-size: 9px; letter-spacing: .14em; }
-  .route li.gate .post { background: var(--paper-2); border-style: dashed; }
-  .route li.final .post { background: var(--ink); color: var(--paper); }
-  .route h3 { font-size: 22px; }
-  .route p { color: var(--ink-2); margin-top: 6px; }
-  .route .submit { margin-top: 10px; font-size: 14px; }
-  .route .submit span { color: var(--sandstone); font-weight: 600; }
-  .route .date { text-align: right; padding-top: 4px; }
-
-  /* Eligibility + judging */
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-  .ticks { list-style: none; padding: 0; margin: 24px 0 0; }
-  .ticks li { padding: 12px 0 12px 32px; border-bottom: 1px solid var(--rule); position: relative; }
-  .ticks li::before { content: "→"; position: absolute; left: 0; color: var(--sandstone); font-weight: 600; }
-  table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 15px; }
-  th, td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  th { font-family: Fraunces, serif; font-weight: 600; font-size: 17px; padding-right: 20px; width: 42%; }
-  td { color: var(--ink-2); }
-  .note { margin-top: 20px; font-size: 14px; color: var(--ink-2); }
-
-  /* About */
-  .about { background: var(--paper-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-  .about p + p { margin-top: 16px; }
-  .about .body p { color: var(--ink-2); font-size: 17px; }
-  .values { list-style: none; padding: 0; margin: 28px 0 0; counter-reset: v; }
-  .values li { padding: 16px 0; border-top: 1px solid var(--ink); counter-increment: v; display: grid; grid-template-columns: 44px 1fr; }
-  .values li::before { content: "0" counter(v); font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--sandstone); padding-top: 6px; }
-  .values b { font-family: Fraunces, serif; font-size: 21px; font-weight: 600; display: block; }
-  .values span { color: var(--ink-2); font-size: 15px; }
-  .ibis { margin-top: 40px; padding: 28px; background: var(--white); border: 1.5px solid var(--ink); border-radius: 8px; }
-  .ibis h3 { font-size: 24px; margin-bottom: 12px; }
-
-  /* Programs */
-  .programs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; }
-  .card .tag { align-self: flex-start; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); margin-bottom: 20px; }
-  .card .tag.live { background: var(--harbour); color: var(--paper); border-color: var(--harbour); }
-  .card p { color: var(--ink-2); margin-top: 12px; font-size: 15px; }
-
-  /* FAQ */
-  details { border-bottom: 1px solid var(--rule); padding: 20px 0; }
-  details summary { cursor: pointer; font-family: Fraunces, serif; font-size: 20px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-  details summary::-webkit-details-marker { display: none; }
-  details summary::after { content: "+"; font-family: Inter, sans-serif; font-weight: 400; color: var(--sandstone); }
-  details[open] summary::after { content: "–"; }
-  details p { margin-top: 12px; color: var(--ink-2); max-width: 720px; }
-
-  /* Get involved */
-  .involve { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1.5px solid var(--ink); }
-  .involve > div { padding: 28px 24px 8px 0; }
-  .involve > div + div { padding-left: 24px; border-left: 1px solid var(--rule); }
-  .involve p { color: var(--ink-2); margin: 12px 0 20px; font-size: 15px; }
-  .involve a.link { font-weight: 600; text-decoration-color: var(--sandstone); text-underline-offset: 4px; }
-
-  /* Footer CTA */
-  .closer { background: var(--ink); color: var(--paper); text-align: center; padding: 104px 0; }
-  .closer h2 { color: var(--white); font-size: clamp(36px, 5.4vw, 68px); }
-  .closer p { color: #bdb4a4; margin-top: 18px; font-size: 18px; }
-  .closer .btn { background: var(--paper); color: var(--ink); border-color: var(--paper); margin-top: 32px; }
-  footer.site { background: var(--ink); color: #9b9282; border-top: 1px solid #ffffff1f; padding: 28px 0; font-size: 14px; }
-  footer.site .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-  footer.site a { color: var(--paper); }
-
-  @media (max-width: 900px) {
-    .nav ul { display: none; }
-    .hero { padding: 56px 0 56px; }
-    .hero-grid, .case-grid, .split, .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .marker { justify-self: start; }
-    .three, .programs, .involve { grid-template-columns: 1fr; }
-    .three > div + div, .involve > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
-    .route li { grid-template-columns: 72px 1fr; gap: 18px; }
-    .route::before { left: 35px; }
-    .post { width: 72px; }
-    .route .date { grid-column: 2; text-align: left; padding-top: 0; order: -1; }
-    section { padding: 72px 0; }
-  }
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/links.js" defer></script>
 </head>
-<body>
-
-<header class="nav">
+<body data-page="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="brand-mark">0</span>Mile Zero</a>
-    <ul>
-      <li><a href="#competition">The Competition</a></li>
-      <li><a href="#programs">Programs</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#involved">Get Involved</a></li>
-    </ul>
-    <a class="btn" href="#register">Register</a>
+    <a class="brand" href="/"><img src="/assets/img/mark.svg" alt="" width="16" height="30"><span>Mile Zero</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden><span class="bars" aria-hidden="true"></span>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/competition/">Competition</a></li>
+        <li><a href="/toolkit/">Starter Toolkit</a></li>
+        <li><a href="/network/">Network</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/get-involved/">Get involved</a></li>
+        <li class="nav-cta"><a class="btn" href="mailto:hello@milezeronetwork.org?subject=SSBC%202027%20team%20registration" data-link="register">Register your team</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="mono eyebrow">Sydney Schools Business Competition · 2027</span>
-        <h1>Every business mind starts at <em>mile zero.</em></h1>
-        <p class="lede">A free, staged business case competition for students from any NSW secondary school. No finance background needed. Just clear thinking, good evidence and the nerve to defend your decision.</p>
-        <div class="ctas">
-          <a class="btn" href="#register">Register your team</a>
-          <a class="btn ghost" href="#competition">How it works</a>
-        </div>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <svg class="hero-map" viewBox="0 0 1440 760" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+  <g><path class="c" pathLength="1" style="--i:1" d="M1376 0 L1376 0 L1380 3 L1381 4 L1384 6 L1387 8 L1388 9 L1392 12 L1392 12 L1396 15 L1397 16 L1400 18 L1402 20 L1404 22 L1407 24 L1408 25 L1412 28 L1412 28 L1416 31 L1417 32 L1420 35 L1421 36 L1424 38 L1426 40 L1428 42 L1430 44 L1432 45 L1435 48 L1436 49 L1439 52 L1440 53"/>
+<path class="c" pathLength="1" style="--i:1" d="M0 127 L4 121 L8 116 L10 112 L13 108 L16 104 L20 100 L24 95 L28 90 L32 86 L36 81 L40 77 L44 73 L48 69 L52 66 L56 62 L60 58 L64 55 L68 52 L73 48 L78 44 L83 40 L88 36 L92 34 L96 31 L100 28 L106 24 L112 20 L116 18 L120 15 L125 12 L132 8 L136 6 L140 3 L146 0"/>
+<path class="c" pathLength="1" style="--i:2" d="M1288 0 L1295 4 L1300 7 L1304 9 L1309 12 L1315 16 L1320 19 L1324 22 L1328 24 L1334 28 L1339 32 L1344 35 L1348 38 L1352 41 L1356 44 L1362 48 L1367 52 L1372 56 L1376 59 L1380 63 L1384 66 L1388 69 L1392 73 L1396 76 L1400 80 L1405 84 L1409 88 L1413 92 L1417 96 L1421 100 L1425 104 L1429 108 L1433 112 L1437 116"/>
+<path class="c" pathLength="1" style="--i:2" d="M0 471 L2 464 L4 459 L6 452 L8 447 L10 440 L12 436 L15 428 L16 424 L19 416 L20 412 L23 404 L25 400 L27 392 L29 388 L31 380 L33 376 L35 368 L36 364 L39 356 L40 352 L42 344 L44 338 L46 332 L48 324 L49 320 L51 312 L52 307 L54 300 L56 292 L57 288 L59 280 L60 275 L62 268 L64 260 L65 256 L67 248 L68 244 L70 236 L72 230 L74 224 L76 218 L78 212 L80 207 L82 200 L84 196 L87 188 L89 184 L92 178 L95 172 L97 168 L100 162 L103 156 L106 152 L108 148 L112 142 L116 136 L119 132 L121 128 L124 124 L128 119 L132 114 L136 109 L140 105 L144 100 L148 96 L152 92 L156 88 L160 84 L164 80 L168 77 L172 73 L176 70 L180 66 L184 63 L188 60 L193 56 L199 52 L204 48 L208 45 L212 42 L216 40 L222 36 L228 32 L232 29 L236 27 L241 24 L248 20 L252 18 L256 15 L262 12 L268 9 L272 7 L278 4 L284 1"/>
+<path class="c" pathLength="1" style="--i:2" d="M133 760 L128 758 L122 756 L116 754 L112 752 L104 748 L100 747 L95 744 L88 740 L84 738 L80 736 L73 732 L68 729 L64 726 L60 723 L56 720 L51 716 L46 712 L42 708 L37 704 L33 700 L30 696 L26 692 L23 688 L19 684 L16 680 L12 674 L8 668 L6 664 L3 660 L0 653"/>
+<path class="c" pathLength="1" style="--i:2" d="M715 760 L708 757 L704 755 L697 752 L692 750 L687 748 L680 745 L676 744 L668 741 L664 739 L656 737 L652 735 L644 733 L640 732 L632 730 L625 728 L620 727 L612 726 L604 724 L600 724 L592 723 L584 722 L576 722 L568 722 L560 722 L552 722 L544 723 L537 724 L532 725 L524 726 L516 727 L512 728 L504 730 L496 732 L492 733 L484 735 L480 736 L472 738 L466 740 L460 742 L452 744 L448 745 L440 748 L436 749 L428 751 L424 752 L416 755 L411 756 L404 758 L396 760"/>
+<path class="c idx" pathLength="1" style="--i:3" d="M1199 0 L1204 2 L1209 4 L1216 7 L1220 9 L1227 12 L1232 14 L1236 16 L1244 20 L1248 22 L1252 24 L1260 28 L1264 30 L1268 32 L1275 36 L1280 39 L1284 41 L1288 44 L1295 48 L1300 51 L1304 54 L1308 56 L1314 60 L1320 64 L1324 67 L1328 70 L1332 73 L1336 76 L1342 80 L1347 84 L1352 88 L1356 91 L1360 95 L1364 98 L1368 102 L1372 105 L1376 109 L1380 112 L1384 116 L1388 120 L1392 124 L1396 128 L1400 132 L1404 136 L1408 141 L1412 145 L1416 149 L1420 154 L1424 159 L1428 164 L1431 168 L1434 172 L1438 176"/>
+<path class="c idx" pathLength="1" style="--i:3" d="M814 760 L808 757 L804 755 L799 752 L792 748 L788 746 L784 744 L777 740 L772 737 L768 735 L762 732 L756 728 L752 726 L748 724 L740 720 L736 718 L732 715 L726 712 L720 709 L716 707 L711 704 L704 701 L700 699 L695 696 L688 692 L684 691 L679 688 L672 685 L668 683 L662 680 L656 678 L652 676 L644 672 L640 671 L632 668 L628 666 L621 664 L616 662 L609 660 L604 659 L596 657 L592 656 L584 654 L576 652 L572 652 L564 651 L556 650 L548 650 L540 650 L532 650 L524 651 L516 651 L512 652 L504 653 L496 655 L492 656 L484 658 L477 660 L472 661 L464 664 L460 665 L453 668 L448 670 L442 672 L436 674 L431 676 L424 679 L420 680 L412 683 L408 685 L400 688 L396 689 L389 692 L384 694 L377 696 L372 698 L365 700 L360 701 L352 704 L348 705 L340 707 L335 708 L328 710 L320 711 L315 712 L308 713 L300 714 L292 715 L284 716 L280 716 L272 717 L264 717 L256 717 L248 716 L240 716 L236 716 L228 715 L220 714 L212 712 L208 712 L200 710 L192 708 L188 707 L180 704 L176 703 L168 700 L164 698 L159 696 L152 693 L148 691 L143 688 L136 684 L132 681 L128 678 L124 675 L120 672 L116 668 L111 664 L107 660 L104 656 L100 651 L96 646 L92 640 L90 636 L88 632 L84 625 L82 620 L80 614 L78 608 L76 600 L75 596 L74 588 L74 580 L74 572 L74 564 L74 556 L75 548 L76 544 L78 536 L80 528 L81 524 L83 516 L84 512 L87 504 L88 500 L92 492 L93 488 L96 481 L98 476 L100 472 L103 464 L105 460 L108 454 L111 448 L112 444 L116 436 L118 432 L120 427 L123 420 L124 416 L128 408 L129 404 L132 397 L134 392 L136 385 L138 380 L140 373 L141 368 L144 360 L145 356 L147 348 L148 342 L149 336 L151 328 L152 323 L153 316 L155 308 L156 302 L157 296 L158 288 L160 280 L161 276 L162 268 L164 260 L165 256 L166 248 L168 241 L169 236 L171 228 L172 224 L175 216 L176 212 L179 204 L180 200 L184 192 L185 188 L188 182 L191 176 L193 172 L196 166 L199 160 L202 156 L204 152 L208 146 L212 140 L215 136 L218 132 L221 128 L225 124 L228 120 L232 115 L236 111 L240 107 L244 103 L248 99 L252 95 L256 91 L260 88 L265 84 L269 80 L275 76 L280 72 L284 69 L288 66 L292 63 L297 60 L303 56 L308 53 L312 50 L316 48 L322 44 L328 41 L332 39 L337 36 L344 32 L348 30 L352 28 L360 24 L364 22 L369 20 L376 17 L380 15 L388 12 L392 10 L398 8 L404 6 L408 4 L416 1"/>
+<path class="c" pathLength="1" style="--i:4" d="M1083 0 L1088 1 L1096 3 L1101 4 L1108 6 L1116 8 L1120 9 L1128 11 L1132 12 L1140 14 L1146 16 L1152 18 L1158 20 L1164 22 L1170 24 L1176 26 L1181 28 L1188 31 L1192 32 L1200 35 L1204 37 L1211 40 L1216 42 L1220 44 L1228 48 L1232 50 L1237 52 L1244 56 L1248 58 L1252 60 L1259 64 L1264 67 L1268 69 L1273 72 L1280 76 L1284 79 L1288 81 L1292 84 L1298 88 L1304 92 L1308 95 L1312 98 L1316 100 L1321 104 L1326 108 L1331 112 L1336 116 L1340 119 L1344 123 L1348 126 L1352 130 L1356 134 L1360 137 L1364 141 L1368 145 L1372 149 L1376 153 L1380 158 L1384 162 L1388 166 L1392 171 L1396 176 L1400 180 L1403 184 L1406 188 L1409 192 L1412 196 L1416 202 L1420 207 L1423 212 L1426 216 L1428 220 L1432 226 L1436 232 L1438 236"/>
+<path class="c" pathLength="1" style="--i:4" d="M893 760 L888 758 L884 756 L876 752 L872 750 L868 748 L860 744 L856 742 L852 740 L845 736 L840 733 L836 731 L830 728 L824 725 L820 722 L816 720 L809 716 L804 713 L800 711 L795 708 L788 704 L784 702 L780 699 L775 696 L768 692 L764 690 L760 687 L755 684 L748 680 L744 677 L740 675 L735 672 L729 668 L724 665 L720 663 L716 660 L710 656 L704 653 L700 650 L696 648 L690 644 L684 640 L680 638 L676 635 L670 632 L664 628 L660 626 L656 623 L650 620 L644 617 L640 614 L636 612 L629 608 L624 606 L620 603 L613 600 L608 597 L604 595 L597 592 L592 590 L588 588 L580 584 L576 583 L570 580 L564 578 L559 576 L552 574 L547 572 L540 570 L533 568 L528 567 L520 565 L515 564 L508 563 L500 562 L492 561 L484 561 L476 561 L468 561 L460 562 L452 563 L444 564 L440 565 L432 567 L427 568 L420 570 L415 572 L408 575 L404 576 L396 580 L392 581 L386 584 L380 587 L376 589 L369 592 L364 594 L360 596 L352 600 L348 602 L342 604 L336 607 L332 608 L324 611 L320 612 L312 614 L304 616 L300 617 L292 618 L284 618 L276 619 L268 618 L260 617 L254 616 L248 614 L242 612 L236 609 L232 607 L228 604 L223 600 L219 596 L216 592 L212 585 L210 580 L208 573 L207 568 L207 560 L207 552 L208 546 L209 540 L211 532 L213 528 L216 520 L217 516 L220 510 L223 504 L225 500 L228 493 L231 488 L232 484 L236 477 L238 472 L240 468 L243 460 L245 456 L248 448 L249 444 L252 436 L253 432 L254 424 L256 416 L257 412 L258 404 L258 396 L259 388 L259 380 L259 372 L259 364 L259 356 L259 348 L259 340 L258 332 L258 324 L258 316 L257 308 L257 300 L257 292 L257 284 L258 276 L258 268 L258 260 L259 252 L260 245 L261 240 L262 232 L264 224 L265 220 L267 212 L268 208 L271 200 L272 196 L275 188 L277 184 L280 178 L283 172 L285 168 L288 163 L292 157 L295 152 L298 148 L301 144 L304 140 L308 135 L312 130 L316 126 L320 122 L324 118 L328 114 L332 110 L336 107 L340 103 L344 100 L349 96 L354 92 L360 88 L364 85 L368 83 L372 80 L378 76 L384 72 L388 70 L392 68 L399 64 L404 61 L408 59 L415 56 L420 54 L424 52 L432 48 L436 47 L442 44 L448 42 L452 40 L460 37 L464 36 L472 33 L476 31 L484 29 L488 28 L496 25 L500 24 L508 22 L515 20 L520 19 L528 17 L532 16 L540 14 L548 12 L552 11 L560 9 L567 8 L572 7 L580 6 L588 4 L592 3 L600 2 L608 1 L614 0"/>
+<path class="c" pathLength="1" style="--i:5" d="M1440 738 L1439 740 L1436 743 L1435 744 L1432 747 L1431 748 L1428 751 L1427 752 L1424 754 L1422 756 L1420 758 L1417 760"/>
+<path class="c" pathLength="1" style="--i:5" d="M970 760 L964 758 L960 756 L952 753 L948 751 L940 748 L936 746 L931 744 L924 741 L920 739 L913 736 L908 734 L904 732 L896 728 L892 726 L888 724 L880 720 L876 718 L872 716 L865 712 L860 709 L856 707 L850 704 L844 700 L840 698 L836 696 L829 692 L824 689 L820 686 L816 684 L809 680 L804 677 L800 674 L796 672 L790 668 L784 664 L780 661 L776 659 L772 656 L766 652 L760 648 L756 645 L752 642 L748 640 L743 636 L737 632 L732 628 L728 625 L724 622 L720 620 L715 616 L710 612 L704 608 L700 605 L696 602 L692 599 L688 596 L683 592 L678 588 L673 584 L668 581 L664 577 L660 574 L656 571 L652 568 L646 564 L641 560 L636 556 L632 553 L628 550 L624 547 L620 544 L615 540 L610 536 L604 532 L600 529 L596 526 L592 523 L588 520 L583 516 L578 512 L572 508 L568 505 L564 502 L560 499 L555 496 L550 492 L544 488 L540 485 L536 482 L532 480 L527 476 L521 472 L516 468 L512 466 L508 463 L504 460 L498 456 L492 452 L488 449 L484 446 L480 443 L475 440 L470 436 L464 432 L460 429 L456 426 L452 423 L448 419 L444 416 L439 412 L435 408 L430 404 L426 400 L422 396 L418 392 L415 388 L411 384 L407 380 L404 376 L400 371 L396 365 L392 360 L389 356 L387 352 L384 348 L380 341 L377 336 L375 332 L372 325 L370 320 L368 316 L365 308 L363 304 L361 296 L360 292 L358 284 L356 276 L355 272 L354 264 L354 256 L353 248 L353 240 L354 232 L355 224 L356 218 L357 212 L359 204 L361 200 L364 192 L365 188 L368 182 L371 176 L374 172 L376 168 L380 162 L384 157 L388 152 L391 148 L395 144 L398 140 L402 136 L407 132 L411 128 L416 124 L420 121 L424 117 L428 114 L432 112 L437 108 L444 104 L448 101 L452 99 L457 96 L464 92 L468 90 L472 88 L480 84 L484 83 L490 80 L496 77 L500 76 L508 73 L512 71 L520 68 L524 67 L532 64 L536 63 L544 60 L548 59 L556 57 L560 56 L568 54 L575 52 L580 51 L588 49 L592 48 L600 46 L608 45 L612 44 L620 42 L628 41 L632 40 L640 39 L648 37 L656 36 L660 35 L668 34 L676 33 L683 32 L688 31 L696 30 L704 29 L712 28 L716 28 L724 27 L732 26 L740 25 L748 24 L752 24 L760 23 L768 22 L776 22 L784 21 L792 20 L796 20 L804 19 L812 19 L820 18 L828 18 L836 17 L844 17 L852 16 L860 16 L864 16 L872 16 L880 15 L888 15 L896 15 L904 15 L912 15 L920 15 L928 15 L936 15 L944 15 L952 16 L960 16 L964 16 L972 16 L980 17 L988 17 L996 18 L1004 19 L1012 19 L1017 20 L1024 21 L1032 22 L1040 23 L1048 24 L1052 25 L1060 26 L1068 27 L1072 28 L1080 29 L1088 31 L1092 32 L1100 34 L1108 36 L1112 37 L1120 39 L1125 40 L1132 42 L1139 44 L1144 45 L1152 48 L1156 49 L1164 52 L1168 53 L1175 56 L1180 58 L1185 60 L1192 63 L1196 64 L1204 68 L1208 69 L1214 72 L1220 75 L1224 77 L1230 80 L1236 83 L1240 85 L1245 88 L1252 92 L1256 94 L1260 96 L1266 100 L1272 104 L1276 106 L1280 109 L1284 112 L1290 116 L1296 120 L1300 123 L1304 126 L1308 129 L1312 132 L1316 136 L1321 140 L1326 144 L1330 148 L1335 152 L1339 156 L1343 160 L1347 164 L1351 168 L1355 172 L1359 176 L1363 180 L1366 184 L1370 188 L1373 192 L1376 196 L1380 201 L1384 206 L1388 211 L1391 216 L1394 220 L1397 224 L1400 229 L1404 235 L1407 240 L1410 244 L1412 248 L1416 255 L1419 260 L1421 264 L1424 271 L1427 276 L1429 280 L1432 288 L1434 292 L1436 297 L1439 304"/>
+<path class="c" pathLength="1" style="--i:6" d="M1440 675 L1438 680 L1436 684 L1432 690 L1429 696 L1426 700 L1423 704 L1420 708 L1416 713 L1412 718 L1408 722 L1404 726 L1400 730 L1396 734 L1392 737 L1388 740 L1383 744 L1377 748 L1372 751 L1368 753 L1363 756 L1356 760"/>
+<path class="c" pathLength="1" style="--i:6" d="M1058 760 L1052 758 L1044 756 L1040 755 L1032 752 L1028 751 L1020 749 L1016 747 L1008 745 L1004 743 L996 740 L992 739 L984 736 L980 735 L973 732 L968 730 L963 728 L956 725 L952 723 L944 720 L940 718 L935 716 L928 713 L924 711 L917 708 L912 705 L908 703 L901 700 L896 698 L892 695 L885 692 L880 689 L876 687 L871 684 L864 680 L860 678 L856 676 L850 672 L844 669 L840 666 L836 664 L830 660 L824 656 L820 654 L816 651 L812 648 L806 644 L800 640 L796 637 L792 634 L788 632 L783 628 L778 624 L772 620 L768 617 L764 614 L760 611 L756 608 L751 604 L746 600 L742 596 L737 592 L732 588 L728 585 L724 581 L720 578 L716 574 L712 571 L708 567 L704 564 L700 560 L695 556 L691 552 L687 548 L682 544 L678 540 L674 536 L670 532 L665 528 L661 524 L657 520 L653 516 L649 512 L645 508 L641 504 L637 500 L633 496 L629 492 L625 488 L621 484 L618 480 L614 476 L610 472 L606 468 L602 464 L598 460 L594 456 L591 452 L587 448 L583 444 L579 440 L576 436 L572 432 L568 428 L564 424 L560 419 L556 415 L552 411 L548 407 L544 402 L540 398 L536 393 L532 389 L528 385 L524 380 L520 376 L517 372 L514 368 L510 364 L507 360 L504 356 L500 352 L496 347 L492 341 L488 336 L485 332 L482 328 L480 324 L476 318 L472 312 L470 308 L468 304 L464 297 L462 292 L460 288 L457 280 L455 276 L453 268 L452 264 L450 256 L449 248 L449 240 L449 232 L450 224 L451 216 L452 211 L454 204 L456 199 L459 192 L461 188 L464 183 L468 177 L471 172 L475 168 L478 164 L482 160 L486 156 L490 152 L494 148 L499 144 L504 140 L508 137 L512 135 L516 132 L522 128 L528 125 L532 122 L536 120 L544 116 L548 114 L553 112 L560 109 L564 107 L571 104 L576 102 L582 100 L588 98 L593 96 L600 94 L605 92 L612 90 L619 88 L624 86 L632 84 L636 83 L644 81 L648 80 L656 78 L664 76 L668 75 L676 74 L684 72 L688 71 L696 69 L704 68 L708 67 L716 66 L724 64 L728 64 L736 62 L744 61 L750 60 L756 59 L764 58 L772 57 L778 56 L784 55 L792 54 L800 53 L808 52 L812 52 L820 51 L828 50 L836 49 L844 49 L850 48 L856 48 L864 47 L872 46 L880 46 L888 45 L896 45 L904 45 L912 44 L920 44 L928 44 L932 44 L940 44 L948 44 L952 44 L960 44 L968 44 L976 45 L984 45 L992 45 L1000 46 L1008 47 L1016 47 L1024 48 L1028 48 L1036 49 L1044 50 L1052 51 L1056 52 L1064 53 L1072 55 L1079 56 L1084 57 L1092 59 L1099 60 L1104 61 L1112 63 L1116 64 L1124 66 L1130 68 L1136 70 L1144 72 L1148 73 L1156 76 L1160 77 L1167 80 L1172 82 L1178 84 L1184 86 L1188 88 L1196 91 L1200 93 L1206 96 L1212 99 L1216 101 L1223 104 L1228 107 L1232 109 L1238 112 L1244 116 L1248 118 L1252 120 L1258 124 L1264 128 L1268 131 L1272 133 L1276 136 L1281 140 L1287 144 L1292 148 L1296 151 L1300 154 L1304 158 L1308 161 L1312 165 L1316 168 L1320 172 L1324 176 L1328 180 L1332 184 L1336 188 L1340 192 L1344 197 L1348 201 L1352 206 L1356 211 L1360 216 L1363 220 L1366 224 L1369 228 L1372 232 L1376 238 L1380 244 L1382 248 L1385 252 L1388 258 L1392 264 L1394 268 L1396 272 L1400 280 L1402 284 L1404 288 L1407 296 L1409 300 L1412 307 L1414 312 L1416 317 L1418 324 L1420 329 L1422 336 L1424 341 L1426 348 L1428 354 L1430 360 L1432 368 L1433 372 L1435 380 L1436 386 L1437 392 L1439 400 L1440 406"/>
+<path class="c idx" pathLength="1" style="--i:7" d="M908 72 L916 71 L924 71 L932 71 L940 70 L948 70 L956 70 L964 70 L972 70 L980 70 L988 71 L996 71 L1004 71 L1012 72 L1016 72 L1024 73 L1032 73 L1040 74 L1048 75 L1053 76 L1060 77 L1068 78 L1076 80 L1080 80 L1088 82 L1096 83 L1100 84 L1108 86 L1115 88 L1120 89 L1128 91 L1132 92 L1140 95 L1144 96 L1152 99 L1156 100 L1164 103 L1168 104 L1176 108 L1180 109 L1187 112 L1192 114 L1196 116 L1204 120 L1208 122 L1213 124 L1220 128 L1224 130 L1228 132 L1235 136 L1240 139 L1244 142 L1248 144 L1254 148 L1260 152 L1264 155 L1268 158 L1272 161 L1276 164 L1282 168 L1286 172 L1291 176 L1296 180 L1300 184 L1304 187 L1308 191 L1312 195 L1316 199 L1320 203 L1324 208 L1328 212 L1331 216 L1335 220 L1338 224 L1341 228 L1344 232 L1348 237 L1352 243 L1355 248 L1358 252 L1360 256 L1364 262 L1368 268 L1370 272 L1372 276 L1376 284 L1378 288 L1380 292 L1384 300 L1386 304 L1388 310 L1390 316 L1392 320 L1395 328 L1396 332 L1399 340 L1400 344 L1402 352 L1404 358 L1406 364 L1408 372 L1409 376 L1410 384 L1412 392 L1413 396 L1414 404 L1416 412 L1416 416 L1418 424 L1419 432 L1420 440 L1420 444 L1421 452 L1422 460 L1423 468 L1424 476 L1424 480 L1425 488 L1426 496 L1426 504 L1427 512 L1427 520 L1427 528 L1428 536 L1428 544 L1428 551 L1428 553 L1428 560 L1428 568 L1427 576 L1427 584 L1426 592 L1425 600 L1424 608 L1423 612 L1422 620 L1420 628 L1419 632 L1416 640 L1415 644 L1412 652 L1410 656 L1408 661 L1405 668 L1402 672 L1400 676 L1396 682 L1392 687 L1388 692 L1385 696 L1381 700 L1377 704 L1373 708 L1368 712 L1364 716 L1360 719 L1356 721 L1352 724 L1346 728 L1340 731 L1336 733 L1330 736 L1324 739 L1320 740 L1312 743 L1308 745 L1300 747 L1296 748 L1288 750 L1280 752 L1276 753 L1268 754 L1260 755 L1252 756 L1248 756 L1240 757 L1232 757 L1224 757 L1216 758 L1208 757 L1200 757 L1192 757 L1184 756 L1180 756 L1172 755 L1164 754 L1156 753 L1148 752 L1144 752 L1136 750 L1128 749 L1122 748 L1116 747 L1108 745 L1102 744 L1096 743 L1088 741 L1084 740 L1076 738 L1068 736 L1064 735 L1056 733 L1052 732 L1044 729 L1040 728 L1032 726 L1027 724 L1020 722 L1014 720 L1008 718 L1003 716 L996 714 L991 712 L984 709 L980 708 L972 705 L968 703 L961 700 L956 698 L951 696 L944 693 L940 691 L933 688 L928 686 L924 684 L917 680 L912 678 L908 676 L901 672 L896 669 L892 667 L886 664 L880 661 L876 658 L872 656 L865 652 L860 649 L856 646 L852 644 L846 640 L840 636 L836 633 L832 631 L828 628 L822 624 L817 620 L812 616 L808 613 L804 610 L800 607 L796 604 L791 600 L786 596 L781 592 L776 588 L772 585 L768 581 L764 578 L760 574 L756 571 L752 567 L748 563 L744 560 L740 556 L736 552 L732 548 L728 544 L724 540 L720 536 L716 532 L712 528 L708 523 L704 519 L700 515 L696 510 L692 506 L688 501 L684 497 L680 492 L677 488 L673 484 L670 480 L667 476 L664 472 L660 468 L656 463 L652 457 L648 452 L645 448 L642 444 L639 440 L636 436 L632 431 L628 426 L624 420 L621 416 L618 412 L615 408 L612 403 L608 398 L604 392 L601 388 L599 384 L596 380 L592 374 L588 368 L586 364 L583 360 L580 355 L576 348 L574 344 L571 340 L568 334 L565 328 L563 324 L560 319 L557 312 L555 308 L552 301 L550 296 L548 290 L546 284 L544 277 L543 272 L541 264 L540 256 L540 249 L540 246 L540 240 L541 232 L543 224 L544 219 L547 212 L548 208 L552 201 L555 196 L557 192 L560 188 L564 183 L568 179 L572 175 L576 171 L580 167 L584 164 L589 160 L595 156 L600 153 L604 150 L608 148 L614 144 L620 141 L624 139 L630 136 L636 133 L640 131 L647 128 L652 126 L657 124 L664 121 L668 120 L676 117 L680 116 L688 113 L692 112 L700 109 L704 108 L712 106 L718 104 L724 102 L732 100 L736 99 L744 97 L749 96 L756 94 L764 93 L768 92 L776 90 L784 88 L788 88 L796 86 L804 85 L808 84 L816 83 L824 81 L832 80 L836 80 L844 78 L852 77 L860 76 L864 76 L872 75 L880 74 L888 73 L896 73 L904 72 L908 72Z"/>
+<path class="c" pathLength="1" style="--i:8" d="M932 96 L940 95 L948 95 L956 94 L964 94 L972 94 L980 94 L988 94 L996 94 L1004 94 L1012 95 L1020 95 L1028 96 L1032 96 L1040 97 L1048 98 L1056 99 L1064 100 L1068 100 L1076 102 L1084 103 L1089 104 L1096 105 L1104 107 L1108 108 L1116 110 L1124 112 L1128 113 L1136 115 L1140 117 L1148 119 L1152 121 L1160 123 L1164 125 L1172 128 L1176 130 L1182 132 L1188 135 L1192 137 L1199 140 L1204 142 L1208 144 L1215 148 L1220 151 L1224 153 L1229 156 L1236 160 L1240 163 L1244 165 L1248 168 L1253 172 L1259 176 L1264 180 L1268 183 L1272 186 L1276 189 L1280 193 L1284 196 L1288 200 L1292 204 L1296 208 L1300 212 L1304 216 L1308 220 L1312 225 L1316 229 L1320 234 L1324 239 L1327 244 L1330 248 L1333 252 L1336 256 L1340 262 L1344 268 L1346 272 L1348 276 L1352 283 L1355 288 L1357 292 L1360 299 L1362 304 L1364 308 L1368 316 L1369 320 L1372 328 L1374 332 L1376 339 L1377 344 L1380 352 L1381 356 L1383 364 L1384 368 L1386 376 L1387 384 L1388 388 L1390 396 L1391 404 L1392 410 L1393 416 L1394 424 L1395 432 L1396 440 L1396 444 L1397 452 L1397 460 L1398 468 L1398 476 L1399 484 L1399 492 L1399 500 L1400 508 L1400 516 L1400 524 L1400 532 L1399 540 L1399 548 L1399 556 L1398 564 L1397 572 L1396 580 L1396 584 L1394 592 L1393 600 L1392 604 L1390 612 L1388 618 L1386 624 L1384 630 L1381 636 L1380 640 L1376 647 L1373 652 L1371 656 L1368 660 L1364 666 L1360 671 L1356 675 L1352 679 L1348 683 L1344 687 L1340 690 L1336 693 L1332 696 L1326 700 L1320 704 L1316 706 L1312 708 L1304 711 L1300 713 L1292 716 L1288 717 L1280 720 L1276 721 L1268 723 L1263 724 L1256 725 L1248 726 L1240 727 L1234 728 L1228 729 L1220 729 L1212 729 L1204 729 L1196 729 L1188 729 L1180 729 L1172 728 L1168 728 L1160 727 L1152 726 L1144 725 L1136 724 L1132 723 L1124 722 L1116 721 L1111 720 L1104 719 L1096 717 L1091 716 L1084 714 L1076 713 L1072 712 L1064 710 L1058 708 L1052 706 L1044 704 L1040 703 L1032 701 L1028 699 L1020 697 L1016 696 L1008 693 L1004 691 L996 689 L992 687 L984 684 L980 683 L973 680 L968 678 L964 676 L956 673 L952 671 L945 668 L940 666 L936 664 L928 660 L924 658 L920 656 L913 652 L908 649 L904 647 L898 644 L892 641 L888 638 L884 636 L878 632 L872 629 L868 626 L864 623 L859 620 L853 616 L848 613 L844 610 L840 607 L836 604 L831 600 L825 596 L820 592 L816 589 L812 585 L808 582 L804 579 L800 575 L796 572 L792 568 L788 564 L783 560 L779 556 L775 552 L771 548 L767 544 L763 540 L759 536 L755 532 L751 528 L748 524 L744 520 L740 515 L736 511 L732 506 L728 501 L724 496 L721 492 L717 488 L714 484 L711 480 L708 476 L704 470 L700 465 L697 460 L694 456 L691 452 L688 447 L684 441 L681 436 L678 432 L676 428 L672 422 L668 416 L666 412 L664 408 L660 402 L657 396 L655 392 L652 387 L648 380 L646 376 L644 371 L641 364 L639 360 L636 354 L633 348 L632 344 L629 336 L627 332 L624 324 L623 320 L621 312 L620 308 L618 300 L616 292 L616 288 L615 280 L614 272 L614 264 L615 256 L616 249 L617 244 L619 236 L621 232 L624 224 L626 220 L628 216 L632 210 L636 204 L639 200 L643 196 L647 192 L651 188 L655 184 L660 180 L664 177 L668 174 L672 171 L676 168 L683 164 L688 161 L692 158 L697 156 L704 152 L708 150 L713 148 L720 145 L724 143 L731 140 L736 138 L741 136 L748 133 L752 132 L760 129 L764 128 L772 125 L776 124 L784 122 L790 120 L796 118 L804 116 L808 115 L816 113 L822 112 L828 111 L836 109 L841 108 L848 107 L856 105 L863 104 L868 103 L876 102 L884 101 L890 100 L896 99 L904 98 L912 97 L920 97 L928 96 L932 96Z"/>
+<path class="c" pathLength="1" style="--i:9" d="M988 116 L996 116 L1004 116 L1008 116 L1016 116 L1024 117 L1032 117 L1040 118 L1048 118 L1056 119 L1063 120 L1068 121 L1076 122 L1084 123 L1089 124 L1096 125 L1104 127 L1108 128 L1116 130 L1124 132 L1128 133 L1136 135 L1140 137 L1148 139 L1152 141 L1160 143 L1164 145 L1172 148 L1176 150 L1181 152 L1188 155 L1192 157 L1198 160 L1204 163 L1208 165 L1213 168 L1220 172 L1224 174 L1228 177 L1233 180 L1239 184 L1244 188 L1248 191 L1252 194 L1256 197 L1260 200 L1265 204 L1270 208 L1274 212 L1278 216 L1282 220 L1286 224 L1290 228 L1294 232 L1297 236 L1301 240 L1304 244 L1308 249 L1312 254 L1316 260 L1319 264 L1321 268 L1324 272 L1328 278 L1331 284 L1333 288 L1336 293 L1340 300 L1341 304 L1344 310 L1347 316 L1348 320 L1351 328 L1353 332 L1355 340 L1357 344 L1359 352 L1360 356 L1362 364 L1364 372 L1365 376 L1366 384 L1368 392 L1369 396 L1370 404 L1371 412 L1372 420 L1372 425 L1373 432 L1373 440 L1374 448 L1374 456 L1374 464 L1374 472 L1374 480 L1374 488 L1374 496 L1374 504 L1374 512 L1373 520 L1373 528 L1372 535 L1372 540 L1371 548 L1369 556 L1368 564 L1367 568 L1366 576 L1364 584 L1363 588 L1360 596 L1359 600 L1356 608 L1354 612 L1352 617 L1349 624 L1346 628 L1344 632 L1340 638 L1336 644 L1332 648 L1329 652 L1325 656 L1321 660 L1316 664 L1312 667 L1308 670 L1304 673 L1299 676 L1292 680 L1288 682 L1284 684 L1276 687 L1272 689 L1264 691 L1260 693 L1252 695 L1246 696 L1240 697 L1232 699 L1224 700 L1220 700 L1212 701 L1204 701 L1196 702 L1188 702 L1180 702 L1172 701 L1164 701 L1156 700 L1150 700 L1144 699 L1136 699 L1128 698 L1120 696 L1116 696 L1108 695 L1100 693 L1094 692 L1088 691 L1080 689 L1075 688 L1068 686 L1060 684 L1056 683 L1048 681 L1043 680 L1036 678 L1029 676 L1024 674 L1017 672 L1012 670 L1005 668 L1000 666 L994 664 L988 662 L983 660 L976 657 L972 656 L964 652 L960 650 L955 648 L948 645 L944 643 L938 640 L932 637 L928 635 L922 632 L916 629 L912 627 L908 624 L901 620 L896 617 L892 615 L888 612 L881 608 L876 604 L872 602 L868 599 L864 596 L858 592 L853 588 L848 584 L844 581 L840 578 L836 575 L832 571 L828 568 L823 564 L819 560 L814 556 L810 552 L806 548 L802 544 L798 540 L794 536 L790 532 L786 528 L783 524 L779 520 L775 516 L772 512 L768 507 L764 502 L760 497 L756 492 L753 488 L750 484 L747 480 L744 476 L740 470 L736 464 L733 460 L730 456 L728 452 L724 446 L721 440 L718 436 L716 432 L712 425 L709 420 L707 416 L704 409 L701 404 L699 400 L696 392 L694 388 L692 383 L689 376 L688 372 L685 364 L683 360 L681 352 L679 348 L677 340 L676 335 L675 328 L673 320 L672 313 L671 308 L671 300 L671 292 L671 284 L672 276 L672 272 L674 264 L676 256 L677 252 L680 244 L682 240 L684 236 L688 229 L691 224 L694 220 L697 216 L701 212 L704 208 L708 204 L713 200 L717 196 L722 192 L727 188 L732 185 L736 182 L740 179 L745 176 L752 172 L756 170 L760 168 L768 164 L772 162 L776 160 L784 157 L788 155 L795 152 L800 150 L806 148 L812 146 L818 144 L824 142 L830 140 L836 138 L844 136 L848 135 L856 133 L860 132 L868 130 L876 128 L880 128 L888 126 L896 125 L900 124 L908 123 L916 122 L924 120 L928 120 L936 119 L944 118 L952 118 L960 117 L968 117 L976 116 L984 116 L988 116Z"/>
+<path class="c" pathLength="1" style="--i:10" d="M952 140 L960 139 L968 138 L976 137 L984 137 L992 136 L1000 136 L1008 136 L1016 136 L1024 136 L1032 136 L1040 137 L1048 137 L1056 138 L1064 139 L1072 140 L1076 140 L1084 142 L1092 143 L1097 144 L1104 145 L1112 147 L1116 148 L1124 150 L1130 152 L1136 154 L1144 156 L1148 157 L1155 160 L1160 162 L1166 164 L1172 167 L1176 168 L1184 172 L1188 174 L1192 176 L1200 180 L1204 182 L1208 184 L1214 188 L1220 192 L1224 194 L1228 197 L1233 200 L1238 204 L1243 208 L1248 212 L1252 215 L1256 218 L1260 222 L1264 226 L1268 229 L1272 233 L1276 238 L1280 242 L1284 246 L1288 251 L1292 256 L1295 260 L1298 264 L1301 268 L1304 273 L1308 279 L1311 284 L1314 288 L1316 292 L1320 300 L1322 304 L1324 308 L1328 316 L1329 320 L1332 327 L1334 332 L1336 338 L1338 344 L1340 352 L1341 356 L1343 364 L1344 368 L1346 376 L1347 384 L1348 389 L1349 396 L1350 404 L1351 412 L1351 420 L1352 428 L1352 433 L1352 440 L1352 448 L1352 456 L1352 464 L1352 468 L1352 476 L1351 484 L1351 492 L1350 500 L1349 508 L1348 515 L1347 520 L1346 528 L1345 536 L1344 540 L1342 548 L1340 556 L1339 560 L1337 568 L1335 572 L1332 580 L1331 584 L1328 590 L1325 596 L1323 600 L1320 605 L1316 612 L1313 616 L1310 620 L1307 624 L1303 628 L1299 632 L1295 636 L1290 640 L1285 644 L1280 647 L1276 650 L1272 652 L1264 656 L1260 658 L1256 660 L1248 663 L1244 664 L1236 667 L1231 668 L1224 670 L1216 671 L1210 672 L1204 673 L1196 674 L1188 674 L1180 675 L1172 675 L1164 675 L1156 675 L1148 674 L1140 674 L1132 673 L1124 672 L1120 672 L1112 671 L1104 670 L1096 669 L1092 668 L1084 667 L1076 665 L1072 664 L1064 662 L1056 660 L1052 659 L1044 657 L1039 656 L1032 654 L1025 652 L1020 650 L1013 648 L1008 646 L1001 644 L996 642 L990 640 L984 638 L980 636 L972 633 L968 631 L961 628 L956 625 L952 624 L945 620 L940 618 L936 616 L929 612 L924 609 L920 607 L915 604 L908 600 L904 597 L900 595 L896 592 L890 588 L884 584 L880 581 L876 578 L872 575 L868 572 L863 568 L858 564 L853 560 L848 556 L844 552 L840 549 L836 545 L832 541 L828 538 L824 534 L820 529 L816 525 L812 521 L808 517 L804 512 L801 508 L797 504 L794 500 L791 496 L788 492 L784 487 L780 482 L776 476 L773 472 L771 468 L768 464 L764 458 L761 452 L758 448 L756 444 L752 437 L749 432 L747 428 L744 421 L741 416 L740 412 L736 404 L735 400 L732 393 L730 388 L728 382 L726 376 L724 369 L723 364 L721 356 L720 352 L718 344 L717 336 L716 328 L716 324 L715 316 L715 308 L716 300 L716 296 L717 288 L719 280 L720 276 L723 268 L724 264 L728 256 L730 252 L732 248 L736 241 L740 236 L743 232 L746 228 L749 224 L753 220 L757 216 L762 212 L766 208 L771 204 L776 201 L780 198 L784 195 L789 192 L795 188 L800 185 L804 183 L810 180 L816 177 L820 175 L827 172 L832 170 L837 168 L844 165 L848 164 L856 161 L860 160 L868 157 L872 156 L880 154 L886 152 L892 151 L900 149 L904 148 L912 146 L920 145 L924 144 L932 142 L940 141 L948 140 L952 140Z"/>
+<path class="c idx" pathLength="1" style="--i:11" d="M992 156 L1000 155 L1008 155 L1016 155 L1024 154 L1032 155 L1040 155 L1048 155 L1056 156 L1061 156 L1068 157 L1076 158 L1084 159 L1092 160 L1096 161 L1104 162 L1112 164 L1116 165 L1124 167 L1128 168 L1136 170 L1141 172 L1148 174 L1153 176 L1160 179 L1164 180 L1172 184 L1176 185 L1181 188 L1188 191 L1192 193 L1197 196 L1204 200 L1208 202 L1212 205 L1217 208 L1223 212 L1228 216 L1232 219 L1236 222 L1240 225 L1244 228 L1248 232 L1253 236 L1257 240 L1261 244 L1265 248 L1268 252 L1272 256 L1276 261 L1280 266 L1284 271 L1287 276 L1290 280 L1293 284 L1296 290 L1300 296 L1302 300 L1304 304 L1308 312 L1310 316 L1312 321 L1315 328 L1316 332 L1319 340 L1320 344 L1323 352 L1324 357 L1326 364 L1327 372 L1328 376 L1329 384 L1330 392 L1331 400 L1332 408 L1332 412 L1333 420 L1333 428 L1333 436 L1332 444 L1332 452 L1332 456 L1331 464 L1330 472 L1329 480 L1328 488 L1328 492 L1326 500 L1325 508 L1324 512 L1322 520 L1320 527 L1319 532 L1316 540 L1315 544 L1312 551 L1310 556 L1308 561 L1305 568 L1302 572 L1300 576 L1296 583 L1293 588 L1290 592 L1286 596 L1283 600 L1279 604 L1275 608 L1271 612 L1266 616 L1261 620 L1256 623 L1252 626 L1248 628 L1240 632 L1236 634 L1230 636 L1224 638 L1219 640 L1212 642 L1204 644 L1200 645 L1192 646 L1184 647 L1177 648 L1172 649 L1164 649 L1156 649 L1148 649 L1140 649 L1132 649 L1124 649 L1117 648 L1112 648 L1104 647 L1096 646 L1088 645 L1084 644 L1076 642 L1068 641 L1063 640 L1056 638 L1048 636 L1044 635 L1036 633 L1031 632 L1024 630 L1018 628 L1012 626 L1006 624 L1000 622 L995 620 L988 617 L984 616 L976 612 L972 611 L966 608 L960 605 L956 603 L950 600 L944 597 L940 595 L935 592 L928 588 L924 586 L920 583 L915 580 L909 576 L904 573 L900 570 L896 567 L891 564 L886 560 L881 556 L876 552 L872 549 L868 545 L864 542 L860 538 L856 534 L852 531 L848 527 L844 523 L840 518 L836 514 L832 510 L828 505 L824 500 L820 496 L817 492 L814 488 L811 484 L808 480 L804 474 L800 468 L798 464 L795 460 L792 455 L788 448 L786 444 L784 440 L780 433 L778 428 L776 424 L772 416 L771 412 L768 405 L766 400 L764 394 L762 388 L760 380 L759 376 L757 368 L756 362 L755 356 L754 348 L753 340 L753 332 L753 324 L753 316 L754 308 L756 300 L757 296 L759 288 L760 284 L763 276 L765 272 L768 266 L771 260 L774 256 L776 252 L780 247 L784 242 L788 237 L792 233 L796 229 L800 226 L804 222 L808 219 L812 216 L817 212 L823 208 L828 205 L832 202 L836 200 L843 196 L848 194 L852 192 L860 188 L864 186 L869 184 L876 181 L880 180 L888 177 L892 176 L900 173 L904 172 L912 170 L918 168 L924 166 L932 165 L936 164 L944 162 L952 161 L956 160 L964 159 L972 158 L980 157 L988 156 L992 156Z"/>
+<path class="c" pathLength="1" style="--i:12" d="M1016 172 L1024 172 L1032 171 L1040 171 L1048 172 L1056 172 L1060 172 L1068 173 L1076 174 L1084 175 L1092 176 L1096 176 L1104 178 L1112 180 L1116 180 L1124 182 L1130 184 L1136 186 L1143 188 L1148 190 L1154 192 L1160 194 L1164 196 L1172 199 L1176 201 L1181 204 L1188 207 L1192 210 L1196 212 L1203 216 L1208 219 L1212 222 L1216 225 L1221 228 L1226 232 L1231 236 L1236 240 L1240 244 L1244 248 L1248 252 L1252 256 L1256 260 L1259 264 L1263 268 L1266 272 L1269 276 L1272 280 L1276 286 L1280 292 L1283 296 L1285 300 L1288 306 L1291 312 L1293 316 L1296 322 L1298 328 L1300 332 L1303 340 L1304 344 L1306 352 L1308 359 L1309 364 L1311 372 L1312 379 L1313 384 L1314 392 L1314 400 L1315 408 L1315 416 L1315 424 L1315 432 L1314 440 L1313 448 L1312 456 L1312 460 L1311 468 L1309 476 L1308 482 L1307 488 L1305 496 L1303 500 L1301 508 L1300 512 L1297 520 L1295 524 L1292 531 L1290 536 L1288 540 L1284 547 L1281 552 L1279 556 L1276 560 L1272 566 L1268 571 L1264 576 L1260 580 L1256 584 L1252 588 L1248 591 L1244 594 L1240 597 L1235 600 L1228 604 L1224 606 L1220 608 L1212 612 L1208 613 L1200 616 L1196 617 L1188 619 L1184 620 L1176 622 L1168 623 L1161 624 L1156 624 L1148 625 L1140 625 L1132 626 L1124 625 L1116 625 L1108 625 L1100 624 L1096 624 L1088 623 L1080 622 L1072 620 L1068 620 L1060 618 L1052 616 L1048 615 L1040 613 L1034 612 L1028 610 L1021 608 L1016 606 L1009 604 L1004 602 L998 600 L992 598 L987 596 L980 593 L976 591 L969 588 L964 585 L960 583 L953 580 L948 577 L944 575 L939 572 L932 568 L928 565 L924 563 L920 560 L914 556 L908 552 L904 549 L900 546 L896 542 L892 539 L888 536 L884 532 L879 528 L875 524 L871 520 L867 516 L863 512 L859 508 L855 504 L852 500 L848 495 L844 490 L840 485 L836 480 L833 476 L830 472 L828 468 L824 462 L820 456 L818 452 L816 448 L812 441 L809 436 L807 432 L804 424 L802 420 L800 415 L798 408 L796 403 L794 396 L792 390 L791 384 L789 376 L788 371 L787 364 L786 356 L786 348 L786 340 L786 332 L787 324 L788 316 L789 312 L791 304 L792 299 L795 292 L796 288 L800 280 L802 276 L804 272 L808 266 L812 261 L816 256 L819 252 L823 248 L826 244 L831 240 L835 236 L840 232 L844 229 L848 226 L852 223 L856 220 L863 216 L868 213 L872 211 L877 208 L884 204 L888 203 L894 200 L900 197 L904 196 L912 193 L916 191 L924 189 L928 187 L936 185 L940 184 L948 182 L956 180 L960 179 L968 178 L976 176 L980 176 L988 174 L996 174 L1004 173 L1012 172 L1016 172Z"/>
+<path class="c" pathLength="1" style="--i:13" d="M1020 188 L1028 187 L1036 187 L1044 187 L1052 187 L1060 187 L1068 188 L1072 188 L1080 189 L1088 190 L1096 191 L1102 192 L1108 193 L1116 195 L1121 196 L1128 198 L1135 200 L1140 202 L1147 204 L1152 206 L1158 208 L1164 211 L1168 213 L1175 216 L1180 218 L1184 221 L1190 224 L1196 227 L1200 230 L1204 233 L1209 236 L1214 240 L1219 244 L1224 248 L1228 251 L1232 255 L1236 259 L1240 263 L1244 267 L1248 272 L1252 276 L1255 280 L1258 284 L1261 288 L1264 293 L1268 299 L1271 304 L1273 308 L1276 313 L1279 320 L1281 324 L1284 331 L1286 336 L1288 342 L1290 348 L1292 356 L1293 360 L1295 368 L1296 375 L1297 380 L1298 388 L1298 396 L1299 404 L1299 412 L1298 420 L1298 428 L1297 436 L1296 444 L1296 448 L1294 456 L1292 464 L1291 468 L1289 476 L1288 481 L1286 488 L1284 493 L1281 500 L1279 504 L1276 512 L1274 516 L1272 520 L1268 527 L1265 532 L1262 536 L1259 540 L1256 544 L1252 549 L1248 554 L1244 558 L1240 562 L1236 565 L1232 569 L1228 572 L1222 576 L1216 580 L1212 582 L1208 584 L1200 588 L1196 590 L1190 592 L1184 594 L1177 596 L1172 597 L1164 599 L1159 600 L1152 601 L1144 602 L1136 603 L1128 603 L1120 603 L1112 603 L1104 603 L1096 603 L1088 602 L1080 601 L1072 600 L1068 599 L1060 598 L1052 596 L1048 595 L1040 594 L1034 592 L1028 590 L1020 588 L1016 587 L1008 584 L1004 582 L998 580 L992 578 L988 576 L980 573 L976 571 L970 568 L964 565 L960 563 L955 560 L948 556 L944 553 L940 551 L936 548 L930 544 L924 540 L920 537 L916 534 L912 531 L908 528 L904 524 L899 520 L895 516 L891 512 L887 508 L883 504 L879 500 L875 496 L872 492 L868 487 L864 482 L860 477 L856 472 L854 468 L851 464 L848 459 L844 453 L841 448 L839 444 L836 438 L833 432 L831 428 L828 420 L827 416 L824 409 L823 404 L820 396 L819 392 L818 384 L816 376 L816 372 L815 364 L815 356 L815 348 L815 340 L816 332 L817 328 L818 320 L820 313 L822 308 L824 302 L826 296 L828 292 L832 285 L835 280 L838 276 L840 272 L844 267 L848 263 L852 258 L856 254 L860 250 L864 247 L868 243 L872 240 L878 236 L883 232 L888 229 L892 227 L896 224 L904 220 L908 218 L912 216 L920 212 L924 211 L930 208 L936 206 L941 204 L948 202 L954 200 L960 198 L968 196 L972 195 L980 193 L988 192 L992 191 L1000 190 L1008 189 L1016 188 L1020 188Z"/>
+<path class="c" pathLength="1" style="--i:14" d="M1016 204 L1024 203 L1032 202 L1040 202 L1048 201 L1056 201 L1064 201 L1072 202 L1080 203 L1088 203 L1092 204 L1100 205 L1108 207 L1114 208 L1120 209 L1128 211 L1132 213 L1140 215 L1144 217 L1152 220 L1156 221 L1162 224 L1168 227 L1172 229 L1179 232 L1184 235 L1188 237 L1192 240 L1198 244 L1204 248 L1208 251 L1212 254 L1216 258 L1220 261 L1224 265 L1228 269 L1232 273 L1236 277 L1240 282 L1244 287 L1248 292 L1251 296 L1253 300 L1256 304 L1260 311 L1263 316 L1265 320 L1268 328 L1270 332 L1272 338 L1274 344 L1276 350 L1278 356 L1279 364 L1280 368 L1282 376 L1283 384 L1283 392 L1283 400 L1283 408 L1283 416 L1282 424 L1281 432 L1280 440 L1279 444 L1278 452 L1276 458 L1274 464 L1272 471 L1270 476 L1268 481 L1265 488 L1263 492 L1260 498 L1257 504 L1255 508 L1252 512 L1248 518 L1244 523 L1240 528 L1237 532 L1233 536 L1229 540 L1224 544 L1220 548 L1216 551 L1212 554 L1208 556 L1202 560 L1196 563 L1192 565 L1187 568 L1180 571 L1176 572 L1168 575 L1164 576 L1156 578 L1148 580 L1144 580 L1136 582 L1128 582 L1120 583 L1112 583 L1104 583 L1096 583 L1088 583 L1080 582 L1072 581 L1066 580 L1060 579 L1052 578 L1045 576 L1040 575 L1032 573 L1028 572 L1020 569 L1016 568 L1008 565 L1004 563 L996 560 L992 559 L986 556 L980 553 L976 551 L970 548 L964 545 L960 542 L956 540 L950 536 L944 532 L940 529 L936 526 L932 523 L928 520 L923 516 L918 512 L913 508 L909 504 L905 500 L901 496 L897 492 L894 488 L890 484 L887 480 L884 476 L880 471 L876 465 L873 460 L870 456 L868 452 L864 446 L861 440 L859 436 L856 429 L854 424 L852 420 L849 412 L848 408 L846 400 L844 393 L843 388 L842 380 L841 372 L841 364 L841 356 L841 348 L842 340 L843 332 L844 328 L846 320 L848 315 L851 308 L853 304 L856 297 L859 292 L861 288 L864 284 L868 279 L872 274 L876 269 L880 265 L884 261 L888 257 L892 254 L896 251 L900 248 L905 244 L911 240 L916 237 L920 235 L925 232 L932 228 L936 226 L941 224 L948 221 L952 220 L960 217 L964 215 L972 213 L976 212 L984 210 L991 208 L996 207 L1004 205 L1012 204 L1016 204Z"/>
+<path class="c idx" pathLength="1" style="--i:15" d="M1036 216 L1044 215 L1052 215 L1060 215 L1068 215 L1076 215 L1084 216 L1088 216 L1096 217 L1104 219 L1111 220 L1116 221 L1124 223 L1128 224 L1136 227 L1140 228 L1148 231 L1152 233 L1160 236 L1164 238 L1168 240 L1175 244 L1180 247 L1184 249 L1188 252 L1194 256 L1200 260 L1204 264 L1208 267 L1212 270 L1216 274 L1220 278 L1224 282 L1228 287 L1232 292 L1235 296 L1238 300 L1241 304 L1244 309 L1248 316 L1250 320 L1252 324 L1256 332 L1257 336 L1260 343 L1262 348 L1264 356 L1265 360 L1266 368 L1268 376 L1268 380 L1269 388 L1269 396 L1269 404 L1269 412 L1268 418 L1267 424 L1266 432 L1264 440 L1263 444 L1261 452 L1260 456 L1257 464 L1255 468 L1252 475 L1249 480 L1247 484 L1244 490 L1240 496 L1237 500 L1234 504 L1231 508 L1228 512 L1224 516 L1220 520 L1216 524 L1211 528 L1206 532 L1201 536 L1196 539 L1192 542 L1188 544 L1180 548 L1176 550 L1171 552 L1164 555 L1160 556 L1152 558 L1145 560 L1140 561 L1132 562 L1124 563 L1118 564 L1112 564 L1104 565 L1096 565 L1088 564 L1082 564 L1076 563 L1068 562 L1060 561 L1053 560 L1048 559 L1040 557 L1036 556 L1028 554 L1022 552 L1016 550 L1011 548 L1004 545 L1000 544 L992 540 L988 538 L984 536 L976 532 L972 530 L968 527 L963 524 L957 520 L952 517 L948 514 L944 511 L940 508 L935 504 L931 500 L927 496 L922 492 L918 488 L915 484 L911 480 L908 476 L904 472 L900 466 L896 461 L893 456 L890 452 L888 448 L884 441 L881 436 L879 432 L876 424 L874 420 L872 413 L870 408 L868 400 L867 396 L866 388 L865 380 L864 372 L864 368 L864 360 L864 356 L865 348 L866 340 L868 333 L869 328 L872 320 L874 316 L876 311 L879 304 L882 300 L884 296 L888 290 L892 285 L896 280 L900 276 L904 272 L908 268 L912 265 L916 261 L920 258 L924 255 L929 252 L935 248 L940 245 L944 243 L949 240 L956 237 L960 235 L967 232 L972 230 L978 228 L984 226 L991 224 L996 223 L1004 221 L1008 220 L1016 218 L1024 217 L1032 216 L1036 216Z"/>
+<path class="c" pathLength="1" style="--i:16" d="M1052 228 L1060 228 L1068 228 L1076 228 L1080 228 L1088 229 L1096 230 L1104 231 L1109 232 L1116 233 L1124 236 L1128 237 L1136 239 L1140 241 L1148 244 L1152 245 L1158 248 L1164 251 L1168 253 L1173 256 L1179 260 L1184 263 L1188 266 L1192 269 L1196 272 L1200 276 L1205 280 L1209 284 L1213 288 L1216 292 L1220 296 L1224 301 L1228 307 L1231 312 L1234 316 L1236 320 L1240 327 L1242 332 L1244 336 L1247 344 L1248 348 L1251 356 L1252 362 L1253 368 L1254 376 L1255 384 L1255 392 L1255 400 L1255 408 L1254 416 L1253 424 L1252 428 L1250 436 L1248 442 L1246 448 L1244 453 L1241 460 L1239 464 L1236 470 L1233 476 L1230 480 L1227 484 L1224 489 L1220 494 L1216 498 L1212 503 L1208 506 L1204 510 L1200 513 L1196 517 L1191 520 L1185 524 L1180 527 L1176 529 L1170 532 L1164 535 L1160 536 L1152 539 L1148 540 L1140 543 L1133 544 L1128 545 L1120 546 L1112 547 L1104 547 L1096 548 L1088 547 L1080 547 L1072 546 L1064 545 L1057 544 L1052 543 L1044 541 L1039 540 L1032 538 L1025 536 L1020 534 L1014 532 L1008 530 L1004 528 L996 524 L992 522 L988 520 L981 516 L976 513 L972 511 L968 508 L962 504 L957 500 L952 496 L948 493 L944 489 L940 486 L936 482 L932 478 L928 473 L924 468 L920 464 L917 460 L914 456 L912 452 L908 446 L904 440 L902 436 L900 431 L897 424 L895 420 L892 412 L891 408 L889 400 L888 396 L887 388 L886 380 L885 372 L885 364 L886 356 L887 348 L888 343 L890 336 L892 329 L894 324 L896 319 L899 312 L902 308 L904 304 L908 298 L912 293 L916 288 L920 284 L924 280 L928 276 L932 272 L936 269 L940 266 L944 263 L949 260 L955 256 L960 253 L964 251 L970 248 L976 245 L980 244 L988 241 L992 239 L1000 237 L1004 236 L1012 234 L1019 232 L1024 231 L1032 230 L1040 229 L1048 228 L1052 228Z"/>
+<path class="c" pathLength="1" style="--i:17" d="M1060 240 L1068 240 L1076 240 L1080 240 L1088 241 L1096 242 L1104 243 L1110 244 L1116 245 L1124 248 L1128 249 L1136 251 L1140 253 L1148 256 L1152 258 L1156 260 L1164 264 L1168 266 L1172 269 L1177 272 L1182 276 L1187 280 L1192 284 L1196 288 L1200 291 L1204 296 L1208 300 L1211 304 L1214 308 L1217 312 L1220 316 L1224 323 L1227 328 L1229 332 L1232 339 L1234 344 L1236 351 L1238 356 L1239 364 L1240 368 L1241 376 L1242 384 L1242 392 L1242 400 L1241 408 L1240 416 L1239 420 L1237 428 L1236 432 L1233 440 L1232 444 L1228 452 L1226 456 L1224 460 L1220 467 L1217 472 L1214 476 L1210 480 L1207 484 L1203 488 L1199 492 L1195 496 L1190 500 L1185 504 L1180 507 L1176 510 L1172 512 L1164 516 L1160 518 L1155 520 L1148 523 L1144 524 L1136 526 L1129 528 L1124 529 L1116 530 L1108 531 L1100 531 L1092 532 L1084 531 L1076 531 L1068 530 L1060 529 L1055 528 L1048 526 L1040 524 L1036 523 L1028 521 L1024 519 L1016 516 L1012 515 L1006 512 L1000 509 L996 507 L991 504 L984 500 L980 497 L976 495 L972 492 L967 488 L962 484 L958 480 L953 476 L949 472 L945 468 L942 464 L939 460 L935 456 L932 451 L928 446 L925 440 L922 436 L920 432 L916 424 L915 420 L912 413 L910 408 L908 400 L907 396 L906 388 L905 380 L905 372 L905 364 L906 356 L907 348 L908 344 L910 336 L912 332 L915 324 L917 320 L920 315 L924 308 L927 304 L930 300 L933 296 L937 292 L941 288 L945 284 L950 280 L955 276 L960 272 L964 269 L968 267 L973 264 L980 260 L984 258 L989 256 L996 253 L1000 252 L1008 249 L1012 248 L1020 246 L1027 244 L1032 243 L1040 242 L1048 241 L1056 240 L1060 240Z"/>
+<path class="c" pathLength="1" style="--i:18" d="M1064 252 L1072 252 L1080 252 L1084 252 L1092 253 L1100 254 L1108 255 L1112 256 L1120 258 L1126 260 L1132 262 L1138 264 L1144 267 L1148 269 L1155 272 L1160 275 L1164 277 L1168 280 L1174 284 L1179 288 L1184 292 L1188 296 L1192 300 L1196 304 L1199 308 L1203 312 L1206 316 L1208 320 L1212 326 L1215 332 L1217 336 L1220 342 L1222 348 L1224 354 L1226 360 L1227 368 L1228 372 L1229 380 L1229 388 L1229 396 L1228 404 L1228 408 L1226 416 L1224 424 L1223 428 L1220 436 L1218 440 L1216 444 L1212 452 L1209 456 L1207 460 L1204 464 L1200 469 L1196 473 L1192 478 L1188 481 L1184 485 L1180 488 L1174 492 L1168 496 L1164 498 L1160 501 L1153 504 L1148 506 L1143 508 L1136 510 L1129 512 L1124 513 L1116 515 L1108 516 L1104 516 L1096 516 L1088 517 L1080 516 L1076 516 L1068 515 L1060 514 L1052 512 L1048 511 L1040 509 L1036 508 L1028 505 L1024 504 L1016 500 L1012 498 L1007 496 L1000 492 L996 490 L992 487 L987 484 L982 480 L977 476 L972 472 L968 469 L964 465 L960 461 L956 456 L953 452 L950 448 L947 444 L944 440 L940 434 L937 428 L935 424 L932 417 L930 412 L928 406 L926 400 L925 392 L924 386 L923 380 L923 372 L924 364 L924 360 L925 352 L927 344 L929 340 L932 332 L933 328 L936 323 L940 316 L943 312 L946 308 L949 304 L952 300 L956 296 L960 292 L965 288 L970 284 L975 280 L980 277 L984 275 L989 272 L996 268 L1000 266 L1006 264 L1012 262 L1017 260 L1024 258 L1032 256 L1036 255 L1044 254 L1052 253 L1060 252 L1064 252Z"/>
+<path class="c idx" pathLength="1" style="--i:19" d="M1064 264 L1072 263 L1080 264 L1088 264 L1092 264 L1100 265 L1108 267 L1113 268 L1120 270 L1127 272 L1132 274 L1137 276 L1144 279 L1148 281 L1153 284 L1160 288 L1164 291 L1168 294 L1172 297 L1176 300 L1180 304 L1184 308 L1188 313 L1192 317 L1196 323 L1199 328 L1202 332 L1204 336 L1208 344 L1209 348 L1212 356 L1213 360 L1215 368 L1216 376 L1216 381 L1216 388 L1216 393 L1215 400 L1214 408 L1212 416 L1211 420 L1208 428 L1206 432 L1204 437 L1200 444 L1198 448 L1195 452 L1192 456 L1188 460 L1184 465 L1180 469 L1176 472 L1171 476 L1166 480 L1160 484 L1156 486 L1152 488 L1144 492 L1140 493 L1132 496 L1128 497 L1120 499 L1114 500 L1108 501 L1100 502 L1092 502 L1084 502 L1076 501 L1068 501 L1064 500 L1056 498 L1048 497 L1044 495 L1036 493 L1032 491 L1024 488 L1020 486 L1015 484 L1008 480 L1004 478 L1000 475 L996 472 L990 468 L985 464 L981 460 L977 456 L973 452 L969 448 L966 444 L963 440 L960 436 L956 429 L953 424 L951 420 L948 413 L946 408 L944 400 L943 396 L942 388 L941 380 L941 372 L941 364 L942 356 L944 349 L946 344 L948 337 L950 332 L952 328 L956 322 L960 316 L963 312 L967 308 L970 304 L975 300 L979 296 L984 292 L988 289 L992 287 L996 284 L1004 280 L1008 278 L1012 276 L1020 273 L1024 272 L1032 269 L1036 268 L1044 266 L1052 265 L1060 264 L1064 264Z"/>
+<path class="c" pathLength="1" style="--i:20" d="M1064 276 L1072 275 L1080 275 L1088 276 L1092 276 L1100 277 L1108 279 L1113 280 L1120 282 L1126 284 L1132 286 L1136 288 L1144 292 L1148 294 L1152 297 L1157 300 L1162 304 L1167 308 L1171 312 L1175 316 L1179 320 L1182 324 L1185 328 L1188 333 L1192 340 L1194 344 L1196 349 L1199 356 L1200 361 L1202 368 L1203 376 L1203 384 L1203 392 L1202 400 L1200 408 L1199 412 L1196 420 L1195 424 L1192 430 L1189 436 L1186 440 L1183 444 L1180 448 L1176 452 L1172 456 L1168 460 L1163 464 L1157 468 L1152 471 L1148 474 L1143 476 L1136 479 L1132 481 L1124 483 L1120 484 L1112 486 L1104 487 L1096 488 L1088 488 L1080 488 L1072 487 L1064 486 L1056 484 L1052 483 L1044 481 L1040 479 L1032 476 L1028 474 L1023 472 L1016 468 L1012 466 L1008 463 L1004 460 L999 456 L994 452 L990 448 L986 444 L983 440 L979 436 L976 431 L972 425 L969 420 L967 416 L964 409 L962 404 L960 396 L959 392 L958 384 L958 376 L958 368 L959 360 L960 355 L962 348 L964 342 L967 336 L969 332 L972 327 L976 321 L980 316 L984 312 L988 308 L992 305 L996 301 L1000 298 L1004 296 L1010 292 L1016 289 L1020 287 L1028 284 L1032 283 L1040 280 L1044 279 L1052 278 L1060 276 L1064 276Z"/>
+<path class="c" pathLength="1" style="--i:21" d="M1072 288 L1080 288 L1088 288 L1092 288 L1100 289 L1108 291 L1112 292 L1120 294 L1124 296 L1132 299 L1136 301 L1141 304 L1147 308 L1152 311 L1156 315 L1160 318 L1164 322 L1168 327 L1172 332 L1175 336 L1177 340 L1180 345 L1183 352 L1185 356 L1187 364 L1188 368 L1189 376 L1189 384 L1189 392 L1188 399 L1187 404 L1184 412 L1183 416 L1180 422 L1177 428 L1174 432 L1171 436 L1168 440 L1164 444 L1160 448 L1155 452 L1149 456 L1144 459 L1140 462 L1135 464 L1128 467 L1124 468 L1116 471 L1109 472 L1104 473 L1096 474 L1088 474 L1080 473 L1072 473 L1067 472 L1060 470 L1052 468 L1048 467 L1040 464 L1036 462 L1031 460 L1024 456 L1020 453 L1016 451 L1012 448 L1008 444 L1003 440 L999 436 L996 432 L992 427 L988 421 L985 416 L983 412 L980 405 L978 400 L976 392 L975 388 L975 380 L975 372 L975 364 L976 360 L978 352 L980 347 L983 340 L985 336 L988 332 L992 326 L996 322 L1000 318 L1004 314 L1008 311 L1012 308 L1018 304 L1024 301 L1028 299 L1034 296 L1040 294 L1046 292 L1052 291 L1060 289 L1068 288 L1072 288Z"/>
+<path class="c" pathLength="1" style="--i:22" d="M1056 303 L1064 302 L1072 301 L1080 300 L1088 301 L1096 302 L1104 303 L1108 304 L1116 306 L1120 308 L1128 311 L1132 314 L1136 316 L1142 320 L1147 324 L1151 328 L1155 332 L1159 336 L1161 340 L1164 344 L1168 351 L1170 356 L1172 362 L1174 368 L1175 376 L1175 384 L1174 392 L1173 400 L1171 404 L1168 412 L1166 416 L1164 420 L1160 426 L1156 431 L1152 435 L1148 438 L1144 441 L1140 444 L1134 448 L1128 451 L1124 453 L1116 455 L1112 456 L1104 458 L1096 459 L1088 459 L1080 459 L1072 458 L1064 456 L1060 455 L1052 453 L1048 451 L1041 448 L1036 446 L1032 443 L1027 440 L1022 436 L1018 432 L1013 428 L1010 424 L1007 420 L1004 416 L1000 409 L998 404 L996 400 L994 392 L992 384 L992 380 L992 372 L992 368 L994 360 L996 353 L998 348 L1000 344 L1004 337 L1008 332 L1012 328 L1016 324 L1020 321 L1024 318 L1028 315 L1033 312 L1040 309 L1044 307 L1052 304 L1056 303Z"/>
+<path class="c idx" pathLength="1" style="--i:23" d="M1068 316 L1076 315 L1084 315 L1092 315 L1097 316 L1104 317 L1112 320 L1116 321 L1121 324 L1128 328 L1132 331 L1136 334 L1140 337 L1144 342 L1148 347 L1151 352 L1153 356 L1156 363 L1157 368 L1159 376 L1159 384 L1158 392 L1156 399 L1154 404 L1152 408 L1148 414 L1144 419 L1140 424 L1136 427 L1132 430 L1128 433 L1122 436 L1116 438 L1111 440 L1104 442 L1096 443 L1088 443 L1080 443 L1072 442 L1064 440 L1060 439 L1053 436 L1048 434 L1044 431 L1039 428 L1034 424 L1029 420 L1026 416 L1022 412 L1020 408 L1016 401 L1014 396 L1012 390 L1011 384 L1010 376 L1011 368 L1012 363 L1014 356 L1016 352 L1020 345 L1024 340 L1028 336 L1032 332 L1036 329 L1040 326 L1044 324 L1052 320 L1056 319 L1064 317 L1068 316Z"/></g>
+  <path class="trav" d="M1060 418 L1210 556 L1400 610"/>
+  <path class="trav" d="M1060 418 L930 640 L760 770"/>
+  <circle class="stn" cx="1210" cy="556" r="5"/>
+  <circle class="stn" cx="1400" cy="610" r="5"/>
+  <circle class="stn" cx="930" cy="640" r="5"/>
+  
+  <g class="obelisk">
+    <path class="ob" d="M1020 400 H1100 V386 H1020 Z"/>
+    <path class="ob" d="M1030 386 H1090 V330 H1030 Z"/>
+    <path class="ob" d="M1026 336 H1094 V328 H1026 Z"/>
+    <path class="ob" d="M1040 328 L1046 132 H1074 L1080 328 Z"/>
+    <path class="ob" d="M1046 132 L1060 104 L1074 132 Z"/>
+    <path class="ob-h" d="M1070 140 L1075 320 M1066 140 L1070 320"/>
+    <path class="ob-h" d="M1084 342 V380 M1080 342 V380 M1076 342 V380"/>
+    <path class="ob-h" d="M1036 346 H1070 M1036 366 H1070"/>
+    <path class="ob-h" d="M1094 391 V397 M1090 391 V397"/>
+  </g>
+  <circle class="datum" cx="1060" cy="418" r="9"/>
+  <path class="datum" d="M1046 418 H1074 M1060 404 V432"/>
+  <circle class="datum-dot" cx="1060" cy="418" r="2.6"/>
+  <path class="lead" d="M1082 226 L1152 196 H1316"/>
+  <text x="1158" y="188">Macquarie Place, 1818</text>
+  <text class="sub" x="1158" y="216">Datum, mile 0</text>
+  <text class="sub" x="1218" y="584">Mile 1</text>
+  <text class="sub" x="1300" y="644">Mile 2</text>
+  <g transform="translate(1356 92)">
+    <path class="north" d="M0 -34 V34 M-12 0 H12"/>
+    <path class="north-fill" d="M0 -34 L7 -12 L0 -17 L-7 -12 Z"/>
+    <text x="-6" y="-42" style="font-size:18px">N</text>
+  </g>
+</svg>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <h1 id="hero-title">Every business mind starts at <em>mile zero.</em></h1>
+      <p class="lede">Mile Zero runs the Sydney Schools Business Competition: a free, staged business case for teams from any NSW secondary school. No finance background needed.</p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:hello@milezeronetwork.org?subject=SSBC%202027%20team%20registration" data-link="register">Register your team</a>
+        <a class="btn btn-outline" href="/competition/">How the competition works</a>
       </div>
-      <aside class="marker" aria-label="Key dates">
-        <div class="zero">0</div>
-        <div class="mono label">Starting line</div>
-        <dl>
-          <div><dt>Registrations close</dt><dd>2 Feb 2027</dd></div>
-          <div><dt>Mile 1 opens</dt><dd>3 Feb 2027</dd></div>
-          <div><dt>Live Final</dt><dd>4 Mar · UNSW</dd></div>
-          <div><dt>Entry</dt><dd>Free</dd></div>
-        </dl>
-      </aside>
+      <dl class="datum-card" aria-label="Key details for 2027">
+        <div><dt>Registrations close</dt><dd>2 Feb 2027</dd></div>
+        <div><dt>Mile 1 opens</dt><dd>3 Feb 2027</dd></div>
+        <div><dt>Live Final</dt><dd>4 Mar 2027<small>Sydney Grammar School</small></dd></div>
+        <div><dt>Entry</dt><dd>Free<small>For any NSW secondary school</small></dd></div>
+      </dl>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Why enter -->
-  <section>
-    <div class="wrap">
-      <div class="three">
-        <div>
-          <h3>Real decisions, not trivia.</h3>
-          <p>You advise a company with a genuine problem. Every mile releases new information and asks you to commit to a choice.</p>
-        </div>
-        <div>
-          <h3>Built for beginners.</h3>
-          <p>Every business term is explained the first time it appears. What wins is reasoning, not jargon.</p>
-        </div>
-        <div>
-          <h3>Judged on your thinking.</h3>
-          <p>Submissions are coded so markers never see your school. Same case, same rubric, same start line for everyone.</p>
-        </div>
+<section class="section" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="why-title">Why enter</h2>
+    </div>
+    <div class="three">
+      <div>
+        <h3>Real decisions, not trivia.</h3>
+        <p>You advise a company with a genuine problem. Every stage releases new information and asks you to commit to a choice.</p>
+      </div>
+      <div>
+        <h3>Built for beginners.</h3>
+        <p>Every business term is explained the first time it appears. What wins is reasoning, not jargon.</p>
+      </div>
+      <div>
+        <h3>Judged on your thinking.</h3>
+        <p>Submissions are coded so markers never see your school&rsquo;s name. Same case, same rubric, same start line for everyone.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Case teaser -->
-  <section class="case">
-    <div class="wrap case-grid">
-      <div>
-        <span class="mono eyebrow">The 2027 case</span>
-        <h2>Eight million unsold tags. Losing value every month.</h2>
-        <p>It's December 2026. A Sydney company has a warehouse full of stock nobody ordered, and a board with A$12 million and one question: what now? Sell cheap, build a brand, or turn a problem into a real business? Your team decides.</p>
-        <a class="btn" href="#competition">See the route</a>
-      </div>
-      <blockquote>
-        <p>“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.”</p>
-        <footer>Amelia Chen, CEO, Southern Cross Technologies (fictional)</footer>
+<section class="section feature" aria-labelledby="case-title">
+  <div class="wrap case-grid">
+    <div>
+      <span class="label sc">The 2027 case</span>
+      <h2 id="case-title">Eight million unsold tags. Losing value every month.</h2>
+      <p>It&rsquo;s December 2026. A Sydney company is sitting on eight million unsold identification tags. The board has A$12 million and one question: what now? Sell them cheap, build a consumer brand, or turn a warehouse full of stock into a real business? Your team decides.</p>
+      <a class="btn btn-light" href="/competition/">See the competition</a>
+    </div>
+    <figure>
+      <blockquote class="quote">
+        <p>&ldquo;We didn&rsquo;t acquire eight million microchips. We acquired eight million decisions about where this company goes next.&rdquo;</p>
+        <footer>Amelia Chen, CEO, Southern Cross Technologies (a fictional company in the case)</footer>
       </blockquote>
-    </div>
-  </section>
+    </figure>
+  </div>
+</section>
 
-  <!-- Route -->
-  <section id="competition">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="mono eyebrow">The route</span>
-        <h2>Five weeks. Four miles. One final.</h2>
-        <p>New information arrives in stages. Each stage, each <em>mile</em>, asks for a new decision and a new deliverable.</p>
-      </div>
-      <ol class="route">
-        <li>
-          <div class="post"><div><small>MILE</small><b>0</b></div></div>
-          <div>
-            <h3>Briefing Check</h3>
-            <p>A ten-minute check that you've read the Opening Case. Not scored. It just makes sure nobody starts behind.</p>
-          </div>
-          <div class="mono date">1–2 Feb</div>
-        </li>
-        <li>
-          <div class="post"><div><small>MILE</small><b>1</b></div></div>
-          <div>
-            <h3>Where to Play</h3>
-            <p>Market data, customer interviews and a survey. Decide which markets to enter, and which to walk away from.</p>
-            <p class="submit"><span>Submit:</span> decision worksheet · 150–250 word memo · one evidence calculation</p>
-          </div>
-          <div class="mono date">3–10 Feb</div>
-        </li>
-        <li>
-          <div class="post"><div><small>MILE</small><b>2</b></div></div>
-          <div>
-            <h3>Making It Pay</h3>
-            <p>Three business models, a divided board and a A$12 million budget. Build a three-year plan and stress-test it.</p>
-            <p class="submit"><span>Submit:</span> three-year plan · 150–250 word memo · 2–3 minute pitch, every member speaks</p>
-          </div>
-          <div class="mono date">11–17 Feb</div>
-        </li>
-        <li class="gate">
-          <div class="post"><div><small>GATE</small><b>✓</b></div></div>
-          <div>
-            <h3>School nominations</h3>
-            <p>Each school puts forward one team to continue.</p>
-          </div>
-          <div class="mono date">21 Feb</div>
-        </li>
-        <li>
-          <div class="post"><div><small>MILE</small><b>3</b></div></div>
-          <div>
-            <h3>Project Kestrel</h3>
-            <p>A surprise offer lands on the CEO's desk with a 48-hour deadline. Accept, reject or negotiate.</p>
-            <p class="submit"><span>Submit:</span> response memo up to 400 words · plan changes · one-page term sheet</p>
-          </div>
-          <div class="mono date">22–28 Feb</div>
-        </li>
-        <li class="final">
-          <div class="post"><div><small>FINAL</small><b>★</b></div></div>
-          <div>
-            <h3>Live Final at UNSW</h3>
-            <p>The top ten teams present for up to seven minutes, take five minutes of judges' questions, then respond live to news they haven't seen.</p>
-          </div>
-          <div class="mono date">4 Mar</div>
-        </li>
-      </ol>
+<section class="section" aria-labelledby="route-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="route-title">The route</h2>
+      <p class="lede">Five weeks, measured in miles. Each stage brings new information and asks for a new decision.</p>
     </div>
-  </section>
+    <ol class="route-strip">
+      <li><a href="/competition/#mile-0"><span class="post is-zero" aria-hidden="true"><svg viewBox="0 0 48 72" preserveAspectRatio="none"><path d="M7 70.5 V21 L24 4 L41 21 V70.5 Z"/></svg><span class="post-n">0</span></span><span class="when sc">1&ndash;2 Feb</span><span class="what">Briefing Check</span><span class="where">Ten minutes, not scored</span></a></li>
+      <li><a href="/competition/#mile-1"><span class="post" aria-hidden="true"><svg viewBox="0 0 48 72" preserveAspectRatio="none"><path d="M7 70.5 V21 L24 4 L41 21 V70.5 Z"/></svg><span class="post-n">1</span></span><span class="when sc">3&ndash;10 Feb</span><span class="what">Where to Play</span><span class="where">Decision worksheet and memo</span></a></li>
+      <li><a href="/competition/#mile-2"><span class="post" aria-hidden="true"><svg viewBox="0 0 48 72" preserveAspectRatio="none"><path d="M7 70.5 V21 L24 4 L41 21 V70.5 Z"/></svg><span class="post-n">2</span></span><span class="when sc">11&ndash;17 Feb</span><span class="what">Making It Pay</span><span class="where">Three-year plan and pitch</span></a></li>
+      <li><a href="/competition/#mile-3"><span class="post" aria-hidden="true"><svg viewBox="0 0 48 72" preserveAspectRatio="none"><path d="M7 70.5 V21 L24 4 L41 21 V70.5 Z"/></svg><span class="post-n">3</span></span><span class="when sc">22&ndash;28 Feb</span><span class="what">Project Kestrel</span><span class="where">Nominated teams</span></a></li>
+      <li><a href="/competition/#final"><span class="post is-final" aria-hidden="true"><svg viewBox="0 0 48 72" preserveAspectRatio="none"><path d="M7 70.5 V21 L24 4 L41 21 V70.5 Z"/></svg><span class="post-n">F</span></span><span class="when sc">4 Mar</span><span class="what">Live Final</span><span class="where">Sydney Grammar School</span></a></li>
+    </ol>
+    <p class="route-foot"><a class="textlink" href="/competition/">See every stage, deliverable and date</a></p>
+  </div>
+</section>
 
-  <!-- Eligibility + judging -->
-  <section style="padding-top: 0;">
-    <div class="wrap split">
-      <div>
-        <span class="mono eyebrow">Who can enter</span>
-        <h2>Any school. Any background.</h2>
-        <ul class="ticks">
-          <li>Students at any NSW secondary school</li>
-          <li>Teams of three to four from the same school</li>
-          <li>Up to three teams per school</li>
-          <li>A teacher at your school who knows you're taking part</li>
-          <li>Free. No paid software or databases needed.</li>
-        </ul>
-      </div>
-      <div>
-        <span class="mono eyebrow">How you're judged</span>
-        <h2>Five criteria, every stage.</h2>
-        <table>
-          <tr><th>Problem framing</th><td>Did you find the real problem?</td></tr>
-          <tr><th>Evidence and analysis</th><td>Did you read the evidence correctly and use it?</td></tr>
-          <tr><th>Feasibility and numbers</th><td>Could the company do this, and do the numbers add up?</td></tr>
-          <tr><th>Recommendation and trade-offs</th><td>Did you make a clear call and admit what it costs?</td></tr>
-          <tr><th>Communication</th><td>Is it clear, concise and persuasive?</td></tr>
-        </table>
-        <p class="note">Use AI for research and editing, then declare it. The analysis must be yours, and any member may be asked to explain any number. Sponsors have no say in results.</p>
-      </div>
+<section class="section sheet" aria-labelledby="toolkit-title">
+  <div class="wrap band-grid">
+    <h2 id="toolkit-title">No business society at your school? Start one with ours.</h2>
+    <div>
+      <p class="lede">The Mile Zero Starter Toolkit has everything a student needs to start a society, run a first meeting and get a team ready for the competition. It&rsquo;s free, and built by students who&rsquo;ve done it.</p>
+      <div class="btn-row"><a class="btn" href="/toolkit/">Get the Starter Toolkit</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Programs -->
-  <section id="programs" style="padding-top: 0;">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="mono eyebrow">Programs</span>
-        <h2>The competition is where we start.</h2>
-      </div>
-      <div class="programs">
-        <div class="card">
-          <span class="mono tag live">Live · 2027</span>
-          <h3>SSBC</h3>
-          <p>Our flagship. A staged business case for teams from any NSW school, ending in a live final at UNSW.</p>
-        </div>
-        <div class="card">
-          <span class="mono tag">Coming 2027</span>
-          <h3>Mile Zero Network</h3>
-          <p>For student business societies: shared resources, joint events, and a Starter Toolkit that helps schools without a society start one.</p>
-        </div>
-        <div class="card">
-          <span class="mono tag">Coming soon</span>
-          <h3>Learn</h3>
-          <p>Short lessons you can finish in 10–20 minutes: how a business makes money, reading an income statement, debt versus equity.</p>
-        </div>
-      </div>
+<section class="inkband closer" aria-labelledby="closer-title">
+  <div class="wrap closer-grid">
+    <div>
+      <h2 id="closer-title">Three to four students. One school. Five weeks.</h2>
+      <p>Register before 2 February.</p>
+      <a class="btn btn-light" href="mailto:hello@milezeronetwork.org?subject=SSBC%202027%20team%20registration" data-link="register">Register your team</a>
     </div>
-  </section>
-
-  <!-- About -->
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <div class="body">
-        <span class="mono eyebrow">Why "Mile Zero"?</span>
-        <h2>Where everything is measured from.</h2>
-        <p style="margin-top: 24px;">In Macquarie Place, a short walk from Circular Quay, stands an obelisk from 1818. Road distances in the colony were measured from it. It is Sydney's mile zero: the point everything else is counted from.</p>
-        <p>We think financial confidence works the same way. Where you start shapes everything after it. So we start everyone in the same place.</p>
-        <div class="ibis">
-          <h3>Why the ibis?</h3>
-          <p>Sydney calls it the bin chicken. We call it underestimated. It adapted when its wetlands dried up, learned to eat cane toads safely and passed the trick on, and never flies alone. Egyptians made it the symbol of knowledge. Judge it by its work, not its nickname.</p>
-        </div>
-      </div>
-      <div>
-        <span class="mono eyebrow">What we stand for</span>
-        <h2>Five values.</h2>
-        <ul class="values">
-          <li><div><b>Start at zero.</b><span>Same start line for everyone.</span></div></li>
-          <li><div><b>Pull up a chair.</b><span>There's always room for one more. Bring a friend, find your people.</span></div></li>
-          <li><div><b>Source it or drop it.</b><span>Be curious enough to check.</span></div></li>
-          <li><div><b>Play the long game.</b><span>Think in years, because good decisions compound.</span></div></li>
-          <li><div><b>Leave the ladder down.</b><span>Climb, then help the next person up.</span></div></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="mono eyebrow">Questions</span>
-        <h2>Before you sign up.</h2>
-      </div>
-      <details><summary>Do we need to know finance?</summary><p>No. Terms are explained the first time they appear, and the case gives you every number you need.</p></details>
-      <details><summary>How much time does it take?</summary><p>A few hours per mile, spread across a week. Mile 0 takes ten minutes.</p></details>
-      <details><summary>Can Year 9 and 10 students enter?</summary><p>Yes. Any secondary student in NSW can enter.</p></details>
-      <details><summary>Our school doesn't have a business society. Can we still enter?</summary><p>Yes. You only need a teacher who knows you're taking part.</p></details>
-      <details><summary>Can we use AI tools?</summary><p>For research and editing, yes, as long as you declare it. The main analysis and decisions must be your team's own.</p></details>
-      <details><summary>What are the prizes?</summary><p>To be announced.</p></details>
-    </div>
-  </section>
-
-  <!-- Get involved -->
-  <section id="involved" style="padding-top: 0;">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="mono eyebrow">Get involved</span>
-        <h2>Pull up a chair.</h2>
-      </div>
-      <div class="involve">
-        <div>
-          <h3>Students</h3>
-          <p>Form a team of three to four and register before 2 February. Or join as an ambassador and help run next year's competition.</p>
-          <a class="link" href="#register">Register a team</a>
-        </div>
-        <div>
-          <h3>Teachers</h3>
-          <p>Entry is free. We'll send a one-page overview and a poster for your noticeboard.</p>
-          <a class="link" href="mailto:hello@milezeronetwork.org?subject=Teacher%20pack">Request the teacher pack</a>
-        </div>
-        <div>
-          <h3>Business societies</h3>
-          <p>Join the Mile Zero Network for shared resources and events, and help bring new schools in.</p>
-          <a class="link" href="mailto:hello@milezeronetwork.org?subject=Mile%20Zero%20Network">Join the network</a>
-        </div>
-        <div>
-          <h3>Partners</h3>
-          <p>Help as case reviewers, judges, mentors or venue hosts. Partners never influence judging.</p>
-          <a class="link" href="mailto:hello@milezeronetwork.org?subject=Partnership">Partner with us</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Closer -->
-  <section class="closer" id="register">
-    <div class="wrap">
-      <span class="mono eyebrow">Registrations close 2 February 2027</span>
-      <h2>Three to four students. One school. Five weeks.</h2>
-      <p>Get a team together and take the first step.</p>
-      <a class="btn" href="#">Register your team</a>
-    </div>
-  </section>
+    <svg class="closer-mark" viewBox="0 0 24 44" aria-hidden="true" focusable="false"><path d="M12 1.5 L15.2 7.5 L16.6 31 H7.4 L8.8 7.5 Z M8.8 7.5 H15.2 M5.5 31 H18.5 V36.5 H5.5 Z M3 36.5 H21 V42 H3 Z"/><circle class="dot" cx="12" cy="39.25" r="1.2"/></svg>
+  </div>
+</section>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <span>Mile Zero · A student-led initiative for NSW secondary students. Free to enter, open to every school.</span>
-    <a href="mailto:hello@milezeronetwork.org">hello@milezeronetwork.org</a>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <img class="footer-ibis" src="/assets/img/ibis.svg" alt="" width="72" height="92">
+    <div>
+      <span class="footer-brand"><img src="/assets/img/mark.svg" alt="" width="11" height="20">Mile Zero</span>
+      <p class="footer-line">Mile Zero is a free, student-led initiative for NSW secondary students.</p>
+    </div>
+    <div class="footer-meta">
+      <ul class="footer-links">
+        <li><a href="/rules/">Rules</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="mailto:hello@milezeronetwork.org">hello@milezeronetwork.org</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2026 Mile Zero</p>
+    </div>
   </div>
 </footer>
-
 </body>
 </html>

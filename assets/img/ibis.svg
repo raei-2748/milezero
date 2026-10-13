@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 460" fill="none" stroke="#1D2F4A" stroke-linecap="round" stroke-linejoin="round">
+  <!-- legs: thigh hidden, tarsus long and dark, heel joint bends back -->
+  <g fill="#1D2F4A" stroke-width="1">
+    <path d="M196 296 L201 296 L204 362 L198 432 L194 432 L199 362 Z"/>
+    <path d="M226 298 L231 298 L242 360 L240 432 L236 432 L237 361 Z"/>
+  </g>
+  <g stroke-width="2.2">
+    <path d="M196 432 L166 438 M196 432 L180 444 M196 432 L214 436"/>
+    <path d="M238 432 L212 442 M238 432 L230 448 M238 432 L262 436"/>
+  </g>
+  <!-- body -->
+  <path fill="#F8F9F5" stroke-width="2.2" d="M138 214 C116 234 118 278 160 296 C200 312 262 306 306 292 C326 286 342 280 352 276 C336 242 296 206 238 198 C200 193 164 198 138 214 Z"/>
+  <!-- engraved hatching on underside and flank -->
+  <g stroke-width="1" opacity=".7">
+    <path d="M132 258 C140 276 152 286 168 292"/>
+    <path d="M144 270 C156 284 172 292 190 297"/>
+    <path d="M164 286 C182 296 204 300 226 300"/>
+    <path d="M196 299 C222 302 250 300 276 294"/>
+    <path d="M126 240 C128 252 134 262 142 270"/>
+  </g>
+  <!-- wing coverts outline -->
+  <path stroke-width="1.6" d="M156 214 C206 202 268 214 320 256"/>
+  <path stroke-width="1.4" d="M170 264 C214 284 268 288 318 276"/>
+  <g stroke-width=".9" opacity=".6">
+    <path d="M196 214 C202 230 202 248 196 266"/>
+    <path d="M218 212 C226 232 226 254 218 274"/>
+    <path d="M240 216 C248 236 248 258 242 280"/>
+    <path d="M262 222 C270 242 270 262 264 284"/>
+    <path d="M284 232 C292 248 292 266 288 284"/>
+  </g>
+  <!-- black plumes draping over tail -->
+  <g fill="#1D2F4A" stroke-width="1">
+    <path d="M262 236 C296 248 326 268 344 300 C342 312 336 318 334 322 C324 292 296 268 266 252 Z"/>
+    <path d="M280 254 C306 268 322 288 326 326 C318 302 300 282 282 268 Z"/>
+    <path d="M300 250 C326 262 344 278 356 300 C346 292 330 280 306 266 Z"/>
+  </g>
+  <!-- white lower neck feathering -->
+  <path fill="#F8F9F5" stroke-width="2" d="M126 150 C122 172 128 196 138 214 C148 206 160 202 170 202 C160 186 152 168 150 148 Z"/>
+  <!-- bare black upper neck and head -->
+  <path fill="#1D2F4A" stroke-width="1.5" d="M124 158 C118 136 112 118 106 106 C100 94 104 80 118 78 C132 76 142 86 144 100 C146 116 148 134 152 156 C142 152 132 154 124 158 Z"/>
+  <!-- bill: long, slender, down-curved -->
+  <path fill="#1D2F4A" stroke-width="1.2" d="M108 86 C86 88 64 104 48 132 C38 150 32 170 30 190 C34 172 42 154 52 138 C66 116 86 100 110 98 Z"/>
+  <!-- eye -->
+  <circle cx="122" cy="90" r="2.4" fill="#C98F4E" stroke="none"/>
+  <!-- ground line -->
+  <g stroke-width="1" opacity=".55">
+    <path d="M140 450 H290"/>
+    <path d="M158 456 H270"/>
+  </g>
+</svg>
