@@ -1,0 +1,28 @@
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/">{{> obelisk}}<span>{{brand.name}}</span></a>
+      <p>A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
+      <p class="coords">33°51′48″S · 151°12′37″E · Macquarie Place, Sydney</p>
+    </div>
+    <nav aria-label="Footer">
+      <h2 class="label">Explore</h2>
+      <ul>
+        <li><a href="/competition/">The competition</a></li>
+        <li><a href="/rules/">Rules</a></li>
+        <li><a href="/programs/">Programs</a></li>
+        <li><a href="/toolkit/">Starter Toolkit</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Contact">
+      <h2 class="label">Contact</h2>
+      <ul>
+        <li><a href="mailto:{{brand.email}}">{{brand.email}}</a></li>
+        {{@instagram}}
+        <li><a href="/get-involved/">Get involved</a></li>
+        <li><a href="/privacy/">Privacy</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,92 @@
+<!--page {"title": "About", "description": "{{brand.name}} is a student-led initiative bringing business and finance education to NSW secondary students. Our vision, mission, values and team."} -->
+<section class="hero page-hero">
+  <div class="wrap">
+    <p class="eyebrow">About {{brand.name}}</p>
+    <h1>Where everything is measured from.</h1>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Vision</p>
+      <p class="statement">A future where every young Australian starts early and starts level in business and finance, and lets good decisions compound.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Mission</p>
+      <p class="statement statement-small">{{brand.name}} is a student-led initiative that sparks and catalyses curiosity about money and business in every secondary student, from any school, through free competitions, short lessons and a school network, so good decisions start early and compound.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="chain" aria-hidden="true"></div></div>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">Why “Mile Zero”?</p>
+      <h2>Sydney's starting line.</h2>
+      <div class="prose" style="margin-top: 24px;">
+        <p>In Macquarie Place, a short walk from Circular Quay, stands a sandstone obelisk from 1818. Road distances across the colony were measured from it, and many of the roads leading out of Sydney still are. It is Sydney's mile zero: the point everything else is counted from.</p>
+        <p>We think financial confidence works the same way. Where you start shapes everything after it. So we start everyone in the same place.</p>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">What we stand for</p>
+      <h2>Five values.</h2>
+      <ul class="values" style="margin-top: 28px;">
+        <li><div><b>Start at zero.</b><span>Same start line for everyone.</span></div></li>
+        <li><div><b>Pull up a chair.</b><span>There's always room for one more. Bring a friend, find your people.</span></div></li>
+        <li><div><b>Source it or drop it.</b><span>Be curious enough to check.</span></div></li>
+        <li><div><b>Play the long game.</b><span>Think in years because good compounds.</span></div></li>
+        <li><div><b>Leave the ladder down.</b><span>Climb, then help the next person up.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap ibis-grid">
+    <img src="/assets/img/ibis-seal.svg" alt="An engraved white ibis inside a round seal reading “Judge it by its work, not its nickname”" width="300" height="300">
+    <div>
+      <p class="eyebrow">Why the ibis?</p>
+      <h2>Underestimated, on purpose.</h2>
+      <div class="prose" style="margin-top: 24px;">
+        <p>Sydney calls it the bin chicken. We call it underestimated.</p>
+        <p>The ibis adapts: when its inland wetlands dried up, it made a new home in the city. It never travels alone. And three thousand years ago, Egyptians made it the symbol of knowledge.</p>
+        <p><strong>Judge it by its work, not its nickname.</strong> That's what {{brand.name}} asks for every student.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How we're organised</p>
+      <h2>Student-led, with adults in the right places.</h2>
+      <p class="lede">{{brand.name}} is run by students from schools across Sydney. Every role is a flat “Head of” title.</p>
+    </div>
+    <ul class="tiers">
+      <li><b>Adult Committee</b><span>Governance and safeguarding.</span></li>
+      <li><b>Adult Partners</b><span>Academics and professionals who advise, review cases and judge.</span></li>
+      <li><b>Executives</b><span>Five students who run {{brand.name}} day to day.</span></li>
+      <li><b>Partners</b><span>Organisations that help deliver our programs, such as the competition portal.</span></li>
+      <li><b>Ambassadors</b><span>Younger students who shadow the executive and help with outreach, events and resources.</span></li>
+      <li><b>School Representatives</b><span>Two or three students at each school who connect their business society to the network.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The team</p>
+      <h2>Who runs {{brand.name}}.</h2>
+    </div>
+    {{@team}}
+    <div class="ctas"><a class="btn btn-ghost" data-link="ambassador" href="mailto:{{brand.email}}?subject=Ambassador">Become an ambassador</a></div>
+  </div>
+</section>
+
+{{@partnerBar}}

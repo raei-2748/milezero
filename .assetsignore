@@ -4,6 +4,12 @@
 .wrangler
 node_modules
 .assetsignore
+.nojekyll
 wrangler.jsonc
+site.config.json
+package.json
+src
+scripts
 CNAME
 CONTENT.md
+README.md

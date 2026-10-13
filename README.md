@@ -1,0 +1,53 @@
+# Mile Zero website
+
+The brand site for Mile Zero and the Sydney Schools Business Competition (SSBC), served at
+[milezeronetwork.org](https://milezeronetwork.org) by GitHub Pages, with Cloudflare Workers preview builds on every PR.
+
+It's a static site with no dependencies. Pages are generated from `src/` by a small Node script, and the generated
+HTML is committed, so both hosts just serve files.
+
+## Common changes
+
+| To change… | Edit | Then |
+|---|---|---|
+| A Google Form or portal link | `assets/js/links.js` | Commit. No build needed. |
+| Brand name, email, Instagram, final venue or dates | `site.config.json` | `npm run build`, commit |
+| Stage descriptions, judging weights | `site.config.json` (`stages`, `criteria`, `weights`) | `npm run build`, commit |
+| Show a partner logo | `site.config.json` → `partners`: set `logoApproved: true` (and `logo` to an image path) | `npm run build`, commit |
+| Name a team member | `site.config.json` → `team`: set `consent: true` | `npm run build`, commit |
+| Page copy | `src/pages/*.html` | `npm run build`, commit |
+| Header, footer, page shell | `src/partials/*.html` | `npm run build`, commit |
+| Styles | `assets/css/site.css` | Commit |
+
+Never edit the generated `index.html`, `*/index.html` or `404.html` directly: the next build overwrites them, and the
+**Site check** workflow fails any PR where they don't match `src/`.
+
+### Links that aren't ready yet
+
+Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `portal`) uses the URL in
+`assets/js/links.js`. While a link is empty, the button emails `hello@` instead, so nothing points at a dead page.
+
+### Public-information rules
+
+- **Partners:** only partners with written approval get `logoApproved: true`. Until then, the "Supported by" bar stays hidden.
+- **Students:** only list a team member once they've agreed (`consent: true`). The same goes for school names and photos.
+- **Case materials:** don't publish case content before the Live Final (4 March 2027). The site only has a vague teaser.
+
+## Local preview
+
+```sh
+npm run build
+npx wrangler dev        # or: python3 -m http.server
+```
+
+## Layout
+
+```
+site.config.json      brand, dates, stages, weights, partners, team
+src/pages/            one file per page (about.html → /about/)
+src/partials/         layout, header, footer, obelisk mark
+assets/css/site.css   styles: "survey marker" art direction
+assets/js/links.js    Google Form and portal links
+assets/img/           contours.svg (npm run contours), ibis seal, favicon
+scripts/build.mjs     the build
+```
