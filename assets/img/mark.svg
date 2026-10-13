@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 44" width="24" height="44" fill="none" stroke="#1D2F4A" stroke-width="1.6" stroke-linejoin="round">
+  <title>Mile Zero</title>
+  <path fill="#F8F9F5" d="M12 1.5 L15.2 7.5 L16.6 31 H7.4 L8.8 7.5 Z"/>
+  <path d="M8.8 7.5 H15.2"/>
+  <path fill="#F8F9F5" d="M5.5 31 H18.5 V36.5 H5.5 Z"/>
+  <path fill="#F8F9F5" d="M3 36.5 H21 V42 H3 Z"/>
+  <path stroke-width="1" d="M13.6 10 L14.6 29"/>
+</svg>
