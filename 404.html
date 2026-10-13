@@ -14,14 +14,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+    <path d="M33 42 L32 53 M39 42 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="var(--ibis-fill, #fff)" stroke="#E1251B" stroke-width="5"/>
+    <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+    <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -33,14 +54,25 @@
 <main id="main">
 <section class="page-hero">
   <div class="wrap grid">
-    <div class="span-9">
-      <h1>This page doesn't exist.</h1>
-      <p class="lede">It may have moved. Start again from the home page.</p>
+    <div class="span-7">
+      <h1>This page went in the bin.</h1>
+      <p class="lede">The address may be mistyped, or the page may have moved. Everything that still exists is one click away.</p>
       <div class="actions">
-        <a class="btn" href="/">Back to the home page</a>
-        <a class="btn btn-outline" href="/competition/">The competition</a>
+        <a class="btn" href="/">Go to the home page</a>
+        <a class="btn btn-outline" href="/competition/">See the competition</a>
       </div>
     </div>
+    <svg class="bin-ibis" viewBox="0 0 520 470" role="img" aria-labelledby="bin-t">
+      <title id="bin-t">An ibis with its head in a rubbish bin</title>
+      <path d="M78 282 L8 336 L84 320 Z"/>
+      <g fill="none" stroke="#000" stroke-width="10" stroke-linecap="round"><path d="M150 360 L144 452 M128 454 L162 452"/><path d="M200 360 L208 452 M198 452 L234 454"/></g>
+      <ellipse cx="172" cy="300" rx="100" ry="68" fill="#fff" stroke="#E1251B" stroke-width="34"/>
+      <path d="M252 262 C292 196 338 170 372 222" fill="none" stroke="#000" stroke-width="24" stroke-linecap="round"/>
+      <path d="M318 208 L478 208 L462 452 L334 452 Z" fill="#fff" stroke="#000" stroke-width="12" stroke-linejoin="round"/>
+      <g stroke="#000" stroke-width="8" stroke-linecap="round"><path d="M368 244 L374 420"/><path d="M398 244 L398 420"/><path d="M428 244 L422 420"/></g>
+      <path d="M306 196 L474 120 L486 142 L318 218 Z" fill="#1D3BC8"/>
+      <circle cx="486" cy="128" r="9" fill="#1D3BC8"/>
+    </svg>
   </div>
 </section>
 
@@ -48,7 +80,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">

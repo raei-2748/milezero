@@ -14,14 +14,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+    <path d="M33 42 L32 53 M39 42 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="var(--ibis-fill, #fff)" stroke="#E1251B" stroke-width="5"/>
+    <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+    <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/" aria-current="page">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -49,7 +70,15 @@
     <div class="section-title"><h2>The route</h2></div>
     <div class="section-body">
       <p class="lede">Exact opening and closing times are emailed to every registered team when each stage opens. Late work isn't marked.</p>
-      <ol class="route">
+      <div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
+  <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+  <path class="leg-a" d="M33 41 L32 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path class="leg-b" d="M39 41 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="#fff" stroke="#E1251B" stroke-width="5"/>
+  <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+  <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+</svg></div></div><ol class="route">
       <li class="route-check">
         <span class="numeral" aria-hidden="true">0</span>
         <p class="when">1–2 Feb</p>
@@ -57,6 +86,7 @@
         <h3><span class="vh">Mile 0: </span>Briefing Check</h3>
         <p class="summary">A short check that your team has read the Opening Case. Five or six auto-marked questions, ten minutes once opened. Not scored: it just makes sure nobody starts behind.</p>
         <ul class="submit"><li>One set of answers per team</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">1</span>
@@ -65,6 +95,7 @@
         <h3><span class="vh">Mile 1: </span>Where to Play</h3>
         <p class="summary">Market data, customer interviews and a survey. Decide which markets to enter first, which to leave for later, and which to walk away from.</p>
         <ul class="submit"><li>Decision worksheet</li><li>150–250 word memo</li><li>One evidence calculation</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">2</span>
@@ -73,6 +104,7 @@
         <h3><span class="vh">Mile 2: </span>Making It Pay</h3>
         <p class="summary">Choose how the company makes money, build a three-year plan inside the budget, and test what happens if sales come in slower than hoped.</p>
         <ul class="submit"><li>Three-year and investment plan</li><li>150–250 word memo</li><li>2–3 minute recorded pitch (every member speaks)</li></ul>
+        
       </li>
       <li class="route-gate">
         <span class="numeral" aria-hidden="true">Schools</span>
@@ -80,6 +112,7 @@
         <p class="who">Schools</p>
         <h3>School nominations</h3>
         <p class="summary">Each school nominates one team to continue, based on Mile 1 and Mile 2.</p>
+        
         
       </li>
       <li class="route-mile">
@@ -89,6 +122,7 @@
         <h3><span class="vh">Mile 3: </span>Project Kestrel</h3>
         <p class="summary">Something unexpected lands on the CEO's desk. Decide whether to accept, reject or negotiate, and show what changes in your plan.</p>
         <ul class="submit"><li>Response memo (up to 400 words)</li><li>“What changes” table</li><li>One-page term sheet</li></ul>
+        
       </li>
       <li class="route-final">
         <span class="numeral" aria-hidden="true">Final</span>
@@ -97,6 +131,7 @@
         <h3>Live Final, Sydney Grammar School</h3>
         <p class="summary">Present your strategy in up to seven minutes, take five minutes of judges' questions, then respond live to new information you haven't seen before.</p>
         
+        <span class="flock" role="img" aria-label="Ten finalist teams"><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg></span>
       </li>
     </ol>
       <p class="muted">The top ten teams overall, ranked on Mile 1, Mile 2 and Project Kestrel, are invited to the Live Final at Sydney Grammar School on 4 March 2027.</p>
@@ -126,11 +161,15 @@
     <div class="section-body">
       <p class="lede">The same five criteria at every stage, with weights that shift to match what each stage tests. Submissions are coded so markers don't see school names, teams near the finalist cut-off are marked twice, and sponsors have no say in results.</p>
       
-    <div class="table-scroll"><table class="weights">
-      <caption>Weighting of each criterion by stage. Mile 0 is auto-marked and not weighted.</caption>
+    <div class="bars" aria-hidden="true"><div class="bar-row"><b>Mile 1</b><div class="bar"><span class="c0" style="flex-basis:25%">25</span><span class="c1" style="flex-basis:35%">35</span><span class="c2" style="flex-basis:10%">10</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Mile 2</b><div class="bar"><span class="c0" style="flex-basis:25%">25</span><span class="c1" style="flex-basis:25%">25</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Project Kestrel</b><div class="bar"><span class="c0" style="flex-basis:20%">20</span><span class="c1" style="flex-basis:20%">20</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:30%">30</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Live Final</b><div class="bar"><span class="c0" style="flex-basis:20%">20</span><span class="c1" style="flex-basis:20%">20</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:20%">20</span></div></div>
+    </div>
+    <ul class="legend" aria-hidden="true"><li><i class="c0"></i>Framing</li><li><i class="c1"></i>Evidence</li><li><i class="c2"></i>Feasibility</li><li><i class="c3"></i>Trade-offs</li><li><i class="c4"></i>Communication</li></ul>
+    <div class="vh"><table>
+      <caption>Weighting of each criterion by stage, in percent. Mile 0 is auto-marked and not weighted.</caption>
       <thead><tr><th scope="col">Stage</th><th scope="col">Framing</th><th scope="col">Evidence</th><th scope="col">Feasibility</th><th scope="col">Trade-offs</th><th scope="col">Communication</th></tr></thead>
-      <tbody><tr><th scope="row">Mile 1</th><td>25%</td><td class="peak">35%</td><td>10%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Mile 2</th><td>25%</td><td>25%</td><td>20%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Project Kestrel</th><td>20%</td><td>20%</td><td>20%</td><td class="peak">30%</td><td>10%</td></tr><tr><th scope="row">Live Final</th><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td></tr></tbody>
+      <tbody><tr><th scope="row">Mile 1</th><td>25%</td><td>35%</td><td>10%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Mile 2</th><td>25%</td><td>25%</td><td>20%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Project Kestrel</th><td>20%</td><td>20%</td><td>20%</td><td>30%</td><td>10%</td></tr><tr><th scope="row">Live Final</th><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td></tr></tbody>
     </table></div>
+    <p class="small muted">Weights in percent for each stage. Mile 0 is auto-marked and not weighted.</p>
       <dl class="criteria"><div><dt>Problem framing</dt><dd>Did you find the central problem and build a clear strategy around it?</dd></div><div><dt>Evidence and analysis</dt><dd>Is the evidence relevant, read correctly and used to support your recommendation?</dd></div><div><dt>Feasibility and numbers</dt><dd>Could the company actually do this, and do the numbers add up?</dd></div><div><dt>Recommendation and trade-offs</dt><dd>Did you make a clear call and admit the main risks and alternatives?</dd></div><div><dt>Communication</dt><dd>Is it clear, concise and persuasive?</dd></div></dl>
     </div>
   </div>
@@ -201,7 +240,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">

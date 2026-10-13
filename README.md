@@ -34,6 +34,13 @@ Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `
 - **Partners:** list a partner in the config only once the relationship is confirmed, for the same reason.
 - **Case materials:** don't publish case content before the Live Final (4 March 2027). The site only has a vague teaser.
 
+## The ibis
+
+The home page opens with the red zero tipping over to become the ibis. It plays once per browser session and never
+with reduced motion turned on; add `?intro` to the address to replay it. The same ibis is the logo (an SVG symbol in
+`src/partials/layout.html`), walks the competition route as you scroll, forms the flock of ten finalists, and lives in
+the bin on the 404 page. Tap the home-page ibis five times.
+
 ## Local preview
 
 ```sh

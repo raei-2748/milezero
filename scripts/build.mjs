@@ -35,10 +35,25 @@ const NAV = [
   { href: "/get-involved/", label: "Get involved" },
 ];
 
-// The stages as a row of columns, each led by its numeral.
+// A small ibis used as the logo, the walker and the flock.
+const useIbis = (cls = "") => `<svg class="mini-ibis ${cls}" viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>`;
+
+// The walker is drawn inline (not <use>) so its legs can be animated.
+const walker = `<div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
+  <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+  <path class="leg-a" d="M33 41 L32 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path class="leg-b" d="M39 41 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="#fff" stroke="#E1251B" stroke-width="5"/>
+  <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+  <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+</svg></div></div>`;
+
+// The stages as a row of columns, each led by its numeral. An ibis walks the
+// route as you scroll, and ten ibises (the ten finalist teams) wait at the Final.
 function routeList(cls) {
   const numeral = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
-  return `<ol class="${cls}">${config.stages
+  return `${walker}<ol class="${cls}">${config.stages
     .map(
       (s) => `
       <li class="route-${s.kind}">
@@ -48,6 +63,7 @@ function routeList(cls) {
         <h3>${s.kind === "mile" || s.kind === "check" ? `<span class="vh">${esc(s.label)}: </span>` : ""}${esc(s.name)}${s.kind === "final" ? `, ${esc(config.final.venue)}` : ""}</h3>
         <p class="summary">${esc(s.summary)}</p>
         ${s.submit.length ? `<ul class="submit">${s.submit.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        ${s.kind === "final" ? `<span class="flock" role="img" aria-label="Ten finalist teams">${useIbis().repeat(10)}</span>` : ""}
       </li>`
     )
     .join("")}
@@ -69,19 +85,26 @@ const helpers = {
       .map((c) => `<div><dt>${esc(c.name)}</dt><dd>${esc(c.question)}</dd></div>`)
       .join("")}</dl>`,
 
+  // Each stage is one bar split by its weights; the table underneath is for screen readers.
   weights: () => `
-    <div class="table-scroll"><table class="weights">
-      <caption>Weighting of each criterion by stage. Mile 0 is auto-marked and not weighted.</caption>
+    <div class="bars" aria-hidden="true">${config.weights
+      .map(
+        (w) =>
+          `<div class="bar-row"><b>${esc(w.stage)}</b><div class="bar">${w.values
+            .map((v, i) => `<span class="c${i}" style="flex-basis:${v}%">${v}</span>`)
+            .join("")}</div></div>`
+      )
+      .join("")}
+    </div>
+    <ul class="legend" aria-hidden="true">${config.criteria.map((c, i) => `<li><i class="c${i}"></i>${esc(c.short)}</li>`).join("")}</ul>
+    <div class="vh"><table>
+      <caption>Weighting of each criterion by stage, in percent. Mile 0 is auto-marked and not weighted.</caption>
       <thead><tr><th scope="col">Stage</th>${config.criteria.map((c) => `<th scope="col">${esc(c.short)}</th>`).join("")}</tr></thead>
       <tbody>${config.weights
-        .map((w) => {
-          const max = Math.max(...w.values);
-          return `<tr><th scope="row">${esc(w.stage)}</th>${w.values
-            .map((v) => `<td${v === max && w.values.filter((x) => x === max).length === 1 ? ' class="peak"' : ""}>${v}%</td>`)
-            .join("")}</tr>`;
-        })
+        .map((w) => `<tr><th scope="row">${esc(w.stage)}</th>${w.values.map((v) => `<td>${v}%</td>`).join("")}</tr>`)
         .join("")}</tbody>
-    </table></div>`,
+    </table></div>
+    <p class="small muted">Weights in percent for each stage. Mile 0 is auto-marked and not weighted.</p>`,
 
   // Only partners whose logo use has been approved in writing appear publicly.
   partnerBar: () => {

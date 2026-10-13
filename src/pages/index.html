@@ -1,5 +1,6 @@
 <!--page {"title": "Home", "description": "{{brand.name}} runs the {{brand.competitionName}}: a free, staged business case competition for students from any NSW secondary school."} -->
 <section class="hero">
+  <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="wrap grid">
     <div class="hero-copy">
       <h1>Every business mind starts at zero.</h1>
@@ -9,7 +10,18 @@
         <a class="btn btn-outline" href="/competition/">How it works</a>
       </div>
     </div>
-    <p class="hero-zero" aria-hidden="true">0</p>
+    <svg class="hero-ibis" viewBox="0 0 640 560" role="img" aria-labelledby="hero-ibis-t" data-ibis>
+      <title id="hero-ibis-t">The Mile Zero ibis: a red zero that becomes the body of an ibis</title>
+      <g class="bird">
+        <path class="pop tail" d="M486 262 L612 356 L480 336 Z" fill="#000"/>
+        <path class="draw leg" pathLength="1" d="M330 400 L318 522 M298 524 L340 522" stroke-width="12"/>
+        <path class="draw leg" pathLength="1" d="M392 400 L404 522 M384 522 L428 524" stroke-width="12"/>
+        <g class="zero"><ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/></g>
+        <path class="draw neck" pathLength="1" d="M236 262 C204 220 190 162 198 108" stroke-width="32"/>
+        <g class="pop head"><circle cx="198" cy="94" r="30" fill="#000"/><circle cx="208" cy="86" r="6" fill="#fff"/></g>
+        <path class="draw bill" pathLength="1" d="M176 88 C128 98 90 152 70 254" stroke-width="13"/>
+      </g>
+    </svg>
   </div>
   <div class="wrap" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
     <dl class="facts">
@@ -32,7 +44,7 @@
   </div>
 </section>
 
-<section class="section inverse">
+<section class="section blue">
   <div class="wrap grid">
     <div class="section-title"><h2>The {{brand.year}} case</h2></div>
     <div class="section-body">
@@ -62,7 +74,7 @@
   </div>
 </section>
 
-<section class="section panel">
+<section class="section yellow">
   <div class="wrap grid">
     <div class="section-title"><h2>More than a competition</h2></div>
     <div class="section-body three-col">

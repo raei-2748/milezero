@@ -14,14 +14,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+    <path d="M33 42 L32 53 M39 42 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="var(--ibis-fill, #fff)" stroke="#E1251B" stroke-width="5"/>
+    <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+    <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -32,6 +53,7 @@
 
 <main id="main">
 <section class="hero">
+  <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="wrap grid">
     <div class="hero-copy">
       <h1>Every business mind starts at zero.</h1>
@@ -41,7 +63,18 @@
         <a class="btn btn-outline" href="/competition/">How it works</a>
       </div>
     </div>
-    <p class="hero-zero" aria-hidden="true">0</p>
+    <svg class="hero-ibis" viewBox="0 0 640 560" role="img" aria-labelledby="hero-ibis-t" data-ibis>
+      <title id="hero-ibis-t">The Mile Zero ibis: a red zero that becomes the body of an ibis</title>
+      <g class="bird">
+        <path class="pop tail" d="M486 262 L612 356 L480 336 Z" fill="#000"/>
+        <path class="draw leg" pathLength="1" d="M330 400 L318 522 M298 524 L340 522" stroke-width="12"/>
+        <path class="draw leg" pathLength="1" d="M392 400 L404 522 M384 522 L428 524" stroke-width="12"/>
+        <g class="zero"><ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/></g>
+        <path class="draw neck" pathLength="1" d="M236 262 C204 220 190 162 198 108" stroke-width="32"/>
+        <g class="pop head"><circle cx="198" cy="94" r="30" fill="#000"/><circle cx="208" cy="86" r="6" fill="#fff"/></g>
+        <path class="draw bill" pathLength="1" d="M176 88 C128 98 90 152 70 254" stroke-width="13"/>
+      </g>
+    </svg>
   </div>
   <div class="wrap" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
     <dl class="facts">
@@ -58,7 +91,15 @@
     <div class="section-title"><h2>How it works</h2></div>
     <div class="section-body">
       <p class="lede">Five weeks, four miles, one final. Each mile releases new information about the same company and asks your team for a new decision.</p>
-      <ol class="route route-compact">
+      <div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
+  <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
+  <path class="leg-a" d="M33 41 L32 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path class="leg-b" d="M39 41 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="#fff" stroke="#E1251B" stroke-width="5"/>
+  <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
+  <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+</svg></div></div><ol class="route route-compact">
       <li class="route-check">
         <span class="numeral" aria-hidden="true">0</span>
         <p class="when">1–2 Feb</p>
@@ -66,6 +107,7 @@
         <h3><span class="vh">Mile 0: </span>Briefing Check</h3>
         <p class="summary">A short check that your team has read the Opening Case. Five or six auto-marked questions, ten minutes once opened. Not scored: it just makes sure nobody starts behind.</p>
         <ul class="submit"><li>One set of answers per team</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">1</span>
@@ -74,6 +116,7 @@
         <h3><span class="vh">Mile 1: </span>Where to Play</h3>
         <p class="summary">Market data, customer interviews and a survey. Decide which markets to enter first, which to leave for later, and which to walk away from.</p>
         <ul class="submit"><li>Decision worksheet</li><li>150–250 word memo</li><li>One evidence calculation</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">2</span>
@@ -82,6 +125,7 @@
         <h3><span class="vh">Mile 2: </span>Making It Pay</h3>
         <p class="summary">Choose how the company makes money, build a three-year plan inside the budget, and test what happens if sales come in slower than hoped.</p>
         <ul class="submit"><li>Three-year and investment plan</li><li>150–250 word memo</li><li>2–3 minute recorded pitch (every member speaks)</li></ul>
+        
       </li>
       <li class="route-gate">
         <span class="numeral" aria-hidden="true">Schools</span>
@@ -89,6 +133,7 @@
         <p class="who">Schools</p>
         <h3>School nominations</h3>
         <p class="summary">Each school nominates one team to continue, based on Mile 1 and Mile 2.</p>
+        
         
       </li>
       <li class="route-mile">
@@ -98,6 +143,7 @@
         <h3><span class="vh">Mile 3: </span>Project Kestrel</h3>
         <p class="summary">Something unexpected lands on the CEO's desk. Decide whether to accept, reject or negotiate, and show what changes in your plan.</p>
         <ul class="submit"><li>Response memo (up to 400 words)</li><li>“What changes” table</li><li>One-page term sheet</li></ul>
+        
       </li>
       <li class="route-final">
         <span class="numeral" aria-hidden="true">Final</span>
@@ -106,6 +152,7 @@
         <h3>Live Final, Sydney Grammar School</h3>
         <p class="summary">Present your strategy in up to seven minutes, take five minutes of judges' questions, then respond live to new information you haven't seen before.</p>
         
+        <span class="flock" role="img" aria-label="Ten finalist teams"><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg></span>
       </li>
     </ol>
       <p><a class="link" href="/competition/">The full route, deliverables and judging</a></p>
@@ -113,7 +160,7 @@
   </div>
 </section>
 
-<section class="section inverse">
+<section class="section blue">
   <div class="wrap grid">
     <div class="section-title"><h2>The 2027 case</h2></div>
     <div class="section-body">
@@ -143,7 +190,7 @@
   </div>
 </section>
 
-<section class="section panel">
+<section class="section yellow">
   <div class="wrap grid">
     <div class="section-title"><h2>More than a competition</h2></div>
     <div class="section-body three-col">
@@ -185,7 +232,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">
