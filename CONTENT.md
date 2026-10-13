@@ -1,226 +1,261 @@
-# Mile Zero — Website Copy (draft v1)
+# Mile Zero — website copy (v2)
 
-Copy for milezeronetwork.org. Everything in **[square brackets]** is a placeholder or needs confirming before it goes live. Nothing here claims a partner, number or result that isn't confirmed — keep it that way.
+The approved copy for milezeronetwork.org, matching the pages in this repository. Nothing here claims a partner, number, prize or result that isn't confirmed. Keep it that way.
+
+Rules for copy: Australian English, sentence case headings, no exclamation marks. Do not name any university, bank or company anywhere on the site. The Live Final venue is Sydney Grammar School.
 
 ---
 
 ## Global
 
 **Site title:** Mile Zero
-**Tagline (under logo / browser tab):** Business and finance, from the starting line.
-**Nav:** Home · The Competition · Programs · About · Get Involved · Contact
-**Primary button (everywhere):** Register your team
-**Footer line:** Mile Zero is a student-led initiative for NSW secondary students. Free to enter, open to every school.
-**Footer links:** hello@milezeronetwork.org · Instagram [@handle] · Rules · Privacy
+**Navigation:** Competition · Starter Toolkit · Network · About · Get involved, plus the button "Register your team"
+**Footer line:** Mile Zero is a free, student-led initiative for NSW secondary students.
+**Footer links:** Rules · Privacy · hello@milezeronetwork.org · © 2026 Mile Zero
 
 ---
 
-## 1. Home
+## Home `/`
 
 ### Hero
-**Headline:** Every finance career starts at mile zero.
-**Subhead:** Mile Zero runs the Sydney Schools Business Competition — a free, staged business case competition for students from any NSW secondary school. No finance background needed. Just clear thinking, good evidence and the nerve to defend your decision.
-**Buttons:** Register your team · How it works
+**Headline:** Every business mind starts at mile zero.
+**Lede:** Mile Zero runs the Sydney Schools Business Competition: a free, staged business case for teams from any NSW secondary school. No finance background needed.
+**Buttons:** Register your team · How the competition works
+**Datum card:**
+- Registrations close: 2 Feb 2027
+- Mile 1 opens: 3 Feb 2027
+- Live Final: 4 Mar 2027, Sydney Grammar School
+- Entry: Free, for any NSW secondary school
 
-**Countdown strip:** Registrations close 2 February 2027 · Live Final 4 March 2027 at UNSW
+**Map label:** Macquarie Place, 1818 / Datum, mile 0
 
-### Three-up: why enter
-**Real decisions, not trivia.**
-You advise a company with a genuine problem. Every stage releases new information and asks you to commit to a choice.
+### Why enter
+**Real decisions, not trivia.** You advise a company with a genuine problem. Every stage releases new information and asks you to commit to a choice.
 
-**Built for beginners.**
-Every business term is explained the first time it appears. What wins is reasoning, not jargon.
+**Built for beginners.** Every business term is explained the first time it appears. What wins is reasoning, not jargon.
 
-**Judged on your thinking.**
-Submissions are coded so markers never see your school's name. Same case, same rubric, same start line for everyone.
+**Judged on your thinking.** Submissions are coded so markers never see your school's name. Same case, same rubric, same start line for everyone.
 
 ### The 2027 case (teaser)
-**It's December 2026. A Sydney company is sitting on eight million unsold identification tags — and they lose value every month.**
-The board has A$12 million and one question: what now? Sell them cheap, build a consumer brand, or turn a warehouse full of stock into a real business? Your team decides.
+**Heading:** Eight million unsold tags. Losing value every month.
+**Body:** It's December 2026. A Sydney company is sitting on eight million unsold identification tags. The board has A$12 million and one question: what now? Sell them cheap, build a consumer brand, or turn a warehouse full of stock into a real business? Your team decides.
+**Quote:** "We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next." Amelia Chen, CEO, Southern Cross Technologies (a fictional company in the case)
 **Button:** See the competition
 
-### Pull quote (from the Opening Case)
-> "We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next."
-> — Amelia Chen, CEO, Southern Cross Technologies *(fictional)*
+### The route
+Five weeks, measured in miles. Each stage brings new information and asks for a new decision.
+- Mile 0, Briefing Check, 1–2 Feb: ten minutes, not scored
+- Mile 1, Where to Play, 3–10 Feb: decision worksheet and memo
+- Mile 2, Making It Pay, 11–17 Feb: three-year plan and pitch
+- Mile 3, Project Kestrel, 22–28 Feb: nominated teams
+- Live Final, 4 Mar: Sydney Grammar School
 
-### Partner bar
-**Heading:** Supported by
-[Logos only once written approval is received. Leave this section hidden until then.]
+### Starter Toolkit band
+**Heading:** No business society at your school? Start one with ours.
+**Body:** The Mile Zero Starter Toolkit has everything a student needs to start a society, run a first meeting and get a team ready for the competition. It's free, and built by students who've done it.
+**Button:** Get the Starter Toolkit
 
 ### Closing CTA
-**Headline:** Three to four students. One school. Five weeks.
-**Body:** Get a team together and register before 2 February.
+**Heading:** Three to four students. One school. Five weeks.
+**Body:** Register before 2 February.
 **Button:** Register your team
 
 ---
 
-## 2. The Competition (SSBC)
+## Competition `/competition/`
 
-### Header
-**Title:** Sydney Schools Business Competition 2027
-**Intro:** You and your team play advisers to Southern Cross Technologies, a fictional Sydney company stuck with eight million unsold tags. Over five weeks, new information arrives in stages. Each stage — each *mile* — asks for a new decision and a new deliverable.
+**H1:** Sydney Schools Business Competition 2027
+**Intro:** You and your team play advisers to Southern Cross Technologies, a fictional Sydney company stuck with eight million unsold tags. Over five weeks, new information arrives in stages. Each stage, each mile, asks for a new decision and a new deliverable.
 
-### The route
-**Mile 0 — Briefing Check** · 1–2 February
-A ten-minute check that you've read the Opening Case. Not scored. It just makes sure nobody starts behind.
+### The route (all dates 2027)
+**Mile 0, Briefing Check** (1–2 February). A short check that you've read the Opening Case, so nobody starts behind. Not scored.
+Submit: a short auto-marked check of 5–6 questions on the Opening Case; 10 minutes once opened; one set of answers per team.
 
-**Mile 1 — Where to Play** · 3–10 February
-Market data, customer interviews and a survey. Decide which markets to enter and which to walk away from.
-*Submit:* decision worksheet, 150–250 word memo, one evidence calculation.
+**Mile 1, Where to Play** (3–10 February). Market data, customer interviews and a survey. Decide which markets to enter and which to walk away from.
+Submit: a decision worksheet; a memo of 150–250 words; one evidence calculation.
 
-**Mile 2 — Making It Pay** · 11–17 February
-Three business models, a divided board and a A$12 million budget. Build a three-year plan and stress-test it.
-*Submit:* three-year plan and investment plan, 150–250 word memo, 2–3 minute recorded pitch where every member speaks.
+**Mile 2, Making It Pay** (11–17 February). With a A$12 million budget to work with, build a three-year plan and stress-test it.
+Submit: a decision worksheet (a three-year plan, an investment plan and a 30% slower scenario); a memo of 150–250 words; a recorded pitch of 2–3 minutes in which every team member speaks.
 
-**School nominations** · 21 February
-Each school puts forward one team.
+**School nominations** (21 February). Each school nominates one team, based on its Mile 1 and Mile 2 results.
 
-**Mile 3 — Project Kestrel** · 22–28 February
-A surprise offer lands on the CEO's desk with a 48-hour deadline. Accept, reject or negotiate.
-*Submit:* response memo (up to 400 words), plan changes, one-page term sheet.
+**Mile 3, Project Kestrel** (22–28 February). For nominated teams. New information changes the picture, and your plan has to respond.
+Submit: a response memo of up to 400 words; a table of what changes in the plan; a one-page term sheet.
 
-**Live Final at UNSW** · 4 March
-The top ten teams present for up to seven minutes, take five minutes of judges' questions, then respond live to news they haven't seen.
+**Live Final at Sydney Grammar School** (4 March). The top 10 teams overall, ranked on Mile 1, Mile 2 and Project Kestrel. Any team member may be asked about any decision.
+Format: a presentation of up to 7 minutes; 5 minutes of judges' questions; a 5-minute live response to new information.
 
 ### Who can enter
-- Students at any NSW secondary school
-- Teams of three to four from the same school
-- Up to three teams per school
-- A teacher at your school who knows you're taking part
-- Free. No paid software or databases needed.
+- Students enrolled at a NSW secondary school
+- Teams of three to four students from the same school
+- Each school may enter up to three teams
+- A student can be in only one team
+- Each team needs a teacher or staff member at the school who knows the team is taking part
+
+Entry is free and no paid databases or software are needed.
 
 ### How you're judged
 The same five criteria at every stage. The weights shift to match what each stage tests.
 
-| Criterion | What judges look for |
-|---|---|
-| Problem framing | Did you find the real problem? |
-| Evidence and analysis | Did you read the evidence correctly and use it? |
-| Feasibility and numbers | Could the company actually do this, and do the numbers add up? |
-| Recommendation and trade-offs | Did you make a clear call and admit what it costs? |
-| Communication | Is it clear, concise and persuasive? |
+| Criterion | What judges look for | Mile 1 | Mile 2 | Kestrel | Final |
+|---|---|---|---|---|---|
+| Problem framing and strategic insight | Did you find the real problem? | 25 | 25 | 20 | 20 |
+| Evidence and quality of analysis | Did you read the evidence correctly and use it? | 35 | 25 | 20 | 20 |
+| Feasibility and financial reasoning | Could the company actually do this, and do the numbers add up? | 10 | 20 | 20 | 20 |
+| Recommendation and trade-offs | Did you make a clear call and admit what it costs? | 20 | 20 | 30 | 20 |
+| Communication | Is it clear, concise and persuasive? | 10 | 10 | 10 | 20 |
+
+Mile 0 is not scored.
 
 ### Fair play, in one paragraph
-Use AI for research and editing, then declare it. The analysis and decisions must be yours, and any team member may be asked to explain any number. Work only with your own team. Submissions are anonymised, teams near the finalist cut-off are double-marked, and sponsors have no say in results.
+Use AI for research and editing, then declare it. The analysis and decisions must be yours, and any team member may be asked to explain any number. Work only with your own team. Submissions are coded so markers don't see school names, teams near the finalist cut-off are marked by two judges, and sponsors and partners have no influence on results.
 **Link:** Read the full rules
 
-### Prizes
-[To be announced. Don't publish until confirmed.]
+### Questions
+**Do we need to know finance?** No. Terms are explained the first time they appear, and the case gives you every number you need.
+**How much time does it take?** Roughly a few hours per mile, spread across a week. Mile 0 takes ten minutes.
+**Can Year 9 and 10 students enter?** Yes. Any secondary student in NSW can enter.
+**Our school doesn't have a business society. Can we still enter?** Yes. You only need a teacher who knows you're taking part. If you'd like to start a society too, the Starter Toolkit shows you how.
+**Can we use AI tools?** For research and editing, yes, as long as you declare it. Not for the main analysis. The analysis and decisions must be your team's own.
+**What if our team isn't nominated?** You still get your Mile 1 and Mile 2 feedback, and you've done a real case from start to finish.
+**When will we hear back?** Exact opening and closing times are emailed to every team as each stage opens.
+**What are the prizes?** We'll announce prizes before registration closes.
 
-### FAQ
-**Do we need to know finance?**
-No. Terms are explained the first time they appear, and the case gives you every number you need.
-
-**How much time does it take?**
-Roughly a few hours per mile, spread across a week. Mile 0 takes ten minutes.
-
-**Can Year 9 and 10 students enter?**
-Yes. Any secondary student in NSW can enter.
-
-**Our school doesn't have a business society. Can we still enter?**
-Yes. You only need a teacher who knows you're taking part.
-
-**Can we use ChatGPT or Claude?**
-For research and editing, yes, as long as you declare it. Not for the main analysis.
-
-**What if our team isn't nominated?**
-You still get your Mile 1 and Mile 2 feedback, and you've done a real case from start to finish.
-
-**When will we hear back?**
-Exact opening and closing times are emailed to every team as each stage opens.
+### Closing CTA
+**Heading:** Get a team together.
+**Body:** Three to four students from one school. Register before 2 February 2027.
 
 ---
 
-## 3. Programs
+## Starter Toolkit `/toolkit/`
 
-**Intro:** The competition is where we start. It isn't all we do.
+**H1:** The Mile Zero Starter Toolkit
+**Lede:** Everything a student needs to start a business society, run a first meeting and get a team ready for SSBC. Free, and built by students who've done it.
 
-### SSBC — the competition
-Our flagship. A staged business case for teams from any NSW school.
-**Button:** Learn more
+### Who it's for
+- **Students starting a society.** You want a business society at your school and don't know where to begin.
+- **Existing society leaders.** You already run one and want ready-made sessions, materials and a way into the competition.
+- **Teachers supervising a team.** You've agreed to support students and want to know what's involved.
 
-### Mile Zero Network
-For student business societies across Sydney. Share resources, run events together, and help schools that don't have a society yet start one. Every member society stays independent.
-**Coming in 2027:** the Mile Zero Starter Toolkit — a start guide, teacher and principal one-pagers, a first-meeting pack, practice sessions and practice cases.
-**Button:** Bring your society in
+### Schedule A: available now (from November 2026)
+| Item | What it's for | Format |
+|---|---|---|
+| Start guide | Found a business society at your school, step by step: finding a supervising teacher, getting approval and signing up your first members. | Guide |
+| Teacher one-pager | What a society and a competition team ask of a supervising teacher, on one page. | One page |
+| Principal one-pager | Why a student business society is worth saying yes to, for school leadership. | One page |
+| FAQ for schools | Answers to the questions schools usually ask before they agree. | Document |
+| First meeting pack | Run sheet, slides, an icebreaker and a team-forming sheet, so your first meeting ends with teams. | Run sheet, slides, worksheets |
+| Poster template | Recruit members from the school noticeboard. | Editable poster |
+| Email and newsletter blurbs | Ready-to-paste text for school newsletters, emails and announcements. | Short texts |
 
-### [Women in Finance — name TBC]
-A community for girls leading business and investment clubs: shared resources, mentoring, and a student-led conference.
-[Hide until the name and first event are confirmed.]
+### Schedule B: coming next (January 2027)
+| Item | What it's for | Format |
+|---|---|---|
+| Three practice sessions | Reading a case; will it pay for itself?; a three-year plan on one page. | Session plans and slides |
+| Two practice cases | Warm-up cases to try before the competition starts. | Case packs |
+| SSBC rubric and annotated sample | The judging rubric with an annotated sample answer, so you can see what judges reward. | Document |
+| Memo template | A clean structure to start every written submission from. | Document |
 
-### Learn
-Short lessons you can finish in 10–20 minutes: how a business makes money, reading an income statement, debt versus equity, risk and trade-offs.
-**Status:** Coming soon.
+### How to get it
+Tell us a little about your school and we'll send the toolkit.
+**Button:** Request the toolkit
+**Note:** You'll get a link to a shared folder of editable Google Docs and Slides. Make a copy and make it yours.
+
+### Open to everyone
+Two documents anyone can read without asking: Start guide · Teacher one-pager
 
 ---
 
-## 4. About
+## Network `/network/`
+
+**H1:** The Mile Zero Network
+**Lede:** Student business societies across Sydney, sharing resources, running events together and helping schools without a society start one. Every member society stays independent.
+**Button:** Join the network
+
+### What members get
+Membership is free. Your society keeps its own name, leaders and plans.
+- Shared resources: session plans, practice material and templates
+- Events run together with other societies
+- The Starter Toolkit first, before it goes to everyone
+- A say in how next year's competition runs
+
+### How to join
+Any student business society at a NSW secondary school can join. Tell us who you are and who leads the society, and we'll be in touch.
+**Button:** Join the network
+No society yet? Start one with the Starter Toolkit.
+
+### Ambassadors
+We're recruiting Year 9 and 10 ambassadors to help with outreach, events and next year's competition.
+**Button:** Become an ambassador
+
+[Member societies: add only once each has agreed to be listed.]
+
+---
+
+## About `/about/`
+
+**H1:** About Mile Zero
+**Lede:** A free, student-led initiative for NSW secondary students. Named after a sandstone obelisk, represented by an underestimated bird.
 
 ### Mission
-Mile Zero is a student-led initiative that sparks curiosity about money and business in every secondary student, from any school, through free competitions, short lessons and a school network — so good decisions start early and compound.
+To spark curiosity about money and business in every secondary student, from any school, through free competitions, short lessons and a school network, so good decisions start early and compound.
 
 ### Vision
 A future where every young Australian starts early and starts level in business and finance.
 
-### Why "Mile Zero"?
-In Macquarie Place, a short walk from Circular Quay, stands an obelisk from 1818. Every road distance in the colony was measured from it. It is Sydney's mile zero: the point everything else is counted from.
+### Why Mile Zero?
+In Macquarie Place, a short walk from Circular Quay, stands a sandstone obelisk raised in 1818 and designed by the colonial architect Francis Greenway. Road distances in the colony were measured from it. It is Sydney's mile zero: the point everything else is counted from.
 
 We think financial confidence works the same way. Where you start shapes everything after it. So we start everyone in the same place.
 
-### Our values
-**Start at zero.** Same start line for everyone.
-**Pull up a chair.** There's always room for one more. Bring a friend, find your people.
-**Source it or drop it.** Be curious enough to check.
-**Play the long game.** Think in years, because good decisions compound.
-**Leave the ladder down.** Climb, then help the next person up.
-
 ### Why the ibis?
 Sydney calls it the bin chicken. We call it underestimated.
+
 When drought dried up its inland wetlands, the ibis adapted and made a new home in the city. It worked out how to eat cane toads safely, and passed the trick on. It flies thousands of kilometres and never travels alone. Three thousand years ago, Egyptians made it the symbol of knowledge.
+
 Judge it by its work, not its nickname. That's what Mile Zero asks for every student.
+
+**Figure caption:** Threskiornis molucca, the Australian white ibis
+
+### What we value
+- **Start at zero.** Same start line for everyone.
+- **Pull up a chair.** There's always room for one more. Bring a friend, find your people.
+- **Source it or drop it.** Be curious enough to check.
+- **Play the long game.** Think in years, because good decisions compound.
+- **Leave the ladder down.** Climb, then help the next person up.
 
 ### Who we are
 Mile Zero is run by students from schools across Sydney, with a school representative network and adult advisers responsible for governance and safeguarding.
 
-**Executive team**
-[Name] — [Role], [School] *(repeat for each; get everyone's OK before publishing names and schools)*
-
-**Advisers**
-[Only list academics or professionals who have agreed to be named.]
+[Executive team and advisers: add names only once each person has agreed to be named.]
 
 ---
 
-## 5. Get Involved
+## Get involved `/get-involved/`
 
-### Students
-Form a team of three to four from your school and register before 2 February 2027.
-**Button:** Register your team
+**H1:** Get involved
+**Lede:** Pull up a chair. Whether you're a student, a teacher, a society leader or an organisation that wants to help, there's a place to start.
 
-Want to help run it? We're recruiting Year 9 and 10 ambassadors to help with outreach, events and next year's competition.
-**Button:** Become an ambassador
+**Students.** Form a team of three to four from your school and register before 2 February 2027. *Button:* Register your team. Want to help run it? We're recruiting Year 9 and 10 ambassadors to help with outreach, events and next year's competition. *Button:* Become an ambassador
 
-### Teachers and schools
-Entry is free. Nothing extra is needed beyond a staff member who knows your teams are taking part. We'll send you a one-page overview and a poster for your noticeboard.
-**Button:** Request the teacher pack
+**Teachers.** Entry is free. The only requirement is a staff member who knows a team is taking part. Request the Starter Toolkit and we'll include the teacher pack: a one-page overview and a poster for your noticeboard. *Button:* Request the toolkit and teacher pack
 
-### Business societies
-Join the Mile Zero Network and get resources, shared events and help bringing new schools in.
-**Button:** Join the network
+**Business societies.** Join the Mile Zero Network and get resources, shared events and help bringing new schools in. Your society stays independent. *Button:* Join the network
 
-### Partners
-Universities, firms and nonprofits can help as case reviewers, judges, mentors, venue hosts or supporters. Partners never influence judging or selection.
-**Button:** Partner with us · partners@milezeronetwork.org
+**Partners.** Universities, firms and nonprofits can help as case reviewers, judges, mentors or venue hosts. Partners never influence judging or selection. *Button:* Email partners@milezeronetwork.org
+
+**Questions? Ask.** Write to hello@milezeronetwork.org and a member of the team will reply.
 
 ---
 
-## 6. Contact
+## Rules `/rules/` and Privacy `/privacy/`
 
-**Headline:** Questions? Ask.
-**Body:** We reply within [two school days].
-- General: hello@milezeronetwork.org
-- Schools and teachers: [schools@milezeronetwork.org]
-- Partners: [partners@milezeronetwork.org]
-- Instagram: [@handle]
+The full text is in `rules/index.html` and `privacy/index.html`. It follows section 7 of `docs/PRD.md` exactly. The privacy page still needs review by the adult committee.
+
+## 404
+
+**Heading:** You've wandered off the map.
+**Body:** This page doesn't exist, or it has moved. Head back to the datum.
 
 ---
 
@@ -228,5 +263,5 @@ Universities, firms and nonprofits can help as case reviewers, judges, mentors, 
 - **Partner logos and adviser names:** only with written permission.
 - **Student names and schools:** get consent first. The rules promise this.
 - **Prizes:** don't mention until confirmed.
-- **Case materials:** the teaser above stays deliberately vague. The rules say case materials aren't shared publicly before the final, so don't post the full Opening Case on the open web. Send it to registered teams instead.
-- **Obelisk story:** worth checking the details against a reliable source before launch ("Source it or drop it").
+- **Case materials:** only the teaser above may be public. Don't post exhibit figures, Project Kestrel's terms or the Live Final announcement.
+- **Obelisk story:** check the details against a reliable source before launch ("Source it or drop it").
