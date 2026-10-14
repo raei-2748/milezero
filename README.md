@@ -34,6 +34,13 @@ Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `
 - **Partners:** list a partner in the config only once the relationship is confirmed, for the same reason.
 - **Case materials:** don't publish case content before the Live Final (4 March 2027). The site only has a vague teaser.
 
+## Backup mirror (for networks that block the main domain)
+
+`node scripts/mirror.mjs` writes a CNAME-free copy of the site to `../milezero-mirror`. Push its contents to a repo named
+`<owner>.github.io` (it has to be at the root of its address, because pages use root-relative links) and turn on GitHub
+Pages for it. The repo's own github.io address can't be used: with `CNAME` present, GitHub redirects it to the custom domain.
+Re-run the script and push again after each site change.
+
 ## Local preview
 
 ```sh
