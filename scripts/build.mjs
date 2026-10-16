@@ -43,8 +43,8 @@ const walker = `<div class="route-track" aria-hidden="true"><div class="walker">
     <g transform="scale(.1)">
       <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
       <path class="leg-a" d="M330 396 L322 462 L330 524 L294 532" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path class="leg-b" d="M394 394 L404 460 L398 524 L434 530" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-      <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="52"/>
-      <path d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z" fill="currentColor"/>
+      <path d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="52"/>
+      
       <ellipse cx="198" cy="100" rx="34" ry="29" fill="currentColor"/>
       <path d="M176 80 C122 92 80 152 60 262 C58 266 52 265 53 258 C70 150 112 102 176 114 Z" fill="currentColor"/>
     </g>

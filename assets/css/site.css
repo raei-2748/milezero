@@ -590,3 +590,10 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
   .poster:has(.flock-poster) { height: auto; }
   .flock-poster { max-width: 15rem; gap: 0.5rem 0.75rem; }
 }
+
+/* Refined posters */
+.inks-poster svg { overflow: visible; }
+.flock-poster .seat { border: 0; display: flex; flex-direction: column; align-items: center; gap: 0.15rem; aspect-ratio: auto; }
+.flock-poster .seat svg { opacity: 0.16; color: var(--black); --ibis-fill: #fff; }
+.flock-poster .seat b { font-size: 0.875rem; font-weight: 800; color: var(--red); }
+@media (max-width: 960px) { .poster.inks-poster { height: 12rem; } }
