@@ -39,7 +39,7 @@ Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `
 The home page opens with the red zero tipping over to become the ibis. It plays once per browser session and never
 with reduced motion turned on; add `?intro` to the address to replay it. The same ibis is the logo (an SVG symbol in
 `src/partials/layout.html`), walks the competition route as you scroll, forms the flock of ten finalists, and lives in
-the bin on the 404 page. Tap the home-page ibis five times.
+the bin on the 404 page. You can grab and drag the home-page ibis: it rubber-bands and springs home with your release speed (a small spring in `assets/js/site.js`). Tap it five times quickly and it flies off.
 
 ## Local preview
 

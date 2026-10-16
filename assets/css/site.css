@@ -375,12 +375,14 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
 .intro .grid-lines span:nth-child(10) { animation-delay: 270ms; } .intro .grid-lines span:nth-child(11) { animation-delay: 300ms; }
 .intro .grid-lines span:nth-child(12) { animation-delay: 330ms; }
 .intro .hero-ibis .zero { animation: zero-tip 1150ms both; }
-.intro .hero-ibis .neck { animation: draw 340ms cubic-bezier(0.3, 0, 0.2, 1) 1.28s both; }
-.intro .hero-ibis .head { animation: pop 260ms cubic-bezier(0.3, 1.6, 0.5, 1) 1.52s both; }
-.intro .hero-ibis .bill { animation: draw 380ms cubic-bezier(0.3, 0, 0.2, 1) 1.6s both; }
+.intro .hero-ibis .neck { animation: grow-up 360ms cubic-bezier(0.3, 0, 0.2, 1) 1.28s both; }
+.intro .hero-ibis .head { animation: pop 280ms cubic-bezier(0.3, 1.6, 0.5, 1) 1.52s both; }
+.intro .hero-ibis .bill { animation: grow-bill 380ms cubic-bezier(0.3, 0, 0.2, 1) 1.62s both; }
 .intro .hero-ibis .leg { animation: draw 300ms cubic-bezier(0.3, 0, 0.2, 1) 1.66s both; }
-.intro .hero-ibis .leg + .leg { animation-delay: 1.76s; }
-.intro .hero-ibis .tail { animation: pop 280ms cubic-bezier(0.3, 1.6, 0.5, 1) 1.9s both; }
+.intro .hero-ibis .wing .draw { animation: draw 420ms cubic-bezier(0.3, 0, 0.2, 1) 1.9s both; }
+.intro .hero-ibis .plume { animation: pop 300ms cubic-bezier(0.3, 1.5, 0.5, 1) 1.85s both; }
+.intro .hero-ibis .plume + .plume { animation-delay: 1.93s; }
+.intro .hero-ibis .plume + .plume + .plume { animation-delay: 2.01s; }
 .intro .hero h1 { animation: settle 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
 @keyframes line-in { from { transform: scaleY(0); } }
 @keyframes lines-out { to { opacity: 0; } }
@@ -392,6 +394,11 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
 }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes pop { from { transform: scale(0); } }
+@keyframes grow-up { from { transform: scaleY(0); } }
+@keyframes grow-bill { from { transform: scale(0); } }
+.hero-ibis .neck { transform-box: fill-box; transform-origin: 80% 100%; }
+.hero-ibis .bill { transform-box: fill-box; transform-origin: 100% 0%; }
+.hero-ibis .plume { transform-box: fill-box; transform-origin: 0% 0%; }
 @keyframes settle { from { font-stretch: 62%; letter-spacing: 0.02em; } }
 .hero-ibis .draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
 
@@ -470,3 +477,65 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
   .grid-lines { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .grid-lines span:nth-child(n+5) { display: none; }
 }
+
+/* Grab the ibis */
+.hero-ibis { touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; will-change: transform; }
+.hero-ibis.grabbed { cursor: grabbing; }
+.hero-ibis.grabbed .head { transform: scale(1.04); transition: transform 120ms ease-out; }
+
+/* ---------- Mini case: the drinks stall ---------- */
+.stall { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); column-gap: var(--gutter); row-gap: 2rem; align-items: start; }
+.stall-research h3 { margin-bottom: 0.75rem; }
+.stall-research table { font-size: 1rem; }
+.prices { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
+.prices legend { font-weight: 700; margin-bottom: 0.75rem; padding: 0; }
+.prices input { position: absolute; opacity: 0; pointer-events: none; }
+.prices span {
+  display: flex; align-items: flex-end; height: 5.5rem; padding: 0 0 0.5rem 0.75rem;
+  border: 2px solid var(--black); font-weight: 900; font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1;
+  cursor: pointer; transition: transform 90ms ease-out, background-color 120ms, color 120ms; -webkit-tap-highlight-color: transparent;
+}
+.prices label:active span { transform: scale(0.97); }
+.prices input:checked + span { background: var(--red); border-color: var(--red); color: var(--white); }
+.prices input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 3px; }
+.stall-figs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gutter); margin-top: 1.75rem; border-top: 2px solid var(--black); }
+.stall-figs div { padding-top: 0.75rem; }
+.stall-figs dt { font-size: 0.875rem; color: var(--grey); }
+.stall-figs dd { margin: 0.25rem 0 0; font-weight: 800; font-size: clamp(1.375rem, 2.4vw, 2rem); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stall-figs .profit dd { color: var(--red); }
+.stall-bars { margin-top: 1.5rem; display: grid; gap: 0.5rem; }
+.stall-bars div { display: grid; grid-template-columns: 2.5rem 1fr 4rem; column-gap: 0.75rem; align-items: center; }
+.stall-bars span { font-weight: 700; }
+.stall-bars i { display: block; height: 1.5rem; background: var(--fog); overflow: hidden; }
+.stall-bars b { display: block; height: 100%; background: var(--black); transform-origin: left; transform: scaleX(0); will-change: transform; }
+.stall-bars .on b { background: var(--red); }
+.stall-bars em { font-style: normal; font-weight: 700; text-align: right; font-variant-numeric: tabular-nums; }
+.stall-note { margin-top: 1rem; min-height: 3em; }
+
+/* Reveal: grid rows animate between 0fr and 1fr, so it reverses smoothly mid-way */
+.reveal-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 420ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+.reveal-body > div { overflow: hidden; }
+.reveal-body > div > * + * { margin-top: 1rem; }
+.reveal.open .reveal-body { grid-template-rows: 1fr; }
+.reveal.open .reveal-body > div { padding-top: 1.5rem; }
+.reveal .btn[aria-expanded="true"] { background: var(--black); color: var(--white); }
+
+@media (max-width: 960px) { .stall { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .prices span { height: 4.25rem; padding-left: 0.5rem; }
+  .stall-figs { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1rem; }
+}
+
+/* ---------- FAQ answers open and close smoothly, and can reverse mid-way ---------- */
+@supports selector(::details-content) {
+  :root { interpolate-size: allow-keywords; }
+  .faq details::details-content { block-size: 0; overflow: hidden; transition: block-size 320ms cubic-bezier(0.2, 0.8, 0.2, 1), content-visibility 320ms allow-discrete; }
+  .faq details[open]::details-content { block-size: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-body, .faq details::details-content { transition: none !important; }
+}
+.yellow .criteria, .yellow .criteria div { border-color: rgba(0, 0, 0, 0.35); }
+.yellow .criteria { border-top-color: var(--black); }
+.yellow .criteria dd { color: #2b2100; }
+.glossary dt { font-size: 1.25rem; }

@@ -1,8 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 60 590 480" role="img" aria-labelledby="t"><title id="t">The Mile Zero ibis</title>
-  <path d="M486 262 L612 356 L480 336 Z"/>
-  <g fill="none" stroke="#000" stroke-width="12" stroke-linecap="round"><path d="M330 400 L318 522 M298 524 L340 522"/><path d="M392 400 L404 522 M384 522 L428 524"/></g>
-  <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
-  <path d="M236 262 C204 220 190 162 198 108" fill="none" stroke="#000" stroke-width="32" stroke-linecap="round"/>
-  <circle cx="198" cy="94" r="30"/><circle cx="208" cy="86" r="6" fill="#fff"/>
-  <path d="M176 88 C128 98 90 152 70 254" fill="none" stroke="#000" stroke-width="13" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 60 590 490" role="img" aria-labelledby="t"><title id="t">The Mile Zero ibis</title>
+  <g class="bird">
+    <!-- Drooping black tail plumes, drawn behind the body -->
+    <g class="plumes">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z"/>
+      <path d="M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z"/>
+      <path d="M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z"/>
+    </g>
+    <!-- Legs: long tarsus, a slight backward joint, three forward toes and one hind toe -->
+    <g class="legs" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M330 396 L322 462 L330 524" stroke-width="11"/>
+      <path d="M330 524 L292 532 M330 524 L346 536 M330 524 L360 526 M330 524 L318 514" stroke-width="7"/>
+      <path d="M394 394 L404 460 L398 524" stroke-width="11"/>
+      <path d="M398 524 L432 530 M398 524 L414 538 M398 524 L370 528 M398 524 L408 514" stroke-width="7"/>
+    </g>
+    <!-- The zero is the body -->
+    <g class="zero">
+      <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
+      <g class="wing" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round">
+        <path d="M296 270 C346 250 410 252 460 282"/>
+        <path d="M306 292 C352 276 410 280 458 306"/>
+        <path d="M322 314 C362 302 410 306 448 328"/>
+        <path d="M344 334 C376 328 408 332 432 346"/>
+      </g>
+    </g>
+    <!-- Bare black neck, tapering from body to head -->
+    <path class="grow neck" d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z"/>
+    <!-- Head with eye -->
+    <g class="pop head">
+      <ellipse cx="198" cy="100" rx="32" ry="27"/>
+      <circle cx="210" cy="92" r="8" fill="#fff"/>
+      <circle cx="212" cy="92" r="4"/>
+    </g>
+    <!-- Long down-curved bill, thick at the base, tapering to a point -->
+    <path class="grow bill" d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
+  </g>
 </svg>

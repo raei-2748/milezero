@@ -40,13 +40,14 @@ const useIbis = (cls = "") => `<svg class="mini-ibis ${cls}" viewBox="0 0 64 56"
 
 // The walker is drawn inline (not <use>) so its legs can be animated.
 const walker = `<div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
-  <path d="M51 27 L62 36 L50 34 Z" fill="currentColor"/>
-  <path class="leg-a" d="M33 41 L32 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <path class="leg-b" d="M39 41 L40 53" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <ellipse cx="36" cy="32" rx="14" ry="9.5" fill="#fff" stroke="#E1251B" stroke-width="5"/>
-  <path d="M24 28 C21 22 20 16 21 11" stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <circle cx="21" cy="10" r="3.6" fill="currentColor"/>
-  <path d="M19 9 C14 10 10 16 8 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path class="leg-a" d="M330 396 L322 462 L330 524 L294 532" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path class="leg-b" d="M394 394 L404 460 L398 524 L434 530" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+      <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="52"/>
+      <path d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z" fill="currentColor"/>
+      <ellipse cx="198" cy="100" rx="34" ry="29" fill="currentColor"/>
+      <path d="M176 80 C122 92 80 152 60 262 C58 266 52 265 53 258 C70 150 112 102 176 114 Z" fill="currentColor"/>
+    </g>
 </svg></div></div>`;
 
 // The stages as a row of columns, each led by its numeral. An ibis walks the

@@ -11,15 +11,41 @@
       </div>
     </div>
     <svg class="hero-ibis" viewBox="0 0 640 560" role="img" aria-labelledby="hero-ibis-t" data-ibis>
-      <title id="hero-ibis-t">The Mile Zero ibis: a red zero that becomes the body of an ibis</title>
+      <title id="hero-ibis-t">The Mile Zero ibis: a red zero forms the body of a black-headed ibis. You can drag it.</title>
       <g class="bird">
-        <path class="pop tail" d="M486 262 L612 356 L480 336 Z" fill="#000"/>
-        <path class="draw leg" pathLength="1" d="M330 400 L318 522 M298 524 L340 522" stroke-width="12"/>
-        <path class="draw leg" pathLength="1" d="M392 400 L404 522 M384 522 L428 524" stroke-width="12"/>
-        <g class="zero"><ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/></g>
-        <path class="draw neck" pathLength="1" d="M236 262 C204 220 190 162 198 108" stroke-width="32"/>
-        <g class="pop head"><circle cx="198" cy="94" r="30" fill="#000"/><circle cx="208" cy="86" r="6" fill="#fff"/></g>
-        <path class="draw bill" pathLength="1" d="M176 88 C128 98 90 152 70 254" stroke-width="13"/>
+        <!-- Drooping black tail plumes, drawn behind the body -->
+        <g class="plumes">
+          <path class="pop plume" d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z"/>
+          <path class="pop plume" d="M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z"/>
+          <path class="pop plume" d="M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z"/>
+        </g>
+        <!-- Legs: long tarsus, a slight backward joint, three forward toes and one hind toe -->
+        <g class="legs" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+          <path class="draw leg" pathLength="1" d="M330 396 L322 462 L330 524" stroke-width="11"/>
+          <path class="draw leg" pathLength="1" d="M330 524 L292 532 M330 524 L346 536 M330 524 L360 526 M330 524 L318 514" stroke-width="7"/>
+          <path class="draw leg" pathLength="1" d="M394 394 L404 460 L398 524" stroke-width="11"/>
+          <path class="draw leg" pathLength="1" d="M398 524 L432 530 M398 524 L414 538 M398 524 L370 528 M398 524 L408 514" stroke-width="7"/>
+        </g>
+        <!-- The zero is the body -->
+        <g class="zero">
+          <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
+          <g class="wing" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round">
+            <path class="draw" pathLength="1" d="M296 270 C346 250 410 252 460 282"/>
+            <path class="draw" pathLength="1" d="M306 292 C352 276 410 280 458 306"/>
+            <path class="draw" pathLength="1" d="M322 314 C362 302 410 306 448 328"/>
+            <path class="draw" pathLength="1" d="M344 334 C376 328 408 332 432 346"/>
+          </g>
+        </g>
+        <!-- Bare black neck, tapering from body to head -->
+        <path class="grow neck" d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z"/>
+        <!-- Head with eye -->
+        <g class="pop head">
+          <ellipse cx="198" cy="100" rx="32" ry="27"/>
+          <circle cx="210" cy="92" r="8" fill="#fff"/>
+          <circle cx="212" cy="92" r="4"/>
+        </g>
+        <!-- Long down-curved bill, thick at the base, tapering to a point -->
+        <path class="grow bill" d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
       </g>
     </svg>
   </div>
@@ -40,6 +66,54 @@
       <p class="lede">Five weeks, four miles, one final. Each mile releases new information about the same company and asks your team for a new decision.</p>
       {{@routeCompact}}
       <p><a class="link" href="/competition/">The full route, deliverables and judging</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="try">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Try a mini case</h2><p class="small muted">Two minutes. No sign-up.</p></div>
+    <div class="section-body">
+      <p class="lede">You're running a drinks stall at the school fete. You can make 200 cups. Each costs $1.50, and you make them all before the gates open. Leftovers can't be sold tomorrow. You have to choose one price.</p>
+      <div class="stall" data-stall>
+        <div class="stall-research">
+          <h3>Your market research</h3>
+          <table>
+            <thead><tr><th scope="col">Price per cup</th><th scope="col">People who'd buy</th></tr></thead>
+            <tbody><tr><td>$3</td><td>about 190</td></tr><tr><td>$4</td><td>about 150</td></tr><tr><td>$5</td><td>about 100</td></tr><tr><td>$6</td><td>about 60</td></tr></tbody>
+          </table>
+        </div>
+        <div class="stall-play">
+          <fieldset class="prices">
+            <legend>Pick your price</legend>
+            <label><input type="radio" name="stall-price" value="3"><span>$3</span></label>
+            <label><input type="radio" name="stall-price" value="4"><span>$4</span></label>
+            <label><input type="radio" name="stall-price" value="5"><span>$5</span></label>
+            <label><input type="radio" name="stall-price" value="6"><span>$6</span></label>
+          </fieldset>
+          <dl class="stall-figs">
+            <div><dt>Cups sold</dt><dd data-f="sold">0</dd></div>
+            <div><dt>Money in</dt><dd data-f="revenue">$0</dd></div>
+            <div><dt>Cups cost</dt><dd>$300</dd></div>
+            <div class="profit"><dt>Profit</dt><dd data-f="profit">$0</dd></div>
+          </dl>
+          <div class="stall-bars" aria-hidden="true">
+            <div data-bar="3"><span>$3</span><i><b></b></i><em></em></div>
+            <div data-bar="4"><span>$4</span><i><b></b></i><em></em></div>
+            <div data-bar="5"><span>$5</span><i><b></b></i><em></em></div>
+            <div data-bar="6"><span>$6</span><i><b></b></i><em></em></div>
+          </div>
+          <p class="stall-note" data-note aria-live="polite">Pick a price to see what happens. Try them all.</p>
+        </div>
+      </div>
+      <div class="reveal" data-reveal-panel>
+        <button class="btn btn-outline" type="button" data-reveal aria-expanded="false" aria-controls="stall-lesson">Show the lesson</button>
+        <div class="reveal-body" id="stall-lesson"><div>
+          <p class="lede">The $300 for cups was spent before the fete opened, whatever price you pick. That's a <b>sunk cost</b>: it can't change, so it shouldn't change your decision. The best price is the one that brings in the most money from here, which is $4.</p>
+          <p>Now a rival stall opens next door selling a similar drink for $4. Do you match them, or drop to $3? There's no single right answer. A good answer makes a call, uses the numbers, and admits what could go wrong. That's exactly what {{brand.competitionShort}} asks, with a real-feeling company and much bigger numbers.</p>
+          <div class="actions"><a class="btn" href="/competition/">See how the competition works</a></div>
+        </div></div>
+      </div>
     </div>
   </div>
 </section>
