@@ -19,13 +19,21 @@ HTML is committed, so both hosts just serve files.
 | Header, footer, page shell | `src/partials/*.html` | `npm run build`, commit |
 | Styles | `assets/css/site.css` | Commit |
 
-Never edit the generated `index.html`, `*/index.html` or `404.html` directly: the next build overwrites them, and the
+Never edit the generated `index.html`, `*/index.html`, `404.html`, `sitemap.xml` or `robots.txt` directly: the next build overwrites them, and the
 **Site check** workflow fails any PR where they don't match `src/`.
 
 ### Links that aren't ready yet
 
 Any button with `data-link="register"` (or `toolkit`, `network`, `ambassador`, `portal`) uses the URL in
 `assets/js/links.js`. While a link is empty, the button emails `hello@` instead, so nothing points at a dead page.
+
+### Search and sharing
+
+The build gives every page a canonical URL, Open Graph and Twitter card tags, and Organization structured data;
+`/competition/` also gets Event data built from the dates and venue in `site.config.json` (keep the `…ISO` dates in step
+with the readable ones). It writes `sitemap.xml` and `robots.txt` too, listing every page except the 404. A page can set
+`"fullTitle"` in its `<!--page … -->` header to replace the default `Title · Mile Zero`. The share image is
+`assets/img/og-image.png` (1200×630). `_headers` keeps Cloudflare preview builds on `workers.dev` out of search results.
 
 ### Public-information rules
 
@@ -56,6 +64,7 @@ src/pages/            one file per page (about.html → /about/)
 src/partials/         layout, header, footer
 assets/css/site.css   styles: Swiss Style (International Typographic Style)
 assets/js/links.js    Google Form and portal links
-assets/img/           ibis mark, favicon
+assets/img/           ibis mark, favicon, share image
+assets/fonts/         Archivo, self-hosted (SIL Open Font License)
 scripts/build.mjs     the build
 ```
