@@ -208,6 +208,99 @@
     };
   }
 
+  // The route deck shares one progress track that stays still while the posters
+  // slide beneath it. It rides in on the first poster, leaves with the last, takes
+  // the colours of the poster under it, and the ibis walks to each stop as that
+  // stop's poster slides in. Progress follows a critically damped spring, so wheel
+  // steps glide instead of jumping.
+  var story = document.querySelector(".story");
+  var hud = story && story.querySelector(".story-hud");
+  if (hud) {
+    var panels = Array.prototype.slice.call(story.querySelectorAll(".stage-screen"));
+    var hudWalker = hud.querySelector(".hud-walker");
+    var hudFill = hud.querySelector(".hud-fill");
+    var hudStops = hud.querySelectorAll(".hud-stops li");
+    var TONE = ["--bg", "--fg", "--accent", "--bird", "--ibis-ring", "--ibis-fill"];
+    var hp = new Spring(1, 0.32), hudOn = false, hudTop = 0, hudWidth = 0, hudRaf = 0, hudLast = 0;
+    var tone = -1, onStop = -1, prevX = null, walkTimer;
+
+    var measureHud = function () {
+      // Only when every poster sticks; otherwise each keeps its own printed track.
+      hudOn = panels.every(function (p) { return getComputedStyle(p).position === "sticky" && !p.classList.contains("tall"); });
+      story.classList.toggle("hud-on", hudOn);
+      hud.hidden = !hudOn;
+      if (!hudOn) return;
+      var pr = panels[0].getBoundingClientRect(), tr = panels[0].querySelector(".stage-track").getBoundingClientRect();
+      hudTop = tr.top - pr.top;
+      hudWidth = tr.width;
+      hud.style.top = hudTop.toFixed(1) + "px";
+      hud.style.left = tr.left.toFixed(1) + "px";
+      hud.style.width = hudWidth.toFixed(1) + "px";
+      hud.style.setProperty("--hud-below", (pr.bottom - tr.bottom).toFixed(1) + "px");
+    };
+
+    var hudTarget = function () {
+      var unit = panels[0].offsetHeight, vh = window.innerHeight, n = panels.length;
+      var tops = panels.map(function (p) { return p.getBoundingClientRect().top; });
+      var progress = 0;
+      for (var i = 1; i < n; i++) progress += Math.min(1, Math.max(0, 1 - tops[i] / unit));
+      var shift = tops[0] > 0 ? tops[0] : Math.min(0, panels[n - 1].getBoundingClientRect().bottom - vh);
+      var under = 0, y = hudTop + shift;
+      for (i = 0; i < n; i++) if (tops[i] <= y + 1) under = i;
+      return { progress: progress, shift: shift, under: under };
+    };
+
+    var paintHud = function (t) {
+      hud.style.transform = "translateY(" + t.shift.toFixed(1) + "px)";
+      hud.style.visibility = Math.abs(t.shift) > window.innerHeight ? "hidden" : "";
+      if (t.under !== tone) {
+        tone = t.under;
+        var cs = getComputedStyle(panels[tone]);
+        TONE.forEach(function (v) { hud.style.setProperty(v, cs.getPropertyValue(v).trim()); });
+      }
+      var n = panels.length, x = (hp.x * hudWidth) / n;
+      hudWalker.style.transform = "translateX(" + x.toFixed(1) + "px)";
+      hudFill.style.transform = "scaleX(" + Math.min(1, (hp.x + 1) / n).toFixed(4) + ")";
+      var stop = Math.round(hp.x);
+      if (stop !== onStop) {
+        if (hudStops[onStop]) hudStops[onStop].classList.remove("on");
+        onStop = stop;
+        if (hudStops[onStop]) hudStops[onStop].classList.add("on");
+      }
+      if (prevX !== null && Math.abs(x - prevX) > 0.3) {
+        hudWalker.classList.toggle("back", x < prevX);
+        if (!reduceMotion) {
+          hudWalker.classList.add("walking");
+          clearTimeout(walkTimer);
+          walkTimer = setTimeout(function () { hudWalker.classList.remove("walking"); }, 140);
+        }
+      }
+      prevX = x;
+    };
+
+    var hudTick = function (now) {
+      hudRaf = 0;
+      if (!hudOn) return;
+      var t = hudTarget();
+      hp.target = t.progress;
+      var dt = Math.min(0.032, (now - (hudLast || now)) / 1000) || 1 / 60;
+      hudLast = now;
+      if (reduceMotion) { hp.x = hp.target; hp.v = 0; }
+      else { hp.step(dt / 2); hp.step(dt / 2); }
+      if (hp.settled()) { hp.x = hp.target; hp.v = 0; hudLast = 0; }
+      paintHud(t);
+      if (!hp.settled() || hp.x !== hp.target) hudRaf = requestAnimationFrame(hudTick);
+    };
+    var hudKick = function () { if (!hudRaf) hudRaf = requestAnimationFrame(hudTick); };
+
+    measureHud();
+    if (hudOn) { hp.x = hp.target = hudTarget().progress; }
+    hudKick();
+    window.addEventListener("scroll", hudKick, { passive: true });
+    window.addEventListener("resize", function () { requestAnimationFrame(function () { measureHud(); tone = -1; hudKick(); }); });
+    if (document.fonts) document.fonts.ready.then(function () { measureHud(); tone = -1; hudKick(); });
+  }
+
   // The drinks-stall mini case. Numbers and bars follow critically damped springs
   // (no overshoot, response 0.35 s), starting from wherever they are on screen.
   var stall = document.querySelector("[data-stall]");

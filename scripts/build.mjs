@@ -39,16 +39,17 @@ const NAV = [
 const useIbis = (cls = "") => `<svg class="mini-ibis ${cls}" viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>`;
 
 // The walker is drawn inline (not <use>) so its legs can be animated.
-const walker = `<div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
+const walkerSvg = `<svg viewBox="0 0 64 56" focusable="false">
     <g transform="scale(.1)">
       <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
       <path class="leg-a" d="M330 396 L322 462 L330 524 L294 532" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/><path class="leg-b" d="M394 394 L404 460 L398 524 L434 530" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="52"/>
+      <path d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
       
       <ellipse cx="198" cy="100" rx="34" ry="29" fill="currentColor"/>
       <path d="M176 80 C122 92 80 152 60 262 C58 266 52 265 53 258 C70 150 112 102 176 114 Z" fill="currentColor"/>
     </g>
-</svg></div></div>`;
+</svg>`;
+const walker = `<div class="route-track" aria-hidden="true"><div class="walker">${walkerSvg}</div></div>`;
 
 // The stages as a row of columns, each led by its numeral. An ibis walks the
 // route as you scroll, and ten ibises (the ten finalist teams) wait at the Final.
@@ -72,7 +73,9 @@ function routeList(cls) {
 }
 
 // The route as a deck of full-screen posters. Each one sticks to the top of the
-// screen and the next slides over it, so scrolling walks the ibis along the track.
+// screen and the next slides over it. Each poster prints its own progress track;
+// with JavaScript, one shared track (the HUD) stays still over the deck instead,
+// and the ibis walks along it as you scroll.
 function routeStory() {
   const big = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
   const stops = config.stages;
@@ -101,6 +104,11 @@ function routeStory() {
     </article>`;
     })
     .join("")}
+    <div class="story-hud" aria-hidden="true" hidden>
+      <div class="hud-line"><i class="hud-fill"></i></div>
+      <ol class="hud-stops">${stops.map((t) => `<li><span class="long">${esc(t.label)}</span><span class="short">${esc(t.kind === "gate" ? "N" : t.kind === "final" ? "F" : t.key)}</span></li>`).join("")}</ol>
+      <div class="hud-walker">${walkerSvg}</div>
+    </div>
   </div>`;
 }
 
