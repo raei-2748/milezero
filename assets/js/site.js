@@ -26,6 +26,34 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // Poster type: size each [data-fit] line so it fills its column exactly.
+  // A route poster too tall for the screen scrolls normally instead of sticking.
+  var fits = document.querySelectorAll("[data-fit]");
+  var stages = document.querySelectorAll(".stage-screen");
+  function layout() {
+    fits.forEach(function (el) {
+      var span = el.firstElementChild;
+      el.style.fontSize = "";
+      var size = parseFloat(getComputedStyle(el).fontSize);
+      var width = span.getBoundingClientRect().width;
+      if (width) el.style.fontSize = ((size * el.clientWidth) / width).toFixed(2) + "px";
+    });
+    stages.forEach(function (el) {
+      el.classList.remove("tall");
+      var last = el.firstElementChild.lastElementChild;
+      if (last.getBoundingClientRect().bottom - el.getBoundingClientRect().top > el.clientHeight + 1) el.classList.add("tall");
+    });
+  }
+  if (fits.length || stages.length) {
+    layout();
+    if (document.fonts) document.fonts.ready.then(layout);
+    var layoutRaf = 0;
+    window.addEventListener("resize", function () {
+      cancelAnimationFrame(layoutRaf);
+      layoutRaf = requestAnimationFrame(layout);
+    });
+  }
+
   // Distance counter: the real distance scrolled, at the CSS standard of 96 px to the inch.
   var odometer = document.querySelector("[data-odometer]");
   var METRES_PER_PX = 0.0254 / 96;

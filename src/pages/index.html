@@ -87,75 +87,80 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap grid">
-    <div class="section-title"><h2>How it works</h2></div>
-    <div class="section-body">
-      <p class="lede">Five weeks, four miles, one final. Each mile releases new information about the same company and asks your team for a new decision.</p>
-      {{@routeCompact}}
-      <p><a class="link" href="/competition/">The full route, deliverables and judging</a></p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="try">
-  <div class="wrap grid">
-    <div class="section-title"><h2>Try a mini case</h2><p class="small muted">Two minutes. No sign-up.</p></div>
-    <div class="section-body">
-      <p class="lede">You're running a drinks stall at the school fete. You can make 200 cups. Each costs $1.50, and you make them all before the gates open. Leftovers can't be sold tomorrow. You have to choose one price.</p>
-      <div class="stall" data-stall>
-        <div class="stall-research">
-          <h3>Your market research</h3>
-          <table>
-            <thead><tr><th scope="col">Price per cup</th><th scope="col">People who'd buy</th></tr></thead>
-            <tbody><tr><td>$3</td><td>about 190</td></tr><tr><td>$4</td><td>about 150</td></tr><tr><td>$5</td><td>about 100</td></tr><tr><td>$6</td><td>about 60</td></tr></tbody>
-          </table>
-        </div>
-        <div class="stall-play">
-          <fieldset class="prices">
-            <legend>Pick your price</legend>
-            <label><input type="radio" name="stall-price" value="3"><span>$3</span></label>
-            <label><input type="radio" name="stall-price" value="4"><span>$4</span></label>
-            <label><input type="radio" name="stall-price" value="5"><span>$5</span></label>
-            <label><input type="radio" name="stall-price" value="6"><span>$6</span></label>
-          </fieldset>
-          <dl class="stall-figs">
-            <div><dt>Cups sold</dt><dd data-f="sold">0</dd></div>
-            <div><dt>Money in</dt><dd data-f="revenue">$0</dd></div>
-            <div><dt>Cups cost</dt><dd>$300</dd></div>
-            <div class="profit"><dt>Profit</dt><dd data-f="profit">$0</dd></div>
-          </dl>
-          <div class="stall-bars" aria-hidden="true">
-            <div data-bar="3"><span>$3</span><i><b></b></i><em></em></div>
-            <div data-bar="4"><span>$4</span><i><b></b></i><em></em></div>
-            <div data-bar="5"><span>$5</span><i><b></b></i><em></em></div>
-            <div data-bar="6"><span>$6</span><i><b></b></i><em></em></div>
-          </div>
-          <p class="stall-note" data-note aria-live="polite">Pick a price to see what happens. Try them all.</p>
-        </div>
-      </div>
-      <div class="reveal" data-reveal-panel>
-        <button class="btn btn-outline" type="button" data-reveal aria-expanded="false" aria-controls="stall-lesson">Show the lesson</button>
-        <div class="reveal-body" id="stall-lesson"><div>
-          <p class="lede">The $300 for cups was spent before the fete opened, whatever price you pick. That's a <b>sunk cost</b>: it can't change, so it shouldn't change your decision. The best price is the one that brings in the most money from here, which is $4.</p>
-          <p>Now a rival stall opens next door selling a similar drink for $4. Do you match them, or drop to $3? There's no single right answer. A good answer makes a call, uses the numbers, and admits what could go wrong. That's exactly what {{brand.competitionShort}} asks, with a real-feeling company and much bigger numbers.</p>
-          <div class="actions"><a class="btn" href="/competition/">See how the competition works</a></div>
-        </div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section blue">
-  <div class="wrap grid">
-    <div class="section-title"><h2>The {{brand.year}} case</h2></div>
-    <div class="section-body">
-      <p class="statement">It's December 2026. A Sydney company is sitting on eight million unsold tags, and they lose value every month. The board wants a plan. Your team writes it.</p>
-      <figure>
-        <svg class="tag-field" viewBox="0 0 240 96" role="img" aria-label="160 dots, each standing for 50,000 unsold tags, fading from left to right"><circle cx="6" cy="6" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="6" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="6" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="6" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="6" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="6" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="6" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="6" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="6" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="6" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="6" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="6" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="6" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="6" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="6" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="6" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="6" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="6" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="6" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="6" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="18" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="18" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="18" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="18" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="18" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="18" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="18" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="18" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="18" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="18" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="18" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="18" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="18" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="18" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="18" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="18" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="18" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="18" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="18" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="18" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="30" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="30" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="30" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="30" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="30" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="30" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="30" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="30" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="30" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="30" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="30" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="30" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="30" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="30" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="30" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="30" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="30" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="30" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="30" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="30" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="42" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="42" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="42" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="42" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="42" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="42" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="42" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="42" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="42" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="42" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="42" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="42" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="42" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="42" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="42" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="42" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="42" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="42" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="42" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="42" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="54" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="54" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="54" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="54" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="54" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="54" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="54" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="54" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="54" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="54" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="54" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="54" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="54" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="54" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="54" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="54" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="54" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="54" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="54" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="54" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="66" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="66" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="66" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="66" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="66" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="66" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="66" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="66" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="66" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="66" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="66" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="66" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="66" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="66" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="66" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="66" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="66" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="66" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="66" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="66" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="78" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="78" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="78" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="78" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="78" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="78" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="78" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="78" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="78" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="78" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="78" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="78" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="78" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="78" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="78" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="78" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="78" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="78" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="78" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="78" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="90" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="90" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="90" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="90" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="90" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="90" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="90" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="90" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="90" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="90" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="90" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="90" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="90" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="90" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="90" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="90" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="90" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="90" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="90" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="90" r="3.4" fill="#fff" opacity="0.35"/></svg>
-        <figcaption class="tag-field-caption muted">Eight million tags. Each dot is 50,000 of them, and every month they're worth a little less.</figcaption>
+<section class="screen blue case-screen" aria-labelledby="case-h">
+  <div class="wrap">
+    <h2 id="case-h" class="screen-label">The {{brand.year}} case</h2>
+    <p class="giant" data-fit aria-hidden="true"><span>8,000,000</span></p>
+    <div class="grid case-grid">
+      <p class="statement"><span class="vh">Eight million </span>unsold tags, losing value every month. It's December 2026, a Sydney company is sitting on all of them, and the board wants a plan. Your team writes it.</p>
+      <figure class="case-dots">
+        {{@tagField}}
+        <figcaption class="small">Each dot is 50,000 tags. Every month they're worth a little less.</figcaption>
       </figure>
-      <p class="muted">“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.” Amelia Chen, CEO of Southern Cross Technologies, a fictional company.</p>
+      <blockquote class="case-quote">
+        <p>“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.”</p>
+        <footer class="small">Amelia Chen, CEO of Southern Cross Technologies, a fictional company</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="route-screens" aria-labelledby="route-h">
+  <div class="screen story-intro">
+    <div class="wrap">
+      <h2 id="route-h" class="screen-h">Five weeks.<br>Four miles.<br>One final.</h2>
+      <p class="lede">Each mile releases new information about the same company and asks your team for a new decision. Keep scrolling to walk the route.</p>
+    </div>
+  </div>
+  {{@routeStory}}
+  <div class="wrap route-more"><a class="link" href="/competition/">The full route, deliverables and judging</a></div>
+</section>
+
+<section class="screen yellow try-screen" id="try" aria-labelledby="try-h">
+  <div class="wrap" data-stall>
+    <div class="grid try-head">
+      <div class="try-intro">
+        <h2 id="try-h" class="screen-h">Pick a price.</h2>
+        <p class="lede">You're running a drinks stall at the school fete. You can make 200 cups. Each costs $1.50, and you make them all before the gates open. Leftovers can't be sold tomorrow. You get one price.</p>
+        <p class="small try-time">A two-minute mini case. No sign-up.</p>
+      </div>
+      <div class="stall-research">
+        <h3>Your market research</h3>
+        <table>
+          <thead><tr><th scope="col">Price per cup</th><th scope="col">People who'd buy</th></tr></thead>
+          <tbody><tr><td>$3</td><td>about 190</td></tr><tr><td>$4</td><td>about 150</td></tr><tr><td>$5</td><td>about 100</td></tr><tr><td>$6</td><td>about 60</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <fieldset class="prices">
+      <legend>Pick your price</legend>
+      <label><input type="radio" name="stall-price" value="3"><span>$3</span></label>
+      <label><input type="radio" name="stall-price" value="4"><span>$4</span></label>
+      <label><input type="radio" name="stall-price" value="5"><span>$5</span></label>
+      <label><input type="radio" name="stall-price" value="6"><span>$6</span></label>
+    </fieldset>
+    <div class="grid try-result">
+      <dl class="stall-figs">
+        <div><dt>Cups sold</dt><dd data-f="sold">0</dd></div>
+        <div><dt>Money in</dt><dd data-f="revenue">$0</dd></div>
+        <div><dt>Cups cost</dt><dd>$300</dd></div>
+        <div class="profit"><dt>Profit</dt><dd data-f="profit">$0</dd></div>
+      </dl>
+      <div class="stall-bars" aria-hidden="true">
+        <div data-bar="3"><span>$3</span><i><b></b></i><em></em></div>
+        <div data-bar="4"><span>$4</span><i><b></b></i><em></em></div>
+        <div data-bar="5"><span>$5</span><i><b></b></i><em></em></div>
+        <div data-bar="6"><span>$6</span><i><b></b></i><em></em></div>
+      </div>
+    </div>
+    <p class="stall-note" data-note aria-live="polite">Pick a price to see what happens. Try them all.</p>
+    <div class="reveal" data-reveal-panel>
+      <button class="btn btn-outline" type="button" data-reveal aria-expanded="false" aria-controls="stall-lesson">Show the lesson</button>
+      <div class="reveal-body" id="stall-lesson"><div>
+        <p class="lede">The $300 for cups was spent before the fete opened, whatever price you pick. That's a <b>sunk cost</b>: it can't change, so it shouldn't change your decision. The best price is the one that brings in the most money from here, which is $4.</p>
+        <p>Now a rival stall opens next door selling a similar drink for $4. Do you match them, or drop to $3? There's no single right answer. A good answer makes a call, uses the numbers, and admits what could go wrong. That's exactly what {{brand.competitionShort}} asks, with a real-feeling company and much bigger numbers.</p>
+        <div class="actions"><a class="btn" href="/competition/">See how the competition works</a></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -180,39 +185,41 @@
   </div>
 </section>
 
-<section class="section yellow">
-  <div class="wrap grid">
-    <div class="section-title"><h2>More than a competition</h2></div>
-    <div class="section-body three-col">
-      <div class="col-item">
-        <span class="status live">Term 1, {{brand.year}}</span>
-        <h3>{{brand.competitionShort}} {{brand.year}}</h3>
-        <p>A staged business case for teams of three or four from any NSW secondary school.</p>
-        <a class="link" href="/competition/">See the competition</a>
-      </div>
-      <div class="col-item">
-        <span class="status">Version 1 out now</span>
-        <h3>Starter Toolkit</h3>
-        <p>Everything a student needs to start a business society and get a team ready, free for any school.</p>
-        <a class="link" href="/toolkit/">Get the toolkit</a>
-      </div>
-      <div class="col-item">
-        <span class="status">Coming in {{brand.year}}</span>
-        <h3>Network, Girls in Finance, Learn</h3>
-        <p>A network for school business societies, a community for girls in finance, and ten-minute lessons.</p>
-        <a class="link" href="/programs/">All programs</a>
-      </div>
-    </div>
+<section class="screen values-screen" aria-labelledby="values-h">
+  <div class="wrap">
+    <h2 id="values-h" class="screen-label">What we stand for</h2>
+    <ol class="manifesto">
+      <li><b data-fit><span>Start at zero.</span></b><span>Same start line for everyone.</span></li>
+      <li><b data-fit><span>Pull up a chair.</span></b><span>There's always room for one more.</span></li>
+      <li><b data-fit><span>Source it or drop it.</span></b><span>Be curious enough to check.</span></li>
+      <li><b data-fit><span>Play the long game.</span></b><span>Think in years, because good compounds.</span></li>
+      <li><b data-fit><span>Leave the ladder down.</span></b><span>Climb, then help the next person up.</span></li>
+    </ol>
+    <p class="values-more"><a class="link" href="/about/">About {{brand.name}}</a></p>
+  </div>
+</section>
+
+<section class="section programs-board" aria-labelledby="programs-h">
+  <div class="wrap">
+    <h2 id="programs-h" class="screen-h">More than a competition.</h2>
+    <ul class="board">
+      <li><a href="/competition/"><b>{{brand.competitionShort}} {{brand.year}}</b><span class="what">A staged business case for teams of three or four from any NSW secondary school.</span><span class="status live">Term 1, {{brand.year}}</span></a></li>
+      <li><a href="/toolkit/"><b>Starter Toolkit</b><span class="what">Everything a student needs to start a business society and get a team ready, free for any school.</span><span class="status">Version 1 out now</span></a></li>
+      <li><a href="/programs/#network"><b>{{brand.name}} Network</b><span class="what">A network for student business societies across NSW. Every member society stays independent.</span><span class="status">Open now</span></a></li>
+      <li><a href="/programs/#girls-in-finance"><b>Girls in Finance</b><span class="what">A community for girls interested in business, finance and investing.</span><span class="status">Coming in {{brand.year}}</span></a></li>
+      <li><a href="/programs/#learn"><b>{{brand.competitionShort}} Learn</b><span class="what">Short lessons you can finish in 10 to 20 minutes.</span><span class="status">In development</span></a></li>
+    </ul>
   </div>
 </section>
 
 {{@partnerBar}}
 
-<section class="closer inverse">
+<section class="screen red-screen closer" aria-labelledby="closer-h">
+  <a class="giant giant-crop" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration" tabindex="-1" aria-hidden="true">Register</a>
   <div class="wrap grid">
     <div class="span-8">
-      <h2>Three to four students. One school. Five weeks.</h2>
-      <p class="lede muted">Register before {{dates.registrationCloses}}. You need one staff member who knows you're taking part, and that's it.</p>
+      <h2 id="closer-h">Three to four students. One school. Five weeks.</h2>
+      <p class="lede">Register before {{dates.registrationCloses}}. You need one staff member who knows you're taking part, and that's it.</p>
       <div class="actions"><a class="btn btn-white" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
     </div>
   </div>

@@ -71,6 +71,39 @@ function routeList(cls) {
     </ol>`;
 }
 
+// The route as a deck of full-screen posters. Each one sticks to the top of the
+// screen and the next slides over it, so scrolling walks the ibis along the track.
+function routeStory() {
+  const big = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
+  const stops = config.stages;
+  return `<div class="story">${stops
+    .map((s, i) => {
+      const track = stops
+        .map(
+          (t, j) =>
+            `<li class="${j < i ? "done" : j === i ? "here" : ""}"><span class="long">${esc(t.label)}</span><span class="short">${esc(t.kind === "gate" ? "N" : t.kind === "final" ? "F" : t.key)}</span>${j === i && s.kind !== "final" ? useIbis("stop-ibis") : ""}</li>`
+        )
+        .join("");
+      return `
+    <article class="stage-screen stage-${s.kind} stage-${esc(s.key.toLowerCase())}" aria-labelledby="stage-${esc(s.key.toLowerCase())}">
+      <div class="wrap stage-grid">
+        <p class="stage-big${s.key.length > 1 || isNaN(+s.key) ? " stage-word" : ""}" aria-hidden="true">${esc(big(s))}</p>
+        <div class="stage-copy">
+          <p class="stage-label">${esc(s.label)}, ${esc(s.dates)}</p>
+          <h3 id="stage-${esc(s.key.toLowerCase())}">${esc(s.name)}${s.kind === "final" ? `, ${esc(config.final.venue)}` : ""}</h3>
+          <p class="stage-who">${esc(s.who)}</p>
+          <p class="stage-summary">${esc(s.summary)}</p>
+          ${s.submit.length ? `<ul class="stage-submit">${s.submit.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          ${s.kind === "final" ? `<span class="flock stage-flock" role="img" aria-label="Ten finalist teams">${useIbis().repeat(10)}</span>` : ""}
+        </div>
+        <ol class="stage-track" aria-hidden="true">${track}</ol>
+      </div>
+    </article>`;
+    })
+    .join("")}
+  </div>`;
+}
+
 const helpers = {
   nav: (page) =>
     NAV.map(
@@ -80,6 +113,16 @@ const helpers = {
 
   route: () => routeList("route"),
   routeCompact: () => routeList("route route-compact"),
+  routeStory,
+
+  // Eight million tags: 160 dots of 50,000, losing value from left to right.
+  tagField: () => {
+    const cols = 20, rows = 8, dots = [];
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
+        dots.push(`<circle cx="${6 + c * 12}" cy="${6 + r * 12}" r="3.4" opacity="${(1 - c * 0.034).toFixed(2)}"/>`);
+    return `<svg class="tag-field" viewBox="0 0 240 96" role="img" aria-label="160 dots, each standing for 50,000 unsold tags, fading from left to right"><g fill="currentColor">${dots.join("")}</g></svg>`;
+  },
 
   criteria: () =>
     `<dl class="criteria">${config.criteria
