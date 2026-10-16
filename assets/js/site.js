@@ -67,6 +67,7 @@
   function frame() {
     ticking = false;
     if (odometer) odometer.textContent = (window.scrollY * METRES_PER_PX).toFixed(2) + " m";
+    document.documentElement.classList.toggle("scrolled", window.scrollY > 4);
     if (!walker || !track.offsetWidth) return;
     var route = track.parentElement.getBoundingClientRect();
     var vh = window.innerHeight;
