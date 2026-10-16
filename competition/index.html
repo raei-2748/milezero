@@ -14,14 +14,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path d="M326 398 L318 458 L328 520 L292 528 M392 396 L402 456 L394 518 L358 526" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M214 272 C186 228 178 172 184 116 L218 116 C214 168 224 214 258 250 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
+      <ellipse cx="199" cy="102" rx="33" ry="28" fill="currentColor"/><circle cx="208" cy="96" r="7.5" fill="var(--ibis-fill, #fff)"/>
+      <path d="M178 84 C124 96 84 154 62 262 C60 267 54 266 55 260 C72 152 114 106 180 114 Z" fill="currentColor"/>
+    </g>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/" aria-current="page">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -33,7 +55,7 @@
 <main id="main">
 <section class="page-hero">
   <div class="wrap grid">
-    <div class="span-9">
+    <div class="span-8">
       <h1>Sydney Schools Business Competition 2027</h1>
       <p class="lede">Your team advises Southern Cross Technologies, a fictional Sydney company stuck with eight million unsold tags. Over five weeks, new information arrives in stages, and each stage asks for a new decision and a new deliverable.</p>
       <div class="actions">
@@ -41,6 +63,14 @@
         <a class="btn btn-outline" href="/rules/">Read the rules</a>
       </div>
     </div>
+    <div class="poster inks-poster" aria-hidden="true"><svg viewBox="-6 0 470 320" preserveAspectRatio="xMidYMax meet" font-family="Archivo, Helvetica, sans-serif" font-weight="900" font-size="230" letter-spacing="-8">
+  <g style="mix-blend-mode:multiply">
+    <text x="0" y="180" fill="#E1251B">0</text>
+    <text x="96" y="220" fill="#1D3BC8" style="mix-blend-mode:multiply">1</text>
+    <text x="176" y="260" fill="#F4B400" style="mix-blend-mode:multiply">2</text>
+    <text x="268" y="300" fill="#000" style="mix-blend-mode:multiply">3</text>
+  </g>
+</svg></div>
   </div>
 </section>
 
@@ -49,7 +79,15 @@
     <div class="section-title"><h2>The route</h2></div>
     <div class="section-body">
       <p class="lede">Exact opening and closing times are emailed to every registered team when each stage opens. Late work isn't marked.</p>
-      <ol class="route">
+      <div class="route-track" aria-hidden="true"><div class="walker"><svg viewBox="0 0 64 56" focusable="false">
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path class="leg-a" d="M326 398 L318 458 L328 520 L292 528" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/><path class="leg-b" d="M392 396 L402 456 L394 518 L358 526" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M214 272 C186 228 178 172 184 116 L218 116 C214 168 224 214 258 250 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
+      <ellipse cx="199" cy="102" rx="33" ry="28" fill="currentColor"/><circle cx="208" cy="96" r="7.5" fill="var(--ibis-fill, #fff)"/>
+      <path d="M178 84 C124 96 84 154 62 262 C60 267 54 266 55 260 C72 152 114 106 180 114 Z" fill="currentColor"/>
+    </g>
+</svg></div></div><ol class="route">
       <li class="route-check">
         <span class="numeral" aria-hidden="true">0</span>
         <p class="when">1–2 Feb</p>
@@ -57,6 +95,7 @@
         <h3><span class="vh">Mile 0: </span>Briefing Check</h3>
         <p class="summary">A short check that your team has read the Opening Case. Five or six auto-marked questions, ten minutes once opened. Not scored: it just makes sure nobody starts behind.</p>
         <ul class="submit"><li>One set of answers per team</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">1</span>
@@ -65,6 +104,7 @@
         <h3><span class="vh">Mile 1: </span>Where to Play</h3>
         <p class="summary">Market data, customer interviews and a survey. Decide which markets to enter first, which to leave for later, and which to walk away from.</p>
         <ul class="submit"><li>Decision worksheet</li><li>150–250 word memo</li><li>One evidence calculation</li></ul>
+        
       </li>
       <li class="route-mile">
         <span class="numeral" aria-hidden="true">2</span>
@@ -73,6 +113,7 @@
         <h3><span class="vh">Mile 2: </span>Making It Pay</h3>
         <p class="summary">Choose how the company makes money, build a three-year plan inside the budget, and test what happens if sales come in slower than hoped.</p>
         <ul class="submit"><li>Three-year and investment plan</li><li>150–250 word memo</li><li>2–3 minute recorded pitch (every member speaks)</li></ul>
+        
       </li>
       <li class="route-gate">
         <span class="numeral" aria-hidden="true">Schools</span>
@@ -80,6 +121,7 @@
         <p class="who">Schools</p>
         <h3>School nominations</h3>
         <p class="summary">Each school nominates one team to continue, based on Mile 1 and Mile 2.</p>
+        
         
       </li>
       <li class="route-mile">
@@ -89,6 +131,7 @@
         <h3><span class="vh">Mile 3: </span>Project Kestrel</h3>
         <p class="summary">Something unexpected lands on the CEO's desk. Decide whether to accept, reject or negotiate, and show what changes in your plan.</p>
         <ul class="submit"><li>Response memo (up to 400 words)</li><li>“What changes” table</li><li>One-page term sheet</li></ul>
+        
       </li>
       <li class="route-final">
         <span class="numeral" aria-hidden="true">Final</span>
@@ -97,6 +140,7 @@
         <h3>Live Final, Sydney Grammar School</h3>
         <p class="summary">Present your strategy in up to seven minutes, take five minutes of judges' questions, then respond live to new information you haven't seen before.</p>
         
+        <span class="flock" role="img" aria-label="Ten finalist teams"><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg><svg class="mini-ibis " viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg></span>
       </li>
     </ol>
       <p class="muted">The top ten teams overall, ranked on Mile 1, Mile 2 and Project Kestrel, are invited to the Live Final at Sydney Grammar School on 4 March 2027.</p>
@@ -126,11 +170,15 @@
     <div class="section-body">
       <p class="lede">The same five criteria at every stage, with weights that shift to match what each stage tests. Submissions are coded so markers don't see school names, teams near the finalist cut-off are marked twice, and sponsors have no say in results.</p>
       
-    <div class="table-scroll"><table class="weights">
-      <caption>Weighting of each criterion by stage. Mile 0 is auto-marked and not weighted.</caption>
+    <div class="bars" aria-hidden="true"><div class="bar-row"><b>Mile 1</b><div class="bar"><span class="c0" style="flex-basis:25%">25</span><span class="c1" style="flex-basis:35%">35</span><span class="c2" style="flex-basis:10%">10</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Mile 2</b><div class="bar"><span class="c0" style="flex-basis:25%">25</span><span class="c1" style="flex-basis:25%">25</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Project Kestrel</b><div class="bar"><span class="c0" style="flex-basis:20%">20</span><span class="c1" style="flex-basis:20%">20</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:30%">30</span><span class="c4" style="flex-basis:10%">10</span></div></div><div class="bar-row"><b>Live Final</b><div class="bar"><span class="c0" style="flex-basis:20%">20</span><span class="c1" style="flex-basis:20%">20</span><span class="c2" style="flex-basis:20%">20</span><span class="c3" style="flex-basis:20%">20</span><span class="c4" style="flex-basis:20%">20</span></div></div>
+    </div>
+    <ul class="legend" aria-hidden="true"><li><i class="c0"></i>Framing</li><li><i class="c1"></i>Evidence</li><li><i class="c2"></i>Feasibility</li><li><i class="c3"></i>Trade-offs</li><li><i class="c4"></i>Communication</li></ul>
+    <div class="vh"><table>
+      <caption>Weighting of each criterion by stage, in percent. Mile 0 is auto-marked and not weighted.</caption>
       <thead><tr><th scope="col">Stage</th><th scope="col">Framing</th><th scope="col">Evidence</th><th scope="col">Feasibility</th><th scope="col">Trade-offs</th><th scope="col">Communication</th></tr></thead>
-      <tbody><tr><th scope="row">Mile 1</th><td>25%</td><td class="peak">35%</td><td>10%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Mile 2</th><td>25%</td><td>25%</td><td>20%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Project Kestrel</th><td>20%</td><td>20%</td><td>20%</td><td class="peak">30%</td><td>10%</td></tr><tr><th scope="row">Live Final</th><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td></tr></tbody>
+      <tbody><tr><th scope="row">Mile 1</th><td>25%</td><td>35%</td><td>10%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Mile 2</th><td>25%</td><td>25%</td><td>20%</td><td>20%</td><td>10%</td></tr><tr><th scope="row">Project Kestrel</th><td>20%</td><td>20%</td><td>20%</td><td>30%</td><td>10%</td></tr><tr><th scope="row">Live Final</th><td>20%</td><td>20%</td><td>20%</td><td>20%</td><td>20%</td></tr></tbody>
     </table></div>
+    <p class="small muted">Weights in percent for each stage. Mile 0 is auto-marked and not weighted.</p>
       <dl class="criteria"><div><dt>Problem framing</dt><dd>Did you find the central problem and build a clear strategy around it?</dd></div><div><dt>Evidence and analysis</dt><dd>Is the evidence relevant, read correctly and used to support your recommendation?</dd></div><div><dt>Feasibility and numbers</dt><dd>Could the company actually do this, and do the numbers add up?</dd></div><div><dt>Recommendation and trade-offs</dt><dd>Did you make a clear call and admit the main risks and alternatives?</dd></div><div><dt>Communication</dt><dd>Is it clear, concise and persuasive?</dd></div></dl>
     </div>
   </div>
@@ -171,6 +219,24 @@
   </div>
 </section>
 
+<section class="section yellow" id="words">
+  <div class="wrap grid">
+    <div class="section-title"><h2>Words you'll meet</h2><p class="small muted">Every term is also explained in the case the first time it appears.</p></div>
+    <div class="section-body">
+      <dl class="criteria glossary">
+        <div><dt>Revenue</dt><dd>The money a business brings in from sales, before any costs come out.</dd></div>
+        <div><dt>Cost</dt><dd>What the business spends to make, buy or deliver what it sells.</dd></div>
+        <div><dt>Profit</dt><dd>Revenue minus costs. When it's negative, it's a loss.</dd></div>
+        <div><dt>Margin</dt><dd>Profit as a share of revenue. A 20% margin means keeping 20 cents of every dollar of sales.</dd></div>
+        <div><dt>Sunk cost</dt><dd>Money already spent that you can't get back, so it shouldn't drive your next decision. <a href="/#try">Try it in the mini case.</a></dd></div>
+        <div><dt>Payback period</dt><dd>How long an investment takes to earn back what it cost.</dd></div>
+        <div><dt>Market size</dt><dd>How much customers in a market spend, or could spend, in a year.</dd></div>
+        <div><dt>Trade-off</dt><dd>What you give up by choosing one option over another. Judges want you to name it.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="wrap grid">
     <div class="section-title"><h2>Questions</h2></div>
@@ -201,7 +267,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">

@@ -14,14 +14,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path d="M326 398 L318 458 L328 520 L292 528 M392 396 L402 456 L394 518 L358 526" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M214 272 C186 228 178 172 184 116 L218 116 C214 168 224 214 258 250 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
+      <ellipse cx="199" cy="102" rx="33" ry="28" fill="currentColor"/><circle cx="208" cy="96" r="7.5" fill="var(--ibis-fill, #fff)"/>
+      <path d="M178 84 C124 96 84 154 62 262 C60 267 54 266 55 260 C72 152 114 106 180 114 Z" fill="currentColor"/>
+    </g>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/" aria-current="page">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -33,7 +55,7 @@
 <main id="main">
 <section class="page-hero">
   <div class="wrap grid">
-    <div class="span-9">
+    <div class="span-8">
       <h1>From zero to a registered team.</h1>
       <p class="lede">Everything a student needs to start a business society, run a first meeting and get a team ready for SSBC. You need three or four interested students, one staff member and about four weeks. No finance background required.</p>
       <div class="actions">
@@ -41,6 +63,11 @@
       </div>
       <p class="small muted" style="margin-top: 1rem;">Free. Editable Google Docs and Slides: open any file and choose File, then Make a copy.</p>
     </div>
+    <div class="poster" aria-hidden="true"><svg viewBox="0 0 240 340" preserveAspectRatio="xMidYMax meet" font-family="Archivo, Helvetica, sans-serif" font-weight="700" font-size="13">
+  <rect x="8" y="264" width="22" height="36" fill="#000"/><text x="19" y="256" text-anchor="middle">1</text><rect x="41" y="234" width="22" height="66" fill="#000"/><text x="52" y="226" text-anchor="middle">2</text><rect x="74" y="204" width="22" height="96" fill="#000"/><text x="85" y="196" text-anchor="middle">3</text><rect x="107" y="174" width="22" height="126" fill="#000"/><text x="118" y="166" text-anchor="middle">4</text><rect x="140" y="144" width="22" height="156" fill="#000"/><text x="151" y="136" text-anchor="middle">5</text><rect x="173" y="114" width="22" height="186" fill="#000"/><text x="184" y="106" text-anchor="middle">6</text><rect x="206" y="84" width="22" height="216" fill="#E1251B"/>
+  <path d="M0 300.75 H240" stroke="#000" stroke-width="1.5"/>
+  <use href="#ibis" x="190" y="40" width="46" height="40"/>
+</svg></div>
   </div>
 </section>
 
@@ -69,7 +96,7 @@
       <div class="col-item"><h3>Teacher one-pager</h3><p>For the staff member you're asking to supervise: time, cost, supervision and privacy.</p></div>
       <div class="col-item"><h3>Principal one-pager</h3><p>For schools that need formal approval: benefits and safeguards on one page.</p></div>
       <div class="col-item"><h3>FAQ for schools</h3><p>Answers to the questions teachers and students usually ask.</p></div>
-      <div class="col-item"><h3>First meeting pack</h3><p>A 40-minute run sheet, slide outline, a ten-minute business game and team-forming sheets.</p></div>
+      <div class="col-item"><h3>First meeting pack</h3><p>A 40-minute run sheet, slide outline, a ten-minute business game and team-forming sheets.</p><a class="link" href="/#try">Play the business game</a></div>
       <div class="col-item"><h3>Poster and announcements</h3><p>Poster copy, plus ready-to-edit newsletter, assembly and email blurbs.</p></div>
     </div>
   </div>
@@ -117,7 +144,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">

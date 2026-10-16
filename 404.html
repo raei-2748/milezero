@@ -14,14 +14,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script>
+  // The opening ibis plays once per visit (add ?intro to replay), never with reduced motion.
+  try {
+    var replay = location.search.indexOf("intro") > -1;
+    if (location.pathname === "/" && (replay || !sessionStorage.getItem("mz-intro")) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("intro");
+      sessionStorage.setItem("mz-intro", "1");
+    }
+  } catch (e) {}
+</script>
 <script src="/assets/js/links.js" defer></script>
 <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ibis" viewBox="0 0 64 56">
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path d="M326 398 L318 458 L328 520 L292 528 M392 396 L402 456 L394 518 L358 526" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M214 272 C186 228 178 172 184 116 L218 116 C214 168 224 214 258 250 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
+      <ellipse cx="199" cy="102" rx="33" ry="28" fill="currentColor"/><circle cx="208" cy="96" r="7.5" fill="var(--ibis-fill, #fff)"/>
+      <path d="M178 84 C124 96 84 154 62 262 C60 267 54 266 55 260 C72 152 114 106 180 114 Z" fill="currentColor"/>
+    </g>
+  </symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="Mile Zero home"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+    <a class="wordmark" href="/" aria-label="Mile Zero home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul><li><a href="/competition/">Competition</a></li><li><a href="/programs/">Programs</a></li><li><a href="/toolkit/">Toolkit</a></li><li><a href="/about/">About</a></li><li><a href="/get-involved/">Get involved</a></li></ul>
@@ -33,14 +55,57 @@
 <main id="main">
 <section class="page-hero">
   <div class="wrap grid">
-    <div class="span-9">
-      <h1>This page doesn't exist.</h1>
-      <p class="lede">It may have moved. Start again from the home page.</p>
+    <div class="span-7">
+      <h1>This page went in the bin.</h1>
+      <p class="lede">The address may be mistyped, or the page may have moved. Everything that still exists is one click away.</p>
       <div class="actions">
-        <a class="btn" href="/">Back to the home page</a>
-        <a class="btn btn-outline" href="/competition/">The competition</a>
+        <a class="btn" href="/">Go to the home page</a>
+        <a class="btn btn-outline" href="/competition/">See the competition</a>
       </div>
     </div>
+    <svg class="bin-ibis" viewBox="-10 0 650 560" role="img" aria-labelledby="bin-t">
+      <title id="bin-t">An ibis with its head in a rubbish bin</title>
+      <defs><clipPath id="wing-clip-404"><ellipse cx="360" cy="300" rx="124" ry="78"/></clipPath></defs>
+      <ellipse cx="300" cy="534" rx="250" ry="9" fill="#000" opacity=".12"/>
+      <g>
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z"/>
+      <path d="M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z"/>
+      <path d="M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z"/>
+      <g fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9">
+        <path d="M500 262 L526 290 M530 276 L552 308 M556 296 L574 330"/>
+        <path d="M498 298 L516 330 M524 318 L540 352 M544 342 L556 376"/>
+        <path d="M480 330 L494 360 M500 352 L510 384 M512 378 L518 408"/>
+      </g>
+    </g>
+      <g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M330 396 L322 462 L330 524" stroke-width="11"/>
+      <path d="M330 524 L292 532 M330 524 L346 536 M330 524 L360 526 M330 524 L318 514" stroke-width="7"/>
+      <path d="M394 394 L404 460 L398 524" stroke-width="11"/>
+      <path d="M398 524 L432 530 M398 524 L414 538 M398 524 L370 528 M398 524 L408 514" stroke-width="7"/>
+    </g>
+      <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+      <path d="M318 474 L334 476 M320 488 L336 490 M322 502 L336 503"/>
+      <path d="M394 474 L410 472 M394 488 L408 486 M393 502 L406 501"/>
+    </g>
+      <circle cx="322" cy="462" r="7.5" fill="#000"/><circle cx="404" cy="460" r="7.5" fill="#000"/>
+      <path d="M236 262 C212 196 150 186 112 320" fill="none" stroke="#000" stroke-width="38" stroke-linecap="round"/>
+      <g>
+      <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
+      <!-- Folded wing: rows of scalloped feathers -->
+      <g clip-path="url(#wing-clip-404)" fill="none" stroke="#000" stroke-linecap="round">
+        <path stroke-width="3.5" d="M292 262 C346 240 412 244 464 276"/>
+        <path stroke-width="2.4" d="M296 276 a13.0 12 0 0 0 26 0 M322 276 a13.0 12 0 0 0 26 0 M348 276 a13.0 12 0 0 0 26 0 M374 276 a13.0 12 0 0 0 26 0 M400 276 a13.0 12 0 0 0 26 0 M426 276 a13.0 12 0 0 0 26 0 M452 276 a13.0 12 0 0 0 26 0"/>
+        <path stroke-width="2.4" d="M309 296 a13.0 12 0 0 0 26 0 M335 296 a13.0 12 0 0 0 26 0 M361 296 a13.0 12 0 0 0 26 0 M387 296 a13.0 12 0 0 0 26 0 M413 296 a13.0 12 0 0 0 26 0 M439 296 a13.0 12 0 0 0 26 0 M465 296 a13.0 12 0 0 0 26 0"/>
+        <path stroke-width="2.4" d="M296 316 a13.0 12 0 0 0 26 0 M322 316 a13.0 12 0 0 0 26 0 M348 316 a13.0 12 0 0 0 26 0 M374 316 a13.0 12 0 0 0 26 0 M400 316 a13.0 12 0 0 0 26 0 M426 316 a13.0 12 0 0 0 26 0 M452 316 a13.0 12 0 0 0 26 0"/>
+        <path stroke-width="2.4" d="M322 336 a13.0 12 0 0 0 26 0 M348 336 a13.0 12 0 0 0 26 0 M374 336 a13.0 12 0 0 0 26 0 M400 336 a13.0 12 0 0 0 26 0 M426 336 a13.0 12 0 0 0 26 0"/>
+      </g>
+    </g>
+      <path d="M46 322 L184 322 L170 526 L60 526 Z" fill="#fff" stroke="#000" stroke-width="10" stroke-linejoin="round"/>
+      <g stroke="#000" stroke-width="7" stroke-linecap="round"><path d="M84 350 L90 500"/><path d="M115 350 L115 500"/><path d="M146 350 L140 500"/></g>
+      <rect x="34" y="306" width="162" height="20" fill="#000"/>
+      <path d="M6 526 L28 526 L52 372 L30 368 Z" fill="#1D3BC8"/>
+      <circle cx="44" cy="366" r="8" fill="#1D3BC8"/>
+    </svg>
   </div>
 </section>
 
@@ -48,7 +113,7 @@
 <footer class="site-footer">
   <div class="wrap grid">
     <div class="span-6">
-      <a class="wordmark" href="/"><span class="datum" aria-hidden="true"></span>Mile Zero</a>
+      <a class="wordmark" href="/"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>Mile Zero</a>
       <p class="about">A student-led initiative for NSW secondary students. Free to enter, open to every school.</p>
     </div>
     <nav class="span-3" aria-label="Footer">

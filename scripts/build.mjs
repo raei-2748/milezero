@@ -35,10 +35,26 @@ const NAV = [
   { href: "/get-involved/", label: "Get involved" },
 ];
 
-// The stages as a row of columns, each led by its numeral.
+// A small ibis used as the logo, the walker and the flock.
+const useIbis = (cls = "") => `<svg class="mini-ibis ${cls}" viewBox="0 0 64 56" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>`;
+
+// The walker is drawn inline (not <use>) so its legs can be animated.
+const walkerSvg = `<svg viewBox="0 0 64 56" focusable="false">
+    <g transform="scale(.1)">
+      <path d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z" fill="currentColor"/>
+      <path class="leg-a" d="M326 398 L318 458 L328 520 L292 528" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/><path class="leg-b" d="M392 396 L402 456 L394 518 L358 526" fill="none" stroke="currentColor" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M214 272 C186 228 178 172 184 116 L218 116 C214 168 224 214 258 250 Z" fill="currentColor"/><ellipse cx="360" cy="300" rx="148" ry="102" fill="var(--ibis-fill, #fff)" stroke="var(--ibis-ring, #E1251B)" stroke-width="52"/>
+      <ellipse cx="199" cy="102" rx="33" ry="28" fill="currentColor"/><circle cx="208" cy="96" r="7.5" fill="var(--ibis-fill, #fff)"/>
+      <path d="M178 84 C124 96 84 154 62 262 C60 267 54 266 55 260 C72 152 114 106 180 114 Z" fill="currentColor"/>
+    </g>
+</svg>`;
+const walker = `<div class="route-track" aria-hidden="true"><div class="walker">${walkerSvg}</div></div>`;
+
+// The stages as a row of columns, each led by its numeral. An ibis walks the
+// route as you scroll, and ten ibises (the ten finalist teams) wait at the Final.
 function routeList(cls) {
   const numeral = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
-  return `<ol class="${cls}">${config.stages
+  return `${walker}<ol class="${cls}">${config.stages
     .map(
       (s) => `
       <li class="route-${s.kind}">
@@ -48,10 +64,51 @@ function routeList(cls) {
         <h3>${s.kind === "mile" || s.kind === "check" ? `<span class="vh">${esc(s.label)}: </span>` : ""}${esc(s.name)}${s.kind === "final" ? `, ${esc(config.final.venue)}` : ""}</h3>
         <p class="summary">${esc(s.summary)}</p>
         ${s.submit.length ? `<ul class="submit">${s.submit.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+        ${s.kind === "final" ? `<span class="flock" role="img" aria-label="Ten finalist teams">${useIbis().repeat(10)}</span>` : ""}
       </li>`
     )
     .join("")}
     </ol>`;
+}
+
+// The route as a deck of full-screen posters. Each one sticks to the top of the
+// screen and the next slides over it. Each poster prints its own progress track;
+// with JavaScript, one shared track (the HUD) stays still over the deck instead,
+// and the ibis walks along it as you scroll.
+function routeStory() {
+  const big = (s) => (s.kind === "gate" ? "Schools" : s.kind === "final" ? "Final" : s.key);
+  const stops = config.stages;
+  return `<div class="story">${stops
+    .map((s, i) => {
+      const track = stops
+        .map(
+          (t, j) =>
+            `<li class="${j < i ? "done" : j === i ? "here" : ""}"><span class="long">${esc(t.label)}</span><span class="short">${esc(t.kind === "gate" ? "N" : t.kind === "final" ? "F" : t.key)}</span>${j === i && s.kind !== "final" ? useIbis("stop-ibis") : ""}</li>`
+        )
+        .join("");
+      return `
+    <article class="stage-screen stage-${s.kind} stage-${esc(s.key.toLowerCase())}" aria-labelledby="stage-${esc(s.key.toLowerCase())}">
+      <div class="wrap stage-grid">
+        <p class="stage-big${s.key.length > 1 || isNaN(+s.key) ? " stage-word" : ""}" aria-hidden="true">${esc(big(s))}</p>
+        <div class="stage-copy">
+          <p class="stage-label">${esc(s.label)}, ${esc(s.dates)}</p>
+          <h3 id="stage-${esc(s.key.toLowerCase())}">${esc(s.name)}${s.kind === "final" ? `, ${esc(config.final.venue)}` : ""}</h3>
+          <p class="stage-who">${esc(s.who)}</p>
+          <p class="stage-summary">${esc(s.summary)}</p>
+          ${s.submit.length ? `<ul class="stage-submit">${s.submit.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          ${s.kind === "final" ? `<span class="flock stage-flock" role="img" aria-label="Ten finalist teams">${useIbis().repeat(10)}</span>` : ""}
+        </div>
+        <ol class="stage-track" aria-hidden="true">${track}</ol>
+      </div>
+    </article>`;
+    })
+    .join("")}
+    <div class="story-hud" aria-hidden="true" hidden>
+      <div class="hud-line"><i class="hud-fill"></i></div>
+      <ol class="hud-stops">${stops.map((t) => `<li><span class="long">${esc(t.label)}</span><span class="short">${esc(t.kind === "gate" ? "N" : t.kind === "final" ? "F" : t.key)}</span></li>`).join("")}</ol>
+      <div class="hud-walker">${walkerSvg}</div>
+    </div>
+  </div>`;
 }
 
 const helpers = {
@@ -63,25 +120,42 @@ const helpers = {
 
   route: () => routeList("route"),
   routeCompact: () => routeList("route route-compact"),
+  routeStory,
+
+  // Eight million tags: 160 dots of 50,000, losing value from left to right.
+  tagField: () => {
+    const cols = 20, rows = 8, dots = [];
+    for (let r = 0; r < rows; r++)
+      for (let c = 0; c < cols; c++)
+        dots.push(`<circle cx="${6 + c * 12}" cy="${6 + r * 12}" r="3.4" opacity="${(1 - c * 0.034).toFixed(2)}"/>`);
+    return `<svg class="tag-field" viewBox="0 0 240 96" role="img" aria-label="160 dots, each standing for 50,000 unsold tags, fading from left to right"><g fill="currentColor">${dots.join("")}</g></svg>`;
+  },
 
   criteria: () =>
     `<dl class="criteria">${config.criteria
       .map((c) => `<div><dt>${esc(c.name)}</dt><dd>${esc(c.question)}</dd></div>`)
       .join("")}</dl>`,
 
+  // Each stage is one bar split by its weights; the table underneath is for screen readers.
   weights: () => `
-    <div class="table-scroll"><table class="weights">
-      <caption>Weighting of each criterion by stage. Mile 0 is auto-marked and not weighted.</caption>
+    <div class="bars" aria-hidden="true">${config.weights
+      .map(
+        (w) =>
+          `<div class="bar-row"><b>${esc(w.stage)}</b><div class="bar">${w.values
+            .map((v, i) => `<span class="c${i}" style="flex-basis:${v}%">${v}</span>`)
+            .join("")}</div></div>`
+      )
+      .join("")}
+    </div>
+    <ul class="legend" aria-hidden="true">${config.criteria.map((c, i) => `<li><i class="c${i}"></i>${esc(c.short)}</li>`).join("")}</ul>
+    <div class="vh"><table>
+      <caption>Weighting of each criterion by stage, in percent. Mile 0 is auto-marked and not weighted.</caption>
       <thead><tr><th scope="col">Stage</th>${config.criteria.map((c) => `<th scope="col">${esc(c.short)}</th>`).join("")}</tr></thead>
       <tbody>${config.weights
-        .map((w) => {
-          const max = Math.max(...w.values);
-          return `<tr><th scope="row">${esc(w.stage)}</th>${w.values
-            .map((v) => `<td${v === max && w.values.filter((x) => x === max).length === 1 ? ' class="peak"' : ""}>${v}%</td>`)
-            .join("")}</tr>`;
-        })
+        .map((w) => `<tr><th scope="row">${esc(w.stage)}</th>${w.values.map((v) => `<td>${v}%</td>`).join("")}</tr>`)
         .join("")}</tbody>
-    </table></div>`,
+    </table></div>
+    <p class="small muted">Weights in percent for each stage. Mile 0 is auto-marked and not weighted.</p>`,
 
   // Only partners whose logo use has been approved in writing appear publicly.
   partnerBar: () => {

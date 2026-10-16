@@ -1,15 +1,85 @@
 <!--page {"title": "Home", "description": "{{brand.name}} runs the {{brand.competitionName}}: a free, staged business case competition for students from any NSW secondary school."} -->
 <section class="hero">
+  <p class="coords-v" aria-hidden="true">Mile Zero, 33°51′48″S 151°12′37″E</p>
+  <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="wrap grid">
     <div class="hero-copy">
-      <h1>Every business mind starts at zero.</h1>
+      <h1><span class="l">Every business</span> <span class="l">mind starts</span> <span class="l">at zero.</span></h1>
       <p class="lede">{{brand.name}} runs the {{brand.competitionName}}, a free business case competition for students from any NSW secondary school. No finance background needed: just clear thinking, good evidence and the nerve to defend a decision.</p>
       <div class="actions">
         <a class="btn" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a>
         <a class="btn btn-outline" href="/competition/">How it works</a>
       </div>
     </div>
-    <p class="hero-zero" aria-hidden="true">0</p>
+    <svg class="hero-ibis" viewBox="0 0 640 560" role="img" aria-labelledby="hero-ibis-t" data-ibis>
+      <title id="hero-ibis-t">The Mile Zero ibis: a red zero forms the body of a black-headed ibis. You can drag it.</title>
+      <defs>
+        <clipPath id="wing-clip"><ellipse cx="360" cy="300" rx="124" ry="78"/></clipPath>
+      </defs>
+      <g class="bird">
+        <!-- Ground shadow -->
+        <ellipse class="shadow" cx="362" cy="534" rx="118" ry="9" fill="#000" opacity=".12"/>
+        <!-- Drooping black tail plumes, with feather barbs cut in -->
+        <g class="plumes">
+          <path class="pop plume" d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z"/>
+          <path class="pop plume" d="M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z"/>
+          <path class="pop plume" d="M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z"/>
+          <g class="barbs" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9">
+            <path d="M500 262 L526 290 M530 276 L552 308 M556 296 L574 330"/>
+            <path d="M498 298 L516 330 M524 318 L540 352 M544 342 L556 376"/>
+            <path d="M480 330 L494 360 M500 352 L510 384 M512 378 L518 408"/>
+          </g>
+        </g>
+        <!-- Legs: scaled tarsus, backward joint, three toes forward and one hind toe -->
+        <g class="legs" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
+          <path class="draw leg" pathLength="1" d="M330 396 L322 462 L330 524" stroke-width="11"/>
+          <path class="draw leg" pathLength="1" d="M330 524 L292 532 M330 524 L346 536 M330 524 L360 526 M330 524 L318 514" stroke-width="7"/>
+          <path class="draw leg" pathLength="1" d="M394 394 L404 460 L398 524" stroke-width="11"/>
+          <path class="draw leg" pathLength="1" d="M398 524 L432 530 M398 524 L414 538 M398 524 L370 528 M398 524 L408 514" stroke-width="7"/>
+        </g>
+        <g class="scales" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+          <path d="M318 474 L334 476 M320 488 L336 490 M322 502 L336 503"/>
+          <path d="M394 474 L410 472 M394 488 L408 486 M393 502 L406 501"/>
+        </g>
+        <circle cx="322" cy="462" r="7.5" fill="#000"/><circle cx="404" cy="460" r="7.5" fill="#000"/>
+        <!-- Bare black neck, tapering, with skin folds -->
+        <path class="grow neck" d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z"/>
+        <g class="folds" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55">
+          <path d="M184 150 C192 154 202 154 210 150"/><path d="M182 176 C192 181 204 181 212 176"/>
+          <path d="M186 204 C198 209 210 210 220 204"/><path d="M196 232 C208 237 222 238 234 232"/>
+        </g>
+        <!-- The zero is the body -->
+        <g class="zero">
+          <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
+          <!-- Folded wing: rows of scalloped feathers -->
+          <g class="wing" clip-path="url(#wing-clip)" fill="none" stroke="#000" stroke-linecap="round">
+            <path class="draw" pathLength="1" stroke-width="3.5" d="M292 262 C346 240 412 244 464 276"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M322 276 a13.0 12 0 0 0 26 0 M348 276 a13.0 12 0 0 0 26 0 M374 276 a13.0 12 0 0 0 26 0 M400 276 a13.0 12 0 0 0 26 0 M426 276 a13.0 12 0 0 0 26 0"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M335 296 a13.0 12 0 0 0 26 0 M361 296 a13.0 12 0 0 0 26 0 M387 296 a13.0 12 0 0 0 26 0 M413 296 a13.0 12 0 0 0 26 0 M439 296 a13.0 12 0 0 0 26 0"/>
+          </g>
+        </g>
+        <!-- Head: eye with iris and highlight -->
+        <g class="look" data-look>
+        <g class="pop head">
+          <ellipse cx="198" cy="100" rx="32" ry="27"/>
+          <g class="eye">
+            <circle cx="210" cy="92" r="9" fill="#fff"/>
+            <g data-iris>
+              <circle cx="211" cy="92" r="6" fill="#7a1e14"/>
+              <circle cx="211" cy="92" r="3.2"/>
+              <circle cx="213.5" cy="89.5" r="1.4" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+        <!-- Long down-curved bill with nostril groove and a highlight along the top -->
+        <g class="grow bill">
+          <path d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
+          <path d="M168 90 C130 104 102 140 86 196" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
+          <path d="M170 84 C140 92 120 108 106 128" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".35"/>
+        </g>
+        </g>
+      </g>
+    </svg>
   </div>
   <div class="wrap" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
     <dl class="facts">
@@ -21,23 +91,80 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="wrap grid">
-    <div class="section-title"><h2>How it works</h2></div>
-    <div class="section-body">
-      <p class="lede">Five weeks, four miles, one final. Each mile releases new information about the same company and asks your team for a new decision.</p>
-      {{@routeCompact}}
-      <p><a class="link" href="/competition/">The full route, deliverables and judging</a></p>
+<section class="screen blue case-screen" aria-labelledby="case-h">
+  <div class="wrap">
+    <h2 id="case-h" class="screen-label">The {{brand.year}} case</h2>
+    <p class="giant" data-fit aria-hidden="true"><span>8,000,000</span></p>
+    <div class="grid case-grid">
+      <p class="statement"><span class="vh">Eight million </span>unsold tags, losing value every month. It's December 2026, a Sydney company is sitting on all of them, and the board wants a plan. Your team writes it.</p>
+      <figure class="case-dots">
+        {{@tagField}}
+        <figcaption class="small">Each dot is 50,000 tags. Every month they're worth a little less.</figcaption>
+      </figure>
+      <blockquote class="case-quote">
+        <p>“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.”</p>
+        <footer class="small">Amelia Chen, CEO of Southern Cross Technologies, a fictional company</footer>
+      </blockquote>
     </div>
   </div>
 </section>
 
-<section class="section inverse">
-  <div class="wrap grid">
-    <div class="section-title"><h2>The {{brand.year}} case</h2></div>
-    <div class="section-body">
-      <p class="statement">It's December 2026. A Sydney company is sitting on eight million unsold tags, and they lose value every month. The board wants a plan. Your team writes it.</p>
-      <p class="muted">“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.” Amelia Chen, CEO of Southern Cross Technologies, a fictional company.</p>
+<section class="route-screens" aria-labelledby="route-h">
+  <div class="screen story-intro">
+    <div class="wrap">
+      <h2 id="route-h" class="screen-h">Five weeks.<br>Four miles.<br>One final.</h2>
+      <p class="lede">Each mile releases new information about the same company and asks your team for a new decision. Keep scrolling to walk the route.</p>
+    </div>
+  </div>
+  {{@routeStory}}
+  <div class="wrap route-more"><a class="link" href="/competition/">The full route, deliverables and judging</a></div>
+</section>
+
+<section class="screen yellow try-screen" id="try" aria-labelledby="try-h">
+  <div class="wrap" data-stall>
+    <div class="grid try-head">
+      <div class="try-intro">
+        <h2 id="try-h" class="screen-h">Pick a price.</h2>
+        <p class="lede">You're running a drinks stall at the school fete. You can make 200 cups. Each costs $1.50, and you make them all before the gates open. Leftovers can't be sold tomorrow. You get one price.</p>
+        <p class="small try-time">A two-minute mini case. No sign-up.</p>
+      </div>
+      <div class="stall-research">
+        <h3>Your market research</h3>
+        <table>
+          <thead><tr><th scope="col">Price per cup</th><th scope="col">People who'd buy</th></tr></thead>
+          <tbody><tr><td>$3</td><td>about 190</td></tr><tr><td>$4</td><td>about 150</td></tr><tr><td>$5</td><td>about 100</td></tr><tr><td>$6</td><td>about 60</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <fieldset class="prices">
+      <legend>Pick your price</legend>
+      <label><input type="radio" name="stall-price" value="3"><span>$3</span></label>
+      <label><input type="radio" name="stall-price" value="4"><span>$4</span></label>
+      <label><input type="radio" name="stall-price" value="5"><span>$5</span></label>
+      <label><input type="radio" name="stall-price" value="6"><span>$6</span></label>
+    </fieldset>
+    <div class="grid try-result">
+      <dl class="stall-figs">
+        <div><dt>Cups sold</dt><dd data-f="sold">0</dd></div>
+        <div><dt>Money in</dt><dd data-f="revenue">$0</dd></div>
+        <div><dt>Cups cost</dt><dd>$300</dd></div>
+        <div class="profit"><dt>Profit</dt><dd data-f="profit">$0</dd></div>
+      </dl>
+      <div class="stall-bars" aria-hidden="true">
+        <div data-bar="3"><span>$3</span><i><b></b></i><em></em></div>
+        <div data-bar="4"><span>$4</span><i><b></b></i><em></em></div>
+        <div data-bar="5"><span>$5</span><i><b></b></i><em></em></div>
+        <div data-bar="6"><span>$6</span><i><b></b></i><em></em></div>
+      </div>
+    </div>
+    <p class="stall-note" data-note aria-live="polite">Pick a price to see what happens. Try them all.</p>
+    <div class="reveal" data-reveal-panel>
+      <button class="btn btn-outline" type="button" data-reveal aria-expanded="false" aria-controls="stall-lesson">Show the lesson</button>
+      <div class="reveal-body" id="stall-lesson"><div>
+        <p class="lede">The $300 for cups was spent before the fete opened, whatever price you pick. That's a <b>sunk cost</b>: it can't change, so it shouldn't change your decision. The best price is the one that brings in the most money from here, which is $4.</p>
+        <p>Now a rival stall opens next door selling a similar drink for $4. Do you match them, or drop to $3? There's no single right answer. A good answer makes a call, uses the numbers, and admits what could go wrong. That's exactly what {{brand.competitionShort}} asks, with a real-feeling company and much bigger numbers.</p>
+        <div class="actions"><a class="btn" href="/competition/">See how the competition works</a></div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -62,39 +189,41 @@
   </div>
 </section>
 
-<section class="section panel">
-  <div class="wrap grid">
-    <div class="section-title"><h2>More than a competition</h2></div>
-    <div class="section-body three-col">
-      <div class="col-item">
-        <span class="status live">Term 1, {{brand.year}}</span>
-        <h3>{{brand.competitionShort}} {{brand.year}}</h3>
-        <p>A staged business case for teams of three or four from any NSW secondary school.</p>
-        <a class="link" href="/competition/">See the competition</a>
-      </div>
-      <div class="col-item">
-        <span class="status">Version 1 out now</span>
-        <h3>Starter Toolkit</h3>
-        <p>Everything a student needs to start a business society and get a team ready, free for any school.</p>
-        <a class="link" href="/toolkit/">Get the toolkit</a>
-      </div>
-      <div class="col-item">
-        <span class="status">Coming in {{brand.year}}</span>
-        <h3>Network, Girls in Finance, Learn</h3>
-        <p>A network for school business societies, a community for girls in finance, and ten-minute lessons.</p>
-        <a class="link" href="/programs/">All programs</a>
-      </div>
-    </div>
+<section class="screen values-screen" aria-labelledby="values-h">
+  <div class="wrap">
+    <h2 id="values-h" class="screen-label">What we stand for</h2>
+    <ol class="manifesto">
+      <li><b data-fit><span>Start at zero.</span></b><span>Same start line for everyone.</span></li>
+      <li><b data-fit><span>Pull up a chair.</span></b><span>There's always room for one more.</span></li>
+      <li><b data-fit><span>Source it or drop it.</span></b><span>Be curious enough to check.</span></li>
+      <li><b data-fit><span>Play the long game.</span></b><span>Think in years, because good compounds.</span></li>
+      <li><b data-fit><span>Leave the ladder down.</span></b><span>Climb, then help the next person up.</span></li>
+    </ol>
+    <p class="values-more"><a class="link" href="/about/">About {{brand.name}}</a></p>
+  </div>
+</section>
+
+<section class="section programs-board" aria-labelledby="programs-h">
+  <div class="wrap">
+    <h2 id="programs-h" class="screen-h">More than a competition.</h2>
+    <ul class="board">
+      <li><a href="/competition/"><b>{{brand.competitionShort}} {{brand.year}}</b><span class="what">A staged business case for teams of three or four from any NSW secondary school.</span><span class="status live">Term 1, {{brand.year}}</span></a></li>
+      <li><a href="/toolkit/"><b>Starter Toolkit</b><span class="what">Everything a student needs to start a business society and get a team ready, free for any school.</span><span class="status">Version 1 out now</span></a></li>
+      <li><a href="/programs/#network"><b>{{brand.name}} Network</b><span class="what">A network for student business societies across NSW. Every member society stays independent.</span><span class="status">Open now</span></a></li>
+      <li><a href="/programs/#girls-in-finance"><b>Girls in Finance</b><span class="what">A community for girls interested in business, finance and investing.</span><span class="status">Coming in {{brand.year}}</span></a></li>
+      <li><a href="/programs/#learn"><b>{{brand.competitionShort}} Learn</b><span class="what">Short lessons you can finish in 10 to 20 minutes.</span><span class="status">In development</span></a></li>
+    </ul>
   </div>
 </section>
 
 {{@partnerBar}}
 
-<section class="closer inverse">
+<section class="screen red-screen closer" aria-labelledby="closer-h">
+  <a class="giant giant-crop" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration" tabindex="-1" aria-hidden="true">Register</a>
   <div class="wrap grid">
     <div class="span-8">
-      <h2>Three to four students. One school. Five weeks.</h2>
-      <p class="lede muted">Register before {{dates.registrationCloses}}. You need one staff member who knows you're taking part, and that's it.</p>
+      <h2 id="closer-h">Three to four students. One school. Five weeks.</h2>
+      <p class="lede">Register before {{dates.registrationCloses}}. You need one staff member who knows you're taking part, and that's it.</p>
       <div class="actions"><a class="btn btn-white" data-link="register" href="mailto:{{brand.email}}?subject=Team%20registration">Register your team</a></div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 <header class="site-header">
   <div class="wrap header-row">
-    <a class="wordmark" href="/" aria-label="{{brand.name}} home"><span class="datum" aria-hidden="true"></span>{{brand.name}}</a>
+    <a class="wordmark" href="/" aria-label="{{brand.name}} home"><svg class="mark mini-ibis" aria-hidden="true" focusable="false"><use href="#ibis"/></svg>{{brand.name}}</a>
+    <span class="odometer" aria-hidden="true"><b data-odometer>0.00 m</b> from Mile Zero</span>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul>{{@nav}}</ul>
