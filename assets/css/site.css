@@ -859,3 +859,15 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
   .stage-summary { font-size: 0.9375rem; }
   .stage-submit li { padding: 0.25rem 0; }
 }
+
+/* ---------- The hero ibis is alive: it watches the cursor, blinks and fidgets ---------- */
+.hero-ibis .eye { transform-box: fill-box; transform-origin: center; }
+.hero-ibis .eye.blink { animation: blink 170ms ease-in-out; }
+@keyframes blink { 50% { transform: scaleY(0.08); } }
+.hero-ibis .plumes { transform-box: fill-box; transform-origin: 0% 20%; animation: sway 5.5s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(2.5deg); } }
+.hero-ibis.startled .plumes { animation: ruffle 380ms ease-out; }
+@keyframes ruffle { 30% { transform: rotate(-7deg) scale(1.04); } 65% { transform: rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-ibis .plumes, .hero-ibis.startled .plumes, .hero-ibis .eye.blink { animation: none; }
+}

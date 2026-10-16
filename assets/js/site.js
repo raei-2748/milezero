@@ -302,6 +302,119 @@
     if (document.fonts) document.fonts.ready.then(function () { measureHud(); tone = -1; hudKick(); });
   }
 
+  // The hero ibis watches you. Its head turns toward the cursor on a soft spring and
+  // its eye tracks it. Left alone, it blinks, sways its plumes and now and then pecks
+  // at the ground. A sudden fast swipe nearby startles it.
+  var look = ibis && ibis.querySelector("[data-look]");
+  if (look) {
+    var iris = ibis.querySelector("[data-iris]"), eye = ibis.querySelector(".eye");
+    var PIVOT = { x: 200, y: 118 }, EYE = { x: 210, y: 92 };
+    var head = new Spring(0.62, 0.55), ix = new Spring(0.9, 0.18), iy = new Spring(0.9, 0.18);
+    var lookRaf = 0, lookLast = 0, lastMove = 0, pecking = false;
+
+    var toSvg = function (cx, cy) {
+      var m = ibis.getScreenCTM();
+      if (!m) return null;
+      var pt = ibis.createSVGPoint();
+      pt.x = cx; pt.y = cy;
+      return pt.matrixTransform(m.inverse());
+    };
+    var paintLook = function () {
+      look.setAttribute("transform", "rotate(" + head.x.toFixed(2) + " " + PIVOT.x + " " + PIVOT.y + ")");
+      iris.setAttribute("transform", "translate(" + ix.x.toFixed(2) + " " + iy.x.toFixed(2) + ")");
+    };
+    var lookTick = function (t) {
+      var dt = Math.min(0.032, (t - (lookLast || t)) / 1000) || 1 / 60;
+      lookLast = t;
+      [head, ix, iy].forEach(function (sp) { sp.step(dt / 2); sp.step(dt / 2); });
+      paintLook();
+      if (head.settled() && ix.settled() && iy.settled()) { lookRaf = 0; lookLast = 0; return; }
+      lookRaf = requestAnimationFrame(lookTick);
+    };
+    var lookKick = function () {
+      if (reduceMotion) { [head, ix, iy].forEach(function (sp) { sp.x = sp.target; sp.v = 0; }); paintLook(); return; }
+      if (!lookRaf) lookRaf = requestAnimationFrame(lookTick);
+    };
+
+    var lookAt = function (cx, cy) {
+      var p = toSvg(cx, cy);
+      if (!p) return;
+      var dx = p.x - PIVOT.x, dy = p.y - PIVOT.y, dist = Math.max(1, Math.hypot(dx, dy));
+      // Up tips the bill up (clockwise for a bird facing left); a cursor behind it gets a sideways glance.
+      var tilt = (-dy / Math.max(dist, 260)) * 16 + (dx > 0 ? -3 : 0);
+      head.target = Math.max(-16, Math.min(14, tilt));
+      var ex = p.x - EYE.x, ey = p.y - EYE.y, ed = Math.max(1, Math.hypot(ex, ey));
+      var reach = Math.min(1, ed / 120) * 2.6;
+      ix.target = (ex / ed) * reach; iy.target = (ey / ed) * reach;
+      lookKick();
+    };
+    var rest = function () { head.target = 0; ix.target = 0; iy.target = 0; lookKick(); };
+
+    var lastPt = null;
+    window.addEventListener("pointermove", function (e) {
+      if (e.pointerType === "touch") return;
+      var now = performance.now();
+      lastMove = now;
+      if (!pecking) lookAt(e.clientX, e.clientY);
+      // A fast swipe close to the bird ruffles its plumes.
+      if (lastPt && !reduceMotion) {
+        var speed = Math.hypot(e.clientX - lastPt.x, e.clientY - lastPt.y) / Math.max(1, now - lastPt.t);
+        var r = ibis.getBoundingClientRect();
+        var near = e.clientX > r.left - 80 && e.clientX < r.right + 80 && e.clientY > r.top - 80 && e.clientY < r.bottom + 80;
+        if (speed > 3.2 && near && !ibis.classList.contains("startled")) {
+          ibis.classList.add("startled"); blink();
+          setTimeout(function () { ibis.classList.remove("startled"); }, 400);
+        }
+      }
+      lastPt = { x: e.clientX, y: e.clientY, t: now };
+    }, { passive: true });
+    // On touch screens it looks where you tap.
+    window.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "touch") return;
+      lastMove = performance.now();
+      lookAt(e.clientX, e.clientY);
+    }, { passive: true });
+    document.addEventListener("mouseleave", function () { lastMove = 0; rest(); });
+
+    // Blink every few seconds, sometimes twice.
+    var blink = function () {
+      if (reduceMotion) return;
+      eye.classList.remove("blink");
+      void eye.getBoundingClientRect();
+      eye.classList.add("blink");
+    };
+    eye.addEventListener("animationend", function () { eye.classList.remove("blink"); });
+    (function blinkLater() {
+      setTimeout(function () {
+        if (!document.hidden) { blink(); if (Math.random() < 0.3) setTimeout(blink, 260); }
+        blinkLater();
+      }, 2600 + Math.random() * 3400);
+    })();
+
+    // Idle for a while? It looks around, or pecks at the ground.
+    if (!reduceMotion) {
+      (function fidgetLater() {
+        setTimeout(function () {
+          var idle = performance.now() - lastMove > 2500;
+          if (idle && !document.hidden && !ibis.classList.contains("fly")) {
+            if (Math.random() < 0.55) {
+              pecking = true;
+              head.target = -24; ix.target = -1.5; iy.target = 2.4; lookKick();
+              setTimeout(function () { head.target = -8; lookKick(); }, 230);
+              setTimeout(function () { head.target = -24; lookKick(); }, 420);
+              setTimeout(function () { pecking = false; rest(); }, 700);
+            } else {
+              head.target = 6 + Math.random() * 6; ix.target = -2.4; iy.target = -1.2; lookKick();
+              setTimeout(function () { ix.target = 1.8; lookKick(); }, 650);
+              setTimeout(rest, 1500);
+            }
+          }
+          fidgetLater();
+        }, 3800 + Math.random() * 3200);
+      })();
+    }
+  }
+
   // The drinks-stall mini case. Numbers and bars follow critically damped springs
   // (no overshoot, response 0.35 s), starting from wherever they are on screen.
   var stall = document.querySelector("[data-stall]");

@@ -61,18 +61,24 @@
           </g>
         </g>
         <!-- Head: eye with iris and highlight -->
+        <g class="look" data-look>
         <g class="pop head">
           <ellipse cx="198" cy="100" rx="32" ry="27"/>
-          <circle cx="210" cy="92" r="9" fill="#fff"/>
-          <circle cx="211" cy="92" r="6" fill="#7a1e14"/>
-          <circle cx="211" cy="92" r="3.2"/>
-          <circle cx="213.5" cy="89.5" r="1.4" fill="#fff"/>
+          <g class="eye">
+            <circle cx="210" cy="92" r="9" fill="#fff"/>
+            <g data-iris>
+              <circle cx="211" cy="92" r="6" fill="#7a1e14"/>
+              <circle cx="211" cy="92" r="3.2"/>
+              <circle cx="213.5" cy="89.5" r="1.4" fill="#fff"/>
+            </g>
+          </g>
         </g>
         <!-- Long down-curved bill with nostril groove and a highlight along the top -->
         <g class="grow bill">
           <path d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
           <path d="M168 90 C130 104 102 140 86 196" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
           <path d="M170 84 C140 92 120 108 106 128" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".35"/>
+        </g>
         </g>
       </g>
     </svg>
