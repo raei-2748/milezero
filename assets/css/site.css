@@ -871,3 +871,17 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
 @media (prefers-reduced-motion: reduce) {
   .hero-ibis .plumes, .hero-ibis.startled .plumes, .hero-ibis .eye.blink { animation: none; }
 }
+
+/* ---------- Hero: three-line headline, the bird stands on the buttons' baseline ---------- */
+.hero .hero-copy { grid-column: span 7; }
+.hero h1 { font-size: clamp(2.75rem, 5.9vw, 6rem); }
+@media (min-width: 641px) { .hero h1 .l { display: block; white-space: nowrap; } }
+.hero-ibis { grid-column: 8 / -1; align-self: end; translate: 0 4.6%; } /* feet (y 534 of 560) on the baseline */
+@media (max-width: 960px) { .hero .hero-copy, .hero-ibis { grid-column: 1 / -1; } .hero-ibis { align-self: start; translate: none; } }
+
+/* The distance counter appears once you start moving, beside the nav */
+@media (min-width: 1180px) {
+  .odometer { margin-right: 2rem; margin-left: auto; opacity: 0; transition: opacity 300ms ease; }
+  .scrolled .odometer { opacity: 1; }
+  .site-nav { margin-left: 0; }
+}
