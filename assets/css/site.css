@@ -539,3 +539,54 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
 .yellow .criteria { border-top-color: var(--black); }
 .yellow .criteria dd { color: #2b2100; }
 .glossary dt { font-size: 1.25rem; }
+.intro .hero-ibis .folds, .intro .hero-ibis .scales, .intro .hero-ibis .barbs { animation: fade-in 300ms ease 2.05s both; }
+.intro .hero-ibis .shadow { animation: fade-in 400ms ease 1.6s both; }
+@keyframes fade-in { from { opacity: 0; } }
+
+/* ---------- Page-hero posters: one Swiss composition per page ---------- */
+.page-hero .grid { align-items: end; }
+.poster { grid-column: 9 / -1; align-self: stretch; position: relative; min-height: 18rem; }
+.poster svg { width: 100%; height: 100%; display: block; overflow: visible; }
+@media (max-width: 960px) { .poster { grid-column: 1 / -1; grid-row: 1; min-height: 12rem; max-width: 22rem; margin-bottom: 2rem; } }
+
+/* Overlapping stage numerals, printed like inks */
+.inks { display: flex; align-items: flex-end; height: 100%; min-height: 18rem; }
+.inks span {
+  font-weight: 900; font-size: clamp(7rem, 14vw, 13rem); line-height: 0.8; letter-spacing: -0.06em;
+  mix-blend-mode: multiply; margin-left: -0.28em;
+}
+.inks span:first-child { margin-left: 0; }
+.inks .i0 { color: var(--red); transform: translateY(-38%); }
+.inks .i1 { color: var(--blue); transform: translateY(-18%); }
+.inks .i2 { color: var(--yellow); }
+.inks .i3 { color: var(--black); transform: translateY(14%); }
+
+/* A flock with room for one more */
+.flock-poster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem 1rem; align-content: end; height: 100%; }
+.flock-poster svg { width: 100%; height: auto; aspect-ratio: 64 / 56; color: var(--black); }
+.flock-poster .seat { aspect-ratio: 64 / 56; border: 2.5px dashed var(--red); display: grid; place-items: center; font-weight: 800; color: var(--red); font-size: 1.125rem; }
+
+/* Rising steps */
+.steps-poster { display: flex; align-items: flex-end; gap: 0.5rem; height: 100%; }
+.steps-poster i { flex: 1; background: var(--black); display: flex; align-items: flex-end; padding: 0 0 0.4rem 0.35rem; color: var(--white); font-style: normal; font-weight: 800; font-size: 0.875rem; }
+.steps-poster i:last-child { background: var(--red); }
+
+/* Overlapping rings for the programs */
+.rings-poster circle { mix-blend-mode: multiply; }
+
+/* Vertical coordinates on the home hero */
+.coords-v { position: absolute; right: calc(var(--pad) * 0.35); top: 50%; transform: translateY(-50%) rotate(180deg); writing-mode: vertical-rl; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; color: var(--grey); font-variant-numeric: tabular-nums; }
+@media (max-width: 960px) { .coords-v { display: none; } }
+
+/* Eight million tags as a field of dots */
+.tag-field { width: 100%; height: auto; display: block; }
+.tag-field-caption { font-size: 0.875rem; }
+@media (max-width: 960px) {
+  .poster { height: 14rem; min-height: 0; }
+  .inks { min-height: 0; }
+  .inks span { font-size: 8rem; }
+}
+@media (max-width: 960px) {
+  .poster:has(.flock-poster) { height: auto; }
+  .flock-poster { max-width: 15rem; gap: 0.5rem 0.75rem; }
+}

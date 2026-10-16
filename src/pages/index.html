@@ -1,5 +1,6 @@
 <!--page {"title": "Home", "description": "{{brand.name}} runs the {{brand.competitionName}}: a free, staged business case competition for students from any NSW secondary school."} -->
 <section class="hero">
+  <p class="coords-v" aria-hidden="true">Mile Zero, 33°51′48″S 151°12′37″E</p>
   <div class="grid-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="wrap grid">
     <div class="hero-copy">
@@ -12,40 +13,67 @@
     </div>
     <svg class="hero-ibis" viewBox="0 0 640 560" role="img" aria-labelledby="hero-ibis-t" data-ibis>
       <title id="hero-ibis-t">The Mile Zero ibis: a red zero forms the body of a black-headed ibis. You can drag it.</title>
+      <defs>
+        <clipPath id="wing-clip"><ellipse cx="360" cy="300" rx="124" ry="78"/></clipPath>
+      </defs>
       <g class="bird">
-        <!-- Drooping black tail plumes, drawn behind the body -->
+        <!-- Ground shadow -->
+        <ellipse class="shadow" cx="362" cy="534" rx="118" ry="9" fill="#000" opacity=".12"/>
+        <!-- Drooping black tail plumes, with feather barbs cut in -->
         <g class="plumes">
           <path class="pop plume" d="M450 240 C522 236 584 286 604 372 C566 324 514 300 454 292 Z"/>
           <path class="pop plume" d="M458 268 C520 280 566 330 574 414 C542 362 500 336 452 322 Z"/>
           <path class="pop plume" d="M446 298 C500 318 532 368 528 440 C506 386 478 360 438 346 Z"/>
+          <g class="barbs" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".9">
+            <path d="M500 262 L526 290 M530 276 L552 308 M556 296 L574 330"/>
+            <path d="M498 298 L516 330 M524 318 L540 352 M544 342 L556 376"/>
+            <path d="M480 330 L494 360 M500 352 L510 384 M512 378 L518 408"/>
+          </g>
         </g>
-        <!-- Legs: long tarsus, a slight backward joint, three forward toes and one hind toe -->
+        <!-- Legs: scaled tarsus, backward joint, three toes forward and one hind toe -->
         <g class="legs" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round">
           <path class="draw leg" pathLength="1" d="M330 396 L322 462 L330 524" stroke-width="11"/>
           <path class="draw leg" pathLength="1" d="M330 524 L292 532 M330 524 L346 536 M330 524 L360 526 M330 524 L318 514" stroke-width="7"/>
           <path class="draw leg" pathLength="1" d="M394 394 L404 460 L398 524" stroke-width="11"/>
           <path class="draw leg" pathLength="1" d="M398 524 L432 530 M398 524 L414 538 M398 524 L370 528 M398 524 L408 514" stroke-width="7"/>
         </g>
+        <g class="scales" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+          <path d="M318 474 L334 476 M320 488 L336 490 M322 502 L336 503"/>
+          <path d="M394 474 L410 472 M394 488 L408 486 M393 502 L406 501"/>
+        </g>
+        <circle cx="322" cy="462" r="7.5" fill="#000"/><circle cx="404" cy="460" r="7.5" fill="#000"/>
         <!-- The zero is the body -->
         <g class="zero">
           <ellipse cx="360" cy="300" rx="148" ry="102" fill="#fff" stroke="#E1251B" stroke-width="48"/>
-          <g class="wing" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round">
-            <path class="draw" pathLength="1" d="M296 270 C346 250 410 252 460 282"/>
-            <path class="draw" pathLength="1" d="M306 292 C352 276 410 280 458 306"/>
-            <path class="draw" pathLength="1" d="M322 314 C362 302 410 306 448 328"/>
-            <path class="draw" pathLength="1" d="M344 334 C376 328 408 332 432 346"/>
+          <!-- Folded wing: rows of scalloped feathers -->
+          <g class="wing" clip-path="url(#wing-clip)" fill="none" stroke="#000" stroke-linecap="round">
+            <path class="draw" pathLength="1" stroke-width="3.5" d="M292 262 C346 240 412 244 464 276"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M296 276 a13.0 12 0 0 0 26 0 M322 276 a13.0 12 0 0 0 26 0 M348 276 a13.0 12 0 0 0 26 0 M374 276 a13.0 12 0 0 0 26 0 M400 276 a13.0 12 0 0 0 26 0 M426 276 a13.0 12 0 0 0 26 0 M452 276 a13.0 12 0 0 0 26 0"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M309 296 a13.0 12 0 0 0 26 0 M335 296 a13.0 12 0 0 0 26 0 M361 296 a13.0 12 0 0 0 26 0 M387 296 a13.0 12 0 0 0 26 0 M413 296 a13.0 12 0 0 0 26 0 M439 296 a13.0 12 0 0 0 26 0 M465 296 a13.0 12 0 0 0 26 0"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M296 316 a13.0 12 0 0 0 26 0 M322 316 a13.0 12 0 0 0 26 0 M348 316 a13.0 12 0 0 0 26 0 M374 316 a13.0 12 0 0 0 26 0 M400 316 a13.0 12 0 0 0 26 0 M426 316 a13.0 12 0 0 0 26 0 M452 316 a13.0 12 0 0 0 26 0"/>
+            <path class="draw scallops" pathLength="1" stroke-width="2.4" d="M322 336 a13.0 12 0 0 0 26 0 M348 336 a13.0 12 0 0 0 26 0 M374 336 a13.0 12 0 0 0 26 0 M400 336 a13.0 12 0 0 0 26 0 M426 336 a13.0 12 0 0 0 26 0"/>
           </g>
         </g>
-        <!-- Bare black neck, tapering from body to head -->
+        <!-- Bare black neck, tapering, with skin folds -->
         <path class="grow neck" d="M208 278 C178 230 166 170 176 112 L218 114 C210 168 222 220 262 258 Z"/>
-        <!-- Head with eye -->
+        <g class="folds" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55">
+          <path d="M184 150 C192 154 202 154 210 150"/><path d="M182 176 C192 181 204 181 212 176"/>
+          <path d="M186 204 C198 209 210 210 220 204"/><path d="M196 232 C208 237 222 238 234 232"/>
+        </g>
+        <!-- Head: eye with iris and highlight -->
         <g class="pop head">
           <ellipse cx="198" cy="100" rx="32" ry="27"/>
-          <circle cx="210" cy="92" r="8" fill="#fff"/>
-          <circle cx="212" cy="92" r="4"/>
+          <circle cx="210" cy="92" r="9" fill="#fff"/>
+          <circle cx="211" cy="92" r="6" fill="#7a1e14"/>
+          <circle cx="211" cy="92" r="3.2"/>
+          <circle cx="213.5" cy="89.5" r="1.4" fill="#fff"/>
         </g>
-        <!-- Long down-curved bill, thick at the base, tapering to a point -->
-        <path class="grow bill" d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
+        <!-- Long down-curved bill with nostril groove and a highlight along the top -->
+        <g class="grow bill">
+          <path d="M176 80 C122 92 80 152 60 262 C58 266 54 265 55 260 C70 150 112 102 176 112 Z"/>
+          <path d="M168 90 C130 104 102 140 86 196" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
+          <path d="M170 84 C140 92 120 108 106 128" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".35"/>
+        </g>
       </g>
     </svg>
   </div>
@@ -123,6 +151,10 @@
     <div class="section-title"><h2>The {{brand.year}} case</h2></div>
     <div class="section-body">
       <p class="statement">It's December 2026. A Sydney company is sitting on eight million unsold tags, and they lose value every month. The board wants a plan. Your team writes it.</p>
+      <figure>
+        <svg class="tag-field" viewBox="0 0 240 96" role="img" aria-label="160 dots, each standing for 50,000 unsold tags, fading from left to right"><circle cx="6" cy="6" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="6" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="6" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="6" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="6" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="6" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="6" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="6" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="6" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="6" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="6" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="6" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="6" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="6" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="6" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="6" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="6" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="6" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="6" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="6" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="18" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="18" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="18" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="18" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="18" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="18" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="18" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="18" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="18" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="18" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="18" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="18" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="18" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="18" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="18" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="18" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="18" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="18" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="18" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="18" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="30" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="30" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="30" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="30" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="30" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="30" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="30" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="30" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="30" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="30" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="30" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="30" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="30" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="30" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="30" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="30" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="30" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="30" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="30" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="30" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="42" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="42" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="42" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="42" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="42" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="42" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="42" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="42" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="42" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="42" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="42" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="42" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="42" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="42" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="42" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="42" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="42" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="42" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="42" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="42" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="54" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="54" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="54" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="54" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="54" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="54" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="54" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="54" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="54" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="54" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="54" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="54" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="54" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="54" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="54" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="54" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="54" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="54" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="54" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="54" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="66" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="66" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="66" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="66" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="66" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="66" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="66" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="66" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="66" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="66" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="66" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="66" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="66" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="66" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="66" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="66" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="66" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="66" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="66" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="66" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="78" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="78" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="78" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="78" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="78" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="78" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="78" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="78" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="78" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="78" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="78" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="78" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="78" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="78" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="78" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="78" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="78" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="78" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="78" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="78" r="3.4" fill="#fff" opacity="0.35"/><circle cx="6" cy="90" r="3.4" fill="#fff" opacity="1.00"/><circle cx="18" cy="90" r="3.4" fill="#fff" opacity="0.97"/><circle cx="30" cy="90" r="3.4" fill="#fff" opacity="0.93"/><circle cx="42" cy="90" r="3.4" fill="#fff" opacity="0.90"/><circle cx="54" cy="90" r="3.4" fill="#fff" opacity="0.86"/><circle cx="66" cy="90" r="3.4" fill="#fff" opacity="0.83"/><circle cx="78" cy="90" r="3.4" fill="#fff" opacity="0.79"/><circle cx="90" cy="90" r="3.4" fill="#fff" opacity="0.76"/><circle cx="102" cy="90" r="3.4" fill="#fff" opacity="0.73"/><circle cx="114" cy="90" r="3.4" fill="#fff" opacity="0.69"/><circle cx="126" cy="90" r="3.4" fill="#fff" opacity="0.66"/><circle cx="138" cy="90" r="3.4" fill="#fff" opacity="0.62"/><circle cx="150" cy="90" r="3.4" fill="#fff" opacity="0.59"/><circle cx="162" cy="90" r="3.4" fill="#fff" opacity="0.56"/><circle cx="174" cy="90" r="3.4" fill="#fff" opacity="0.52"/><circle cx="186" cy="90" r="3.4" fill="#fff" opacity="0.49"/><circle cx="198" cy="90" r="3.4" fill="#fff" opacity="0.45"/><circle cx="210" cy="90" r="3.4" fill="#fff" opacity="0.42"/><circle cx="222" cy="90" r="3.4" fill="#fff" opacity="0.38"/><circle cx="234" cy="90" r="3.4" fill="#fff" opacity="0.35"/></svg>
+        <figcaption class="tag-field-caption muted">Eight million tags. Each dot is 50,000 of them, and every month they're worth a little less.</figcaption>
+      </figure>
       <p class="muted">“We didn't acquire eight million microchips. We acquired eight million decisions about where this company goes next.” Amelia Chen, CEO of Southern Cross Technologies, a fictional company.</p>
     </div>
   </div>
