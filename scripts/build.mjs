@@ -33,6 +33,7 @@ function lookup(path, scope) {
 
 const NAV = [
   { href: "/competition/", label: "Competition" },
+  { href: "/why/", label: "Why SSBC" },
   { href: "/programs/", label: "Programs" },
   { href: "/toolkit/", label: "Toolkit" },
   { href: "/about/", label: "About" },
