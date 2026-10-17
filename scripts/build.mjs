@@ -214,6 +214,9 @@ const helpers = {
       `<meta property="og:image:alt" content="${esc(ogImageAlt)}">`,
       `<meta name="twitter:card" content="summary_large_image">`,
     ];
+    // Proves to Google Search Console that we own the site (Settings → Ownership verification → HTML tag).
+    if (brand.googleSiteVerification && page.slug === "index")
+      tags.push(`<meta name="google-site-verification" content="${esc(brand.googleSiteVerification)}">`);
 
     const org = {
       "@type": "Organization",
@@ -224,9 +227,19 @@ const helpers = {
       email: brand.email,
       description: `A student-led initiative bringing business and finance education to NSW secondary students, and the organiser of the ${brand.competitionName}.`,
       areaServed: "New South Wales, Australia",
+      alternateName: [brand.competitionName, brand.competitionShort],
       ...(brand.instagram ? { sameAs: [`https://instagram.com/${brand.instagram}`] } : {}),
     };
-    const graph = [org];
+    // Tells Google which name to show for the site, and the other names people search for.
+    const site = {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#site`,
+      name: brand.name,
+      alternateName: [brand.competitionName, brand.competitionShort],
+      url: `${siteUrl}/`,
+      publisher: { "@id": `${siteUrl}/#org` },
+    };
+    const graph = page.slug === "index" ? [org, site] : [org];
     if (page.slug === "competition") {
       graph.push({
         "@type": "Event",

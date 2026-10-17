@@ -11,6 +11,7 @@ HTML is committed, so both hosts just serve files.
 | To change… | Edit | Then |
 |---|---|---|
 | A Google Form or portal link | `assets/js/links.js` | Commit. No build needed. |
+| Google Search Console verification code | `site.config.json` → `brand.googleSiteVerification` (just the `content="…"` value) | `npm run build`, commit |
 | Brand name, email, Instagram, final venue or dates | `site.config.json` | `npm run build`, commit |
 | Stage descriptions, judging weights | `site.config.json` (`stages`, `criteria`, `weights`) | `npm run build`, commit |
 | Show a partner logo | `site.config.json` → `partners`: set `logoApproved: true` (and `logo` to an image path) | `npm run build`, commit |

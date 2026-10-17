@@ -159,6 +159,7 @@ strong, b { font-weight: 700; }
 .hero .grid { align-items: end; }
 .hero-copy { grid-column: span 6; position: relative; z-index: 1; }
 .hero-copy .lede { margin-top: 2rem; }
+.hero-kicker { font-weight: 700; margin-bottom: 1.25rem; }
 .hero-zero {
   grid-column: 8 / -1; align-self: center;
   font-weight: 900; font-stretch: 100%;
