@@ -280,6 +280,24 @@ const helpers = {
         organizer: { "@id": `${siteUrl}/#org` },
       });
     }
+    // The page's <details> questions as FAQ data, so search and AI answers can quote them directly.
+    const faq = [...page.body.matchAll(/<details><summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)];
+    if (faq.length) {
+      const text = (html) =>
+        html
+          .replace(/<[^>]+>/g, "")
+          .replace(/&(amp|lt|gt|quot);/g, (_, e) => ({ amp: "&", lt: "<", gt: ">", quot: '"' })[e])
+          .trim();
+      graph.push({
+        "@type": "FAQPage",
+        url,
+        mainEntity: faq.map(([, q, a]) => ({
+          "@type": "Question",
+          name: text(q),
+          acceptedAnswer: { "@type": "Answer", text: text(a) },
+        })),
+      });
+    }
     // "<" is escaped so the JSON can never close the script tag.
     const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
     return `${tags.join("\n")}\n<script type="application/ld+json">${json}</script>`;
