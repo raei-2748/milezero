@@ -907,3 +907,29 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
   .scrolled .odometer { opacity: 1; }
   .site-nav { margin-left: 0; }
 }
+
+/* ---------- Survey results (/why/) ---------- */
+.figures { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gutter); border-top: 2px solid var(--black); }
+.figures li { padding-top: 1rem; }
+.figures b { display: block; font-size: clamp(2.25rem, 4.4vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.figures span { display: block; margin-top: 0.75rem; color: var(--grey); }
+.chart { display: grid; gap: 0.875rem; }
+.chart figcaption { font-weight: 700; }
+.chart .bar span { white-space: nowrap; }
+.hbars, .pairs { border-top: 2px solid var(--black); }
+.hbars li { display: grid; grid-template-columns: minmax(9rem, 16rem) 1fr 3rem; column-gap: var(--gutter); align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--rule); }
+.hbars i, .pairs i { display: block; height: 1.25rem; width: var(--v); background: var(--blue); }
+.hbars b, .pairs b { text-align: right; font-variant-numeric: tabular-nums; }
+.pairs li { display: grid; grid-template-columns: minmax(9rem, 16rem) 1fr; column-gap: var(--gutter); align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--rule); }
+.pairs li > div { display: grid; grid-template-columns: 1fr 3rem; column-gap: var(--gutter); row-gap: 0.3rem; align-items: center; }
+.pairs i.c4 { background: #b5b5ae; }
+.quotes blockquote { margin: 0; border-left: 4px solid var(--red); padding-left: 1rem; font-size: 1.1875rem; line-height: 1.4; }
+.small-head { font-size: 1rem; margin-bottom: 0.75rem; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tags li { border: 1px solid currentColor; padding: 0.25rem 0.75rem; }
+@media (max-width: 960px) { .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2rem; } }
+@media (max-width: 640px) {
+  .hbars li { grid-template-columns: 1fr 3rem; row-gap: 0.3rem; }
+  .hbars li > span { grid-column: 1 / -1; }
+  .pairs li { grid-template-columns: 1fr; row-gap: 0.4rem; }
+}
