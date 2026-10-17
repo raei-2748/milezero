@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://milezeronetwork.org/sitemap.xml

@@ -1,0 +1,4 @@
+# Cloudflare reads this file; GitHub Pages ignores it. Production is served from
+# milezeronetwork.org, so only the workers.dev preview builds are kept out of search.
+https://:version.:subdomain.workers.dev/*
+  X-Robots-Tag: noindex
