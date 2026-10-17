@@ -231,7 +231,8 @@ const helpers = {
       address: { "@type": "PostalAddress", addressLocality: "Sydney", addressRegion: "NSW", addressCountry: "AU" },
       disambiguatingDescription: `The Sydney student-led organisation behind the ${brand.competitionName} for NSW high school students.`,
       knowsAbout: ["Business education", "Finance education", "Business case competitions", "High school students"],
-      alternateName: [brand.competitionName, brand.competitionShort],
+      // The old ssbcouncil.org name, so Google treats the two as one organisation.
+      alternateName: [brand.competitionName, brand.competitionShort, "Sydney Schools Business Council"],
       ...(brand.instagram ? { sameAs: [`https://instagram.com/${brand.instagram}`] } : {}),
     };
     // Tells Google which name to show for the site, and the other names people search for.
