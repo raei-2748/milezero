@@ -889,6 +889,7 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
 .hero-ibis .plumes { transform-box: fill-box; transform-origin: 0% 20%; animation: sway 5.5s ease-in-out infinite; }
 @keyframes sway { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(2.5deg); } }
 .hero-ibis.startled .plumes { animation: ruffle 380ms ease-out; }
+.hero-ibis.asleep .plumes { animation-play-state: paused; }
 @keyframes ruffle { 30% { transform: rotate(-7deg) scale(1.04); } 65% { transform: rotate(4deg); } }
 @media (prefers-reduced-motion: reduce) {
   .hero-ibis .plumes, .hero-ibis.startled .plumes, .hero-ibis .eye.blink { animation: none; }
