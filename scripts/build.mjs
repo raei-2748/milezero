@@ -227,6 +227,10 @@ const helpers = {
       email: brand.email,
       description: `A student-led initiative bringing business and finance education to NSW secondary students, and the organiser of the ${brand.competitionName}.`,
       areaServed: "New South Wales, Australia",
+      // Sets us apart from the other things called Mile Zero (a film, road markers, places).
+      address: { "@type": "PostalAddress", addressLocality: "Sydney", addressRegion: "NSW", addressCountry: "AU" },
+      disambiguatingDescription: `The Sydney student-led organisation behind the ${brand.competitionName} for NSW high school students.`,
+      knowsAbout: ["Business education", "Finance education", "Business case competitions", "High school students"],
       alternateName: [brand.competitionName, brand.competitionShort],
       ...(brand.instagram ? { sameAs: [`https://instagram.com/${brand.instagram}`] } : {}),
     };
@@ -278,6 +282,24 @@ const helpers = {
         },
         audience: { "@type": "EducationalAudience", educationalRole: "student", audienceType: "NSW secondary school students" },
         organizer: { "@id": `${siteUrl}/#org` },
+      });
+    }
+    // The page's <details> questions as FAQ data, so search and AI answers can quote them directly.
+    const faq = [...page.body.matchAll(/<details><summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)];
+    if (faq.length) {
+      const text = (html) =>
+        html
+          .replace(/<[^>]+>/g, "")
+          .replace(/&(amp|lt|gt|quot);/g, (_, e) => ({ amp: "&", lt: "<", gt: ">", quot: '"' })[e])
+          .trim();
+      graph.push({
+        "@type": "FAQPage",
+        url,
+        mainEntity: faq.map(([, q, a]) => ({
+          "@type": "Question",
+          name: text(q),
+          acceptedAnswer: { "@type": "Answer", text: text(a) },
+        })),
       });
     }
     // "<" is escaped so the JSON can never close the script tag.
