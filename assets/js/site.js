@@ -312,6 +312,23 @@
     var head = new Spring(0.62, 0.55), ix = new Spring(0.9, 0.18), iy = new Spring(0.9, 0.18);
     var lookRaf = 0, lookLast = 0, lastMove = 0, pecking = false;
 
+    // SVG animations repaint the whole bird every frame, so it rests while it's
+    // off screen or the page is scrolling: the plumes stop swaying, and it stops
+    // blinking and fidgeting.
+    var offscreen = false, scrollingTimer, asleep = function () { return offscreen || document.hidden; };
+    var settle = function () { ibis.classList.toggle("asleep", offscreen || !!scrollingTimer); };
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        offscreen = !entries[entries.length - 1].isIntersecting;
+        settle();
+      }).observe(ibis);
+    }
+    window.addEventListener("scroll", function () {
+      clearTimeout(scrollingTimer);
+      scrollingTimer = setTimeout(function () { scrollingTimer = 0; settle(); }, 200);
+      settle();
+    }, { passive: true });
+
     var toSvg = function (cx, cy) {
       var m = ibis.getScreenCTM();
       if (!m) return null;
@@ -386,7 +403,7 @@
     eye.addEventListener("animationend", function () { eye.classList.remove("blink"); });
     (function blinkLater() {
       setTimeout(function () {
-        if (!document.hidden) { blink(); if (Math.random() < 0.3) setTimeout(blink, 260); }
+        if (!asleep()) { blink(); if (Math.random() < 0.3) setTimeout(blink, 260); }
         blinkLater();
       }, 2600 + Math.random() * 3400);
     })();
@@ -396,7 +413,7 @@
       (function fidgetLater() {
         setTimeout(function () {
           var idle = performance.now() - lastMove > 2500;
-          if (idle && !document.hidden && !ibis.classList.contains("fly")) {
+          if (idle && !asleep() && !ibis.classList.contains("fly")) {
             if (Math.random() < 0.55) {
               pecking = true;
               head.target = -24; ix.target = -1.5; iy.target = 2.4; lookKick();
