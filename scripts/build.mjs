@@ -227,6 +227,9 @@ const helpers = {
       email: brand.email,
       description: `A student-led initiative bringing business and finance education to NSW secondary students, and the organiser of the ${brand.competitionName}.`,
       areaServed: "New South Wales, Australia",
+      // Sets us apart from the other things called Mile Zero (a film, road markers, places).
+      address: { "@type": "PostalAddress", addressLocality: "Sydney", addressRegion: "NSW", addressCountry: "AU" },
+      knowsAbout: ["Business education", "Finance education", "Business case competitions", "High school students"],
       alternateName: [brand.competitionName, brand.competitionShort],
       ...(brand.instagram ? { sameAs: [`https://instagram.com/${brand.instagram}`] } : {}),
     };
