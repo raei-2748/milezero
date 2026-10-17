@@ -286,6 +286,7 @@ td.peak { color: var(--red); font-weight: 800; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--white); text-decoration: underline; }
 .site-footer .about { margin-top: 1rem; color: #b3b3b3; max-width: 26em; }
+.site-footer .grid { row-gap: 2.5rem; }
 
 /* Responsive */
 @media (max-width: 960px) {
