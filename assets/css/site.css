@@ -933,3 +933,8 @@ nav.section-title { align-self: start; position: sticky; top: 6rem; }
   .hbars li > span { grid-column: 1 / -1; }
   .pairs li { grid-template-columns: 1fr; row-gap: 0.4rem; }
 }
+.research { border-top: 2px solid var(--black); }
+.research li { display: grid; grid-template-columns: 9rem 1fr; column-gap: var(--gutter); padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+.research b { font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.research cite { display: block; margin-top: 0.5rem; font-style: normal; font-size: 0.875rem; color: var(--grey); }
+@media (max-width: 640px) { .research li { grid-template-columns: 1fr; row-gap: 0.5rem; } }
