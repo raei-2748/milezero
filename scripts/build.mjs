@@ -229,6 +229,7 @@ const helpers = {
       areaServed: "New South Wales, Australia",
       // Sets us apart from the other things called Mile Zero (a film, road markers, places).
       address: { "@type": "PostalAddress", addressLocality: "Sydney", addressRegion: "NSW", addressCountry: "AU" },
+      disambiguatingDescription: `The Sydney student-led organisation behind the ${brand.competitionName} for NSW high school students.`,
       knowsAbout: ["Business education", "Finance education", "Business case competitions", "High school students"],
       alternateName: [brand.competitionName, brand.competitionShort],
       ...(brand.instagram ? { sameAs: [`https://instagram.com/${brand.instagram}`] } : {}),
